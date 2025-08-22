@@ -1,0 +1,49 @@
+/*-- scss:defaults --*/
+$primary-color: #6b5b95;        
+$secondary-color: #9b59b6;      
+$tertiary-color: lighten($secondary-color, 10%); 
+$accent-color: #5d4e75;         
+$theme-white: #fff;
+$theme-black: #2c2c2c;          
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
+$font-family-sans-serif: 'Roboto Slab', sans-serif;
+
+/* Font size controls */
+$presentation-font-size-root: 46px;        /* Base font size for all text */
+$code-font-size: 1.5em;                   /* Code blocks and R output */
+$presentation-code-font-size: 1.5em;      /* Alternative code font size variable */
+
+$presentation-heading-color: $accent-color;     
+$body-color: $theme-black;                      
+$presentation-background-color: #f8f6ff;        
+$link-color: $secondary-color; 
+$selected-text-color: $secondary-color;
+$code-color: $accent-color;
+$code-block-bg: lighten($primary-color, 40%);
+
+/*-- scss:rules --*/
+
+/* Soft gradient background */
+.reveal {
+  background: linear-gradient(135deg, #f8f6ff 0%, #faf9ff 50%, #f6f3ff 100%) !important;
+}
+
+/* Footer styling to match theme colors */
+.reveal .footer {
+  background: rgba(107, 91, 149, 0.1);
+  color: #5d4e75 !important;
+  border-top: 1px solid rgba(155, 89, 182, 0.2);
+}
+
+.footer {
+  p {
+    color: $secondary-color;
+  }
+  a {
+    color: lighten($link-color, 15%);
+  }
+  a:hover {
+    color: lighten($link-color, 25%);
+  }
+}
