@@ -1,0 +1,1891 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="Lecture_Three_S_files/libs/clipboard/clipboard.min.js"></script>
+<script src="Lecture_Three_S_files/libs/quarto-html/tabby.min.js"></script>
+<script src="Lecture_Three_S_files/libs/quarto-html/popper.min.js"></script>
+<script src="Lecture_Three_S_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="Lecture_Three_S_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="Lecture_Three_S_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="Lecture_Three_S_files/libs/quarto-html/quarto-syntax-highlighting-de84f8d6bb715db06a919283c2d1e787.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.6.42">
+
+  <meta name="author" content="Dr.&nbsp;Jomana Bashatah">
+  <meta name="dcterms.date" content="2025-09-07">
+  <title>Production Information System</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="Lecture_Three_S_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="Lecture_Three_S_files/libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+      }
+    pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+    div.sourceCode
+      { color: #24292e;  }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #24292e; } /* Normal */
+    code span.al { color: #ff5555; font-weight: bold; } /* Alert */
+    code span.an { color: #6a737d; } /* Annotation */
+    code span.at { color: #d73a49; } /* Attribute */
+    code span.bn { color: #005cc5; } /* BaseN */
+    code span.bu { color: #d73a49; } /* BuiltIn */
+    code span.cf { color: #d73a49; } /* ControlFlow */
+    code span.ch { color: #032f62; } /* Char */
+    code span.cn { color: #005cc5; } /* Constant */
+    code span.co { color: #6a737d; } /* Comment */
+    code span.cv { color: #6a737d; } /* CommentVar */
+    code span.do { color: #6a737d; } /* Documentation */
+    code span.dt { color: #d73a49; } /* DataType */
+    code span.dv { color: #005cc5; } /* DecVal */
+    code span.er { color: #ff5555; text-decoration: underline; } /* Error */
+    code span.ex { color: #d73a49; font-weight: bold; } /* Extension */
+    code span.fl { color: #005cc5; } /* Float */
+    code span.fu { color: #6f42c1; } /* Function */
+    code span.im { color: #032f62; } /* Import */
+    code span.in { color: #6a737d; } /* Information */
+    code span.kw { color: #d73a49; } /* Keyword */
+    code span.op { color: #24292e; } /* Operator */
+    code span.ot { color: #6f42c1; } /* Other */
+    code span.pp { color: #d73a49; } /* Preprocessor */
+    code span.re { color: #6a737d; } /* RegionMarker */
+    code span.sc { color: #005cc5; } /* SpecialChar */
+    code span.ss { color: #032f62; } /* SpecialString */
+    code span.st { color: #032f62; } /* String */
+    code span.va { color: #e36209; } /* Variable */
+    code span.vs { color: #032f62; } /* VerbatimString */
+    code span.wa { color: #ff5555; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="Lecture_Three_S_files/libs/revealjs/dist/theme/quarto-641ab4fcdc2c60444455f82f825fa5e0.css">
+  <link rel="stylesheet" href="Theme/custom.scss">
+  <link href="Lecture_Three_S_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="Lecture_Three_S_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="Lecture_Three_S_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="Lecture_Three_S_files/libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="Lecture_Three_S_files/libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="Lecture_Three_S_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">Production Information System</h1>
+  <p class="subtitle">CHAPTER 2: DataBase Modeling and Design - The Relational DataBase Model</p>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Dr.&nbsp;Jomana Bashatah 
+</div>
+        <p class="quarto-title-affiliation">
+            ISE Department - Year 4/ Level 7
+          </p>
+    </div>
+</div>
+
+  <p class="date">2025-09-07</p>
+</section>
+<section id="outline" class="slide level2 scrollable">
+<h2>Outline</h2>
+<ol type="1">
+<li>Introduction</li>
+<li>The DataBase Management System (DBMS)</li>
+<li>The Relational DataBase (RDB)</li>
+<li>Key Attributes and Linking Tables</li>
+<li><strong>Structured Query Language (SQL)</strong></li>
+</ol>
+</section>
+<section id="structured-query-language" class="slide level2">
+<h2>5. Structured Query Language</h2>
+<p><span class="highlight-primary">CREATING THE DATABASE AND TABLE STRUCTURE</span></p>
+<p>The CREATE command keyword is used for creating databases and tables. The ANSI syntax for database creation is</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb1-1"><a href=""></a><span class="kw">CREATE</span> <span class="kw">DATABASE</span> <span class="op">&lt;</span><span class="kw">database</span> name<span class="op">&gt;</span>;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The syntax for creating a table within a database uses the CREATE keyword as follows:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb2-1"><a href=""></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> <span class="op">&lt;</span><span class="kw">table</span> name<span class="op">&gt;</span></span>
+<span id="cb2-2"><a href=""></a>(<span class="op">&lt;</span>[attribute1 name]<span class="op">&gt;</span> <span class="op">&lt;</span><span class="kw">data</span> <span class="kw">type</span><span class="op">&gt;</span>,</span>
+<span id="cb2-3"><a href=""></a><span class="op">&lt;</span>[attribute2 name]<span class="op">&gt;</span> <span class="op">&lt;</span><span class="kw">data</span> <span class="kw">type</span><span class="op">&gt;</span>,</span>
+<span id="cb2-4"><a href=""></a><span class="op">..</span>. <span class="op">..</span>. <span class="op">..</span>.</span>
+<span id="cb2-5"><a href=""></a><span class="op">&lt;</span>[attributeN name]<span class="op">&gt;</span> <span class="op">&lt;</span><span class="kw">data</span> <span class="kw">type</span><span class="op">&gt;</span>);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>When the table is created, the columns will be ordered by the attribute name order given in the <strong>CREATE TABLE</strong> command</p>
+</section>
+<section id="structured-query-language-1" class="slide level2 scrollable">
+<h2>5. Structured Query Language</h2>
+<p><strong>Access Exercise 2.1:</strong></p>
+<p>We wish to establish a database for the tables of Figure 2.1. We will use the database title <strong>MATERIAL_MANAGER</strong>. Establish the database by following these steps:</p>
+<ol type="1">
+<li><p>From the start menu, launch Microsoft Office Access 2003.</p></li>
+<li><p>From the <strong>File</strong> Menu, select <strong>New</strong>. From the New File selection panel, select <strong>Blank Database</strong>. The File New Database dialog window will open.</p></li>
+<li><p>Type in the database name: <strong>MATERIAL_MANAGER</strong>. Click the <strong>CREATE</strong> command button and a database by that name is established.</p></li>
+</ol>
+</section>
+<section id="structured-query-language-2" class="slide level2 scrollable">
+<h2>5. Structured Query Language</h2>
+<p><strong>Access Exercise 2.2:</strong></p>
+<p>In order to establish a database table using the SQL CREATE command, follow these steps:</p>
+<ol type="1">
+<li><p>From the database window for <strong>MATERIAL_MANAGER</strong>, click on <strong>Queries</strong> and then double click on <strong>Create query in Design View</strong>. The New Query window opens.</p></li>
+<li><p>The Show Table window will now be open. Close the window by clicking on <strong>Close</strong>.</p></li>
+<li><p>From the Toolbar, click on the SQL menu item. This will open a Query window that will allow you to enter a query in SQL.</p></li>
+<li><p>Delete any existing query in the query window and enter the following query:</p></li>
+</ol>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb3-1"><a href=""></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> PURCHASE_ORDER</span>
+<span id="cb3-2"><a href=""></a>([PO_NUMBER]        <span class="dt">SMALLINT</span>,</span>
+<span id="cb3-3"><a href=""></a>[RELEASE_DATE]      <span class="dt">DATE</span>,</span>
+<span id="cb3-4"><a href=""></a>[PO_STATUS]         <span class="dt">CHAR</span>(<span class="dv">6</span>),</span>
+<span id="cb3-5"><a href=""></a>[PO_AMT]           CURRENCY,</span>
+<span id="cb3-6"><a href=""></a>[VENDOR_ID]        <span class="dt">CHAR</span>(<span class="dv">5</span>),</span>
+<span id="cb3-7"><a href=""></a><span class="kw">CONSTRAINT</span> [INDEX1] <span class="kw">PRIMARY</span> <span class="kw">KEY</span> (PO_NUMBER));</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="5" type="1">
+<li><p>Click the run button on the Toolbar to execute the query. The table is created.</p></li>
+<li><p>Close the query window (do not save the query) and click the <strong>Table</strong> tab on the database window.</p></li>
+<li><p>Confirm that a table with the name <strong>PURCHASE_ORDER</strong> now exists. The empty table can be opened by double clicking on the table name.</p></li>
+</ol>
+</section>
+<section id="what-is-a-database-index" class="slide level2">
+<h2>What is a Database Index?</h2>
+<p>A database index is a data structure that improves the speed of data retrieval operations. Think of it as a roadmap that tells the database exactly where to find specific information without having to search through every record.</p>
+<h3 id="real-world-analogy-phone-book">Real-World Analogy: Phone Book</h3>
+<h4 id="without-index-sequential-search">Without Index (Sequential Search)</h4>
+<p>To find “John Smith” in an unsorted list of 100,000 names:<br>
+- Start at the first name<br>
+- Check each name one by one<br>
+- Continue until you find “John Smith”<br>
+- <strong>Worst case:</strong> Check all 100,000 names</p>
+<h4 id="with-index-indexed-search">With Index (Indexed Search)</h4>
+<p>Names are alphabetically sorted with pointers:<br>
+- Go directly to the “S” section<br>
+- Find “Smith” entries<br>
+- Locate “John Smith” immediately<br>
+- <strong>Result:</strong> Found in just a few steps</p>
+</section>
+<section id="primary-keys-and-indexes" class="slide level2">
+<h2>Primary Keys and Indexes</h2>
+<h3 id="automatic-index-creation">Automatic Index Creation</h3>
+<p>When you create a primary key:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb4-1"><a href=""></a><span class="kw">CONSTRAINT</span> [INDEX2] <span class="kw">PRIMARY</span> <span class="kw">KEY</span> (VENDOR_ID)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>What happens:</strong><br>
+1. <strong>Primary Key Constraint:</strong> Enforces uniqueness and non-null values<br>
+2. <strong>Automatic Index:</strong> Database creates an index on VENDOR_ID for fast lookups<br>
+3. <strong>Constraint Name:</strong> “INDEX2” is just a label for the constraint (not the index)</p>
+</section>
+<section id="structured-query-language-3" class="slide level2">
+<h2>5. Structured Query Language</h2>
+<p>Similarly, create the following tables using SQL commands:</p>
+<h3 id="table-1-vendor">Table 1: VENDOR</h3>
+<div id="tbl-vendor" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-tbl">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-vendor-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: VENDOR Table Structure
+</figcaption>
+<div aria-describedby="tbl-vendor-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Attribute Name</th>
+<th>Data Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>VENDOR_ID</td>
+<td>CHAR(5)</td>
+<td>Primary Key</td>
+</tr>
+<tr class="even">
+<td>V_NAME</td>
+<td>CHAR(20)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>V_STREET</td>
+<td>CHAR(20)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>V_CITY</td>
+<td>CHAR(20)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>V_STATE</td>
+<td>CHAR(2)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>V_ZIP</td>
+<td>CHAR(5)</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p><strong>Primary Key:</strong> VENDOR_ID</p>
+<h3 id="table-2-po_detail">Table 2: PO_DETAIL</h3>
+<div id="tbl-podetail" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-tbl">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-podetail-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;2: PO_DETAIL Table Structure
+</figcaption>
+<div aria-describedby="tbl-podetail-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Attribute Name</th>
+<th>Data Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>PO_NUMBER</td>
+<td>SMALLINT</td>
+<td>Part of Composite Primary Key</td>
+</tr>
+<tr class="even">
+<td>PO_LINE_ITEM</td>
+<td>SMALLINT</td>
+<td>Part of Composite Primary Key</td>
+</tr>
+<tr class="odd">
+<td>MATERIAL_ID</td>
+<td>CHAR(10)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>UNITS</td>
+<td>CHAR(4)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>QUANTITY</td>
+<td>SINGLE</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>BALANCE</td>
+<td>SINGLE</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>PROMISED_DEL_DATE</td>
+<td>DATE</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>UNIT_COST</td>
+<td>CURRENCY</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>STATUS</td>
+<td>CHAR(6)</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p><strong>Primary Key:</strong> (PO_NUMBER, PO_LINE_ITEM) - Composite Primary Key</p>
+</section>
+<section id="sql-commands" class="slide level2">
+<h2>SQL Commands</h2>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb5-1"><a href=""></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> VENDOR</span>
+<span id="cb5-2"><a href=""></a>([VENDOR_ID]        <span class="dt">CHAR</span>(<span class="dv">5</span>),</span>
+<span id="cb5-3"><a href=""></a>[V_NAME]           <span class="dt">CHAR</span>(<span class="dv">20</span>),</span>
+<span id="cb5-4"><a href=""></a>[V_STREET]         <span class="dt">CHAR</span>(<span class="dv">20</span>),</span>
+<span id="cb5-5"><a href=""></a>[V_CITY]           <span class="dt">CHAR</span>(<span class="dv">20</span>),</span>
+<span id="cb5-6"><a href=""></a>[V_STATE]          <span class="dt">CHAR</span>(<span class="dv">2</span>),</span>
+<span id="cb5-7"><a href=""></a>[V_ZIP]            <span class="dt">CHAR</span>(<span class="dv">5</span>),</span>
+<span id="cb5-8"><a href=""></a><span class="kw">CONSTRAINT</span> [INDEX2] <span class="kw">PRIMARY</span> <span class="kw">KEY</span> (VENDOR_ID));</span>
+<span id="cb5-9"><a href=""></a></span>
+<span id="cb5-10"><a href=""></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> PO_DETAIL</span>
+<span id="cb5-11"><a href=""></a>([PO_NUMBER]           <span class="dt">SMALLINT</span>,</span>
+<span id="cb5-12"><a href=""></a>[PO_LINE_ITEM]         <span class="dt">SMALLINT</span>,</span>
+<span id="cb5-13"><a href=""></a>[MATERIAL_ID]          <span class="dt">CHAR</span>(<span class="dv">10</span>),</span>
+<span id="cb5-14"><a href=""></a>[UNITS]                <span class="dt">CHAR</span>(<span class="dv">4</span>),</span>
+<span id="cb5-15"><a href=""></a>[QUANTITY]             <span class="dt">SINGLE</span>,</span>
+<span id="cb5-16"><a href=""></a>[BALANCE]              <span class="dt">SINGLE</span>,</span>
+<span id="cb5-17"><a href=""></a>[PROMISED_DEL_DATE]    <span class="dt">DATE</span>,</span>
+<span id="cb5-18"><a href=""></a>[UNIT_COST]            CURRENCY,</span>
+<span id="cb5-19"><a href=""></a>[STATUS]               <span class="dt">CHAR</span>(<span class="dv">6</span>),</span>
+<span id="cb5-20"><a href=""></a><span class="kw">CONSTRAINT</span> [INDEX3]</span>
+<span id="cb5-21"><a href=""></a><span class="kw">PRIMARY</span> <span class="kw">KEY</span> (PO_NUMBER, PO_LINE_ITEM));</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="structured-query-language-4" class="slide level2">
+<h2>5. Structured Query Language</h2>
+<p><span class="highlight-primary">MANAGING THE DATA IN THE DATABASE TABLE</span></p>
+<p>• Once created, the tables must be populated in order to be useful</p>
+<p>• In this section we shall discuss and illustrate several keyword commands for populating and manipulating data in the database; in particular, the keywords <strong>INSERT</strong>, <strong>SELECT</strong>, <strong>UPDATE</strong>, and <strong>DELETE</strong>.</p>
+</section>
+<section id="structured-query-language-5" class="slide level2">
+<h2>5. Structured Query Language</h2>
+<p><span class="highlight-primary">MANAGING THE DATA IN THE DATABASE TABLE</span></p>
+<p><strong>INSERT Keyword</strong></p>
+<p>The tables that were created are now empty. Records can be placed into these tables using the SQL <strong>INSERT</strong> command. The syntax is as follows:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb6-1"><a href=""></a><span class="kw">INSERT</span> <span class="kw">INTO</span> <span class="op">&lt;</span><span class="kw">table</span> name<span class="op">&gt;</span></span>
+<span id="cb6-2"><a href=""></a>([<span class="op">&lt;</span>attribute1 name<span class="op">&gt;</span>], <span class="op">&lt;</span>[attribute2 name]<span class="op">&gt;</span>,<span class="op">..</span>.)</span>
+<span id="cb6-3"><a href=""></a><span class="kw">VALUES</span> (<span class="op">&lt;</span>value1<span class="op">&gt;</span>, <span class="op">&lt;</span>value2<span class="op">&gt;</span>,<span class="op">..</span>.);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>When all attribute columns of a table are being populated, it is unnecessary to define the attribute name. This is needed only when some specific attribute(s) of the table is being inserted</p>
+</section>
+<section id="structured-query-language-6" class="slide level2 scrollable">
+<h2>5. Structured Query Language</h2>
+<p><span class="highlight-primary">MANAGING THE DATA IN THE DATABASE TABLE</span></p>
+<p><strong>INSERT Keyword</strong></p>
+<p><strong>Access Exercise 2.3:</strong></p>
+<p>Return to the query window. Follow the steps of Access Exercise 2.2 if needed.</p>
+<ol type="1">
+<li>Delete any existing query in the query window and enter the following query:</li>
+</ol>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb7-1"><a href=""></a><span class="kw">INSERT</span> <span class="kw">INTO</span> PURCHASE_ORDER</span>
+<span id="cb7-2"><a href=""></a><span class="kw">VALUES</span> (<span class="dv">2591</span>, <span class="ot">"02/10/06"</span>, <span class="ot">"CLOSED"</span>, <span class="fl">4300.00</span>, <span class="ot">"V110"</span>);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="2" type="1">
+<li><p>Click the run button on the Toolbar and YES on the warning message to execute the query. The first record is now inserted into the table. You can view this record by closing the query window, returning to the database window, selecting the table name from the <strong>table objects</strong> window and clicking on <strong>Open</strong>.</p></li>
+<li><p>Following the same procedure, enter the remaining data for the <strong>PURCHASE_ORDER</strong> table.</p></li>
+</ol>
+</section>
+<section id="data-to-insert" class="slide level2">
+<h2>Data to Insert</h2>
+<p>Use the following reference tables to write INSERT statements for populating the VENDOR and PO_DETAIL tables with the provided data.</p>
+</section>
+<section id="vendor-table-data" class="slide level2">
+<h2>VENDOR Table Data</h2>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>VENDOR_ID</th>
+<th>V_NAME</th>
+<th>V_STREET</th>
+<th>V_CITY</th>
+<th>V_STATE</th>
+<th>V_ZIP</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>V110</td>
+<td>Jersey Vegetable Co.</td>
+<td>2 Main St.</td>
+<td>Patterson</td>
+<td>NJ</td>
+<td>07055</td>
+</tr>
+<tr class="even">
+<td>V25</td>
+<td>General Provisions</td>
+<td>125 Common St.</td>
+<td>Boise</td>
+<td>ID</td>
+<td>44530</td>
+</tr>
+<tr class="odd">
+<td>V250</td>
+<td>Spices Unlimited</td>
+<td>25 Salty Lane</td>
+<td>East Hampton</td>
+<td>NY</td>
+<td>10027</td>
+</tr>
+<tr class="even">
+<td>V75</td>
+<td>Pasta Supply, Inc.</td>
+<td>34 Henry St.</td>
+<td>Philadelphia</td>
+<td>PA</td>
+<td>09098</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="purchase_order-table-data" class="slide level2">
+<h2>PURCHASE_ORDER Table Data</h2>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>PO_NUMBER</th>
+<th>RELEASE_DATE</th>
+<th>PO_STATUS</th>
+<th>PO_AMT</th>
+<th>VENDOR_ID</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>2591</td>
+<td>2/10/06</td>
+<td>CLOSED</td>
+<td>$4,300.00</td>
+<td>V110</td>
+</tr>
+<tr class="even">
+<td>2592</td>
+<td>2/10/06</td>
+<td>OPEN</td>
+<td>$505.50</td>
+<td>V25</td>
+</tr>
+<tr class="odd">
+<td>2593</td>
+<td>2/11/06</td>
+<td>OPEN</td>
+<td>$4,000.00</td>
+<td>V110</td>
+</tr>
+<tr class="even">
+<td>2594</td>
+<td>2/12/06</td>
+<td>OPEN</td>
+<td>$3,260.00</td>
+<td>V250</td>
+</tr>
+<tr class="odd">
+<td>2595</td>
+<td>2/15/06</td>
+<td>OPEN</td>
+<td>$500.00</td>
+<td>V250</td>
+</tr>
+<tr class="even">
+<td>2596</td>
+<td></td>
+<td>HOLD</td>
+<td>$1,000.00</td>
+<td>V75</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="po_detail-table-data" class="slide level2">
+<h2>PO_DETAIL Table Data</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 10%">
+<col style="width: 11%">
+<col style="width: 12%">
+<col style="width: 7%">
+<col style="width: 9%">
+<col style="width: 8%">
+<col style="width: 18%">
+<col style="width: 10%">
+<col style="width: 8%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>PO_NUMBER</th>
+<th>PO_LINE_IT</th>
+<th>MATERIAL_ID</th>
+<th>UNITS</th>
+<th>QUANTITY</th>
+<th>BALANCE</th>
+<th>PROMISED_DEL_DATE</th>
+<th>UNIT_COST</th>
+<th>STATUS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>2591</td>
+<td>1</td>
+<td>RM201</td>
+<td>LB</td>
+<td>1000.0</td>
+<td>0</td>
+<td>2/20/06</td>
+<td>$2.00</td>
+<td>CLOSED</td>
+</tr>
+<tr class="even">
+<td>2591</td>
+<td>2</td>
+<td>RM202</td>
+<td>LB</td>
+<td>1000.0</td>
+<td>0</td>
+<td>2/20/06</td>
+<td>$2.00</td>
+<td>CLOSED</td>
+</tr>
+<tr class="odd">
+<td>2591</td>
+<td>3</td>
+<td>RM205</td>
+<td>LB</td>
+<td>300.0</td>
+<td>0</td>
+<td>2/20/06</td>
+<td>$1.00</td>
+<td>CLOSED</td>
+</tr>
+<tr class="even">
+<td>2592</td>
+<td>1</td>
+<td>RM505</td>
+<td>GAL</td>
+<td>600.5</td>
+<td>0</td>
+<td>2/25/06</td>
+<td>$0.50</td>
+<td>CLOSED</td>
+</tr>
+<tr class="odd">
+<td>2592</td>
+<td>2</td>
+<td>RM610</td>
+<td>GAL</td>
+<td>210.5</td>
+<td>210</td>
+<td>3/10/06</td>
+<td>$0.50</td>
+<td>OPEN</td>
+</tr>
+<tr class="even">
+<td>2594</td>
+<td>1</td>
+<td>RM510</td>
+<td>LB</td>
+<td>4000.0</td>
+<td>4000</td>
+<td>3/12/06</td>
+<td>$0.50</td>
+<td>OPEN</td>
+</tr>
+<tr class="odd">
+<td>2594</td>
+<td>2</td>
+<td>RM511</td>
+<td>LB</td>
+<td>2000.0</td>
+<td>2000</td>
+<td>3/12/06</td>
+<td>$0.25</td>
+<td>OPEN</td>
+</tr>
+<tr class="even">
+<td>2594</td>
+<td>3</td>
+<td>RM516</td>
+<td>LB</td>
+<td>2000.0</td>
+<td>2000</td>
+<td>3/12/06</td>
+<td>$0.25</td>
+<td>OPEN</td>
+</tr>
+<tr class="odd">
+<td>2594</td>
+<td>4</td>
+<td>RM540</td>
+<td>LB</td>
+<td>560.0</td>
+<td>560</td>
+<td>3/20/06</td>
+<td>$0.50</td>
+<td>OPEN</td>
+</tr>
+<tr class="even">
+<td>2593</td>
+<td>1</td>
+<td>RM210</td>
+<td>LB</td>
+<td>1000.0</td>
+<td>500</td>
+<td>2/25/06</td>
+<td>$2.00</td>
+<td>OPEN</td>
+</tr>
+<tr class="odd">
+<td>2593</td>
+<td>2</td>
+<td>RM211</td>
+<td>LB</td>
+<td>2000.0</td>
+<td>2000</td>
+<td>3/10/06</td>
+<td>$1.00</td>
+<td>OPEN</td>
+</tr>
+<tr class="even">
+<td>2595</td>
+<td>1</td>
+<td>RM305</td>
+<td>LB</td>
+<td>400.0</td>
+<td>400</td>
+<td>2/27/06</td>
+<td>$0.50</td>
+<td>OPEN</td>
+</tr>
+<tr class="odd">
+<td>2595</td>
+<td>2</td>
+<td>RM505</td>
+<td>LB</td>
+<td>1200.0</td>
+<td>1200</td>
+<td>2/27/06</td>
+<td>$0.25</td>
+<td>OPEN</td>
+</tr>
+<tr class="even">
+<td>2596</td>
+<td>1</td>
+<td>RM502</td>
+<td>LB</td>
+<td>5000.0</td>
+<td>5000</td>
+<td></td>
+<td>$0.20</td>
+<td>OPEN</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="sql-commands---vendor" class="slide level2">
+<h2>SQL Commands - VENDOR</h2>
+<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb8-1"><a href=""></a><span class="kw">INSERT</span> <span class="kw">INTO</span> VENDOR (VENDOR_ID, V_NAME, V_STREET, V_CITY, V_STATE, V_ZIP)</span>
+<span id="cb8-2"><a href=""></a><span class="kw">VALUES</span> (<span class="st">'V110'</span>, <span class="st">'Jersey Vegetable Co.'</span>, <span class="st">'2 Main St.'</span>, <span class="st">'Patterson'</span>, <span class="st">'NJ'</span>, <span class="st">'07055'</span>);</span>
+<span id="cb8-3"><a href=""></a></span>
+<span id="cb8-4"><a href=""></a><span class="kw">INSERT</span> <span class="kw">INTO</span> VENDOR (VENDOR_ID, V_NAME, V_STREET, V_CITY, V_STATE, V_ZIP)</span>
+<span id="cb8-5"><a href=""></a><span class="kw">VALUES</span> (<span class="st">'V25'</span>, <span class="st">'General Provisions'</span>, <span class="st">'125 Common St.'</span>, <span class="st">'Boise'</span>, <span class="st">'ID'</span>, <span class="st">'44530'</span>);</span>
+<span id="cb8-6"><a href=""></a></span>
+<span id="cb8-7"><a href=""></a><span class="kw">INSERT</span> <span class="kw">INTO</span> VENDOR (VENDOR_ID, V_NAME, V_STREET, V_CITY, V_STATE, V_ZIP)</span>
+<span id="cb8-8"><a href=""></a><span class="kw">VALUES</span> (<span class="st">'V250'</span>, <span class="st">'Spices Unlimited'</span>, <span class="st">'25 Salty Lane'</span>, <span class="st">'East Hampton'</span>, <span class="st">'NY'</span>, <span class="st">'10027'</span>);</span>
+<span id="cb8-9"><a href=""></a></span>
+<span id="cb8-10"><a href=""></a><span class="kw">INSERT</span> <span class="kw">INTO</span> VENDOR (VENDOR_ID, V_NAME, V_STREET, V_CITY, V_STATE, V_ZIP)</span>
+<span id="cb8-11"><a href=""></a><span class="kw">VALUES</span> (<span class="st">'V75'</span>, <span class="st">'Pasta Supply, Inc.'</span>, <span class="st">'34 Henry St.'</span>, <span class="st">'Philadelphia'</span>, <span class="st">'PA'</span>, <span class="st">'09098'</span>);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="sql-commands---purchase_order" class="slide level2">
+<h2>SQL Commands - PURCHASE_ORDER</h2>
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb9-1"><a href=""></a><span class="kw">INSERT</span> <span class="kw">INTO</span> PURCHASE_ORDER (PO_NUMBER, RELEASE_DATE, PO_STATUS, PO_AMT, VENDOR_ID)</span>
+<span id="cb9-2"><a href=""></a><span class="kw">VALUES</span> (<span class="dv">2591</span>, <span class="st">'2/10/2006'</span>, <span class="st">'CLOSED'</span>, <span class="fl">4300.00</span>, <span class="st">'V110'</span>);</span>
+<span id="cb9-3"><a href=""></a></span>
+<span id="cb9-4"><a href=""></a><span class="kw">INSERT</span> <span class="kw">INTO</span> PURCHASE_ORDER (PO_NUMBER, RELEASE_DATE, PO_STATUS, PO_AMT, VENDOR_ID)</span>
+<span id="cb9-5"><a href=""></a><span class="kw">VALUES</span> (<span class="dv">2592</span>, <span class="st">'2/10/2006'</span>, <span class="st">'OPEN'</span>, <span class="fl">505.50</span>, <span class="st">'V25'</span>);</span>
+<span id="cb9-6"><a href=""></a></span>
+<span id="cb9-7"><a href=""></a><span class="kw">INSERT</span> <span class="kw">INTO</span> PURCHASE_ORDER (PO_NUMBER, RELEASE_DATE, PO_STATUS, PO_AMT, VENDOR_ID)</span>
+<span id="cb9-8"><a href=""></a><span class="kw">VALUES</span> (<span class="dv">2593</span>, <span class="st">'2/11/2006'</span>, <span class="st">'OPEN'</span>, <span class="fl">4000.00</span>, <span class="st">'V110'</span>);</span>
+<span id="cb9-9"><a href=""></a></span>
+<span id="cb9-10"><a href=""></a><span class="kw">INSERT</span> <span class="kw">INTO</span> PURCHASE_ORDER (PO_NUMBER, RELEASE_DATE, PO_STATUS, PO_AMT, VENDOR_ID)</span>
+<span id="cb9-11"><a href=""></a><span class="kw">VALUES</span> (<span class="dv">2594</span>, <span class="st">'2/12/2006'</span>, <span class="st">'OPEN'</span>, <span class="fl">3260.00</span>, <span class="st">'V250'</span>);</span>
+<span id="cb9-12"><a href=""></a></span>
+<span id="cb9-13"><a href=""></a><span class="kw">INSERT</span> <span class="kw">INTO</span> PURCHASE_ORDER (PO_NUMBER, RELEASE_DATE, PO_STATUS, PO_AMT, VENDOR_ID)</span>
+<span id="cb9-14"><a href=""></a><span class="kw">VALUES</span> (<span class="dv">2595</span>, <span class="st">'2/15/2006'</span>, <span class="st">'OPEN'</span>, <span class="fl">500.00</span>, <span class="st">'V250'</span>);</span>
+<span id="cb9-15"><a href=""></a></span>
+<span id="cb9-16"><a href=""></a><span class="kw">INSERT</span> <span class="kw">INTO</span> PURCHASE_ORDER (PO_NUMBER, RELEASE_DATE, PO_STATUS, PO_AMT, VENDOR_ID)</span>
+<span id="cb9-17"><a href=""></a><span class="kw">VALUES</span> (<span class="dv">2596</span>, <span class="kw">NULL</span>, <span class="st">'HOLD'</span>, <span class="fl">1000.00</span>, <span class="st">'V75'</span>);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="sql-commands---po_detail" class="slide level2">
+<h2>SQL Commands - PO_DETAIL</h2>
+<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb10-1"><a href=""></a><span class="kw">INSERT</span> <span class="kw">INTO</span> PO_DETAIL (PO_NUMBER, PO_LINE_ITEM, MATERIAL_ID, UNITS, QUANTITY, BALANCE, PROMISED_DEL_DATE, UNIT_COST, STATUS)</span>
+<span id="cb10-2"><a href=""></a><span class="kw">VALUES</span> (<span class="dv">2591</span>, <span class="dv">1</span>, <span class="st">'RM201'</span>, <span class="st">'LB'</span>, <span class="fl">1000.0</span>, <span class="dv">0</span>, <span class="st">'2/20/2006'</span>, <span class="fl">2.00</span>, <span class="st">'CLOSED'</span>);</span>
+<span id="cb10-3"><a href=""></a></span>
+<span id="cb10-4"><a href=""></a><span class="kw">INSERT</span> <span class="kw">INTO</span> PO_DETAIL (PO_NUMBER, PO_LINE_ITEM, MATERIAL_ID, UNITS, QUANTITY, BALANCE, PROMISED_DEL_DATE, UNIT_COST, STATUS)</span>
+<span id="cb10-5"><a href=""></a><span class="kw">VALUES</span> (<span class="dv">2591</span>, <span class="dv">2</span>, <span class="st">'RM202'</span>, <span class="st">'LB'</span>, <span class="fl">1000.0</span>, <span class="dv">0</span>, <span class="st">'2/20/2006'</span>, <span class="fl">2.00</span>, <span class="st">'CLOSED'</span>);</span>
+<span id="cb10-6"><a href=""></a></span>
+<span id="cb10-7"><a href=""></a><span class="kw">INSERT</span> <span class="kw">INTO</span> PO_DETAIL (PO_NUMBER, PO_LINE_ITEM, MATERIAL_ID, UNITS, QUANTITY, BALANCE, PROMISED_DEL_DATE, UNIT_COST, STATUS)</span>
+<span id="cb10-8"><a href=""></a><span class="kw">VALUES</span> (<span class="dv">2591</span>, <span class="dv">3</span>, <span class="st">'RM205'</span>, <span class="st">'LB'</span>, <span class="fl">300.0</span>, <span class="dv">0</span>, <span class="st">'2/20/2006'</span>, <span class="fl">1.00</span>, <span class="st">'CLOSED'</span>);</span>
+<span id="cb10-9"><a href=""></a></span>
+<span id="cb10-10"><a href=""></a><span class="kw">INSERT</span> <span class="kw">INTO</span> PO_DETAIL (PO_NUMBER, PO_LINE_ITEM, MATERIAL_ID, UNITS, QUANTITY, BALANCE, PROMISED_DEL_DATE, UNIT_COST, STATUS)</span>
+<span id="cb10-11"><a href=""></a><span class="kw">VALUES</span> (<span class="dv">2592</span>, <span class="dv">1</span>, <span class="st">'RM505'</span>, <span class="st">'GAL'</span>, <span class="fl">600.5</span>, <span class="dv">0</span>, <span class="st">'2/25/2006'</span>, <span class="fl">0.50</span>, <span class="st">'CLOSED'</span>);</span>
+<span id="cb10-12"><a href=""></a></span>
+<span id="cb10-13"><a href=""></a><span class="kw">INSERT</span> <span class="kw">INTO</span> PO_DETAIL (PO_NUMBER, PO_LINE_ITEM, MATERIAL_ID, UNITS, QUANTITY, BALANCE, PROMISED_DEL_DATE, UNIT_COST, STATUS)</span>
+<span id="cb10-14"><a href=""></a><span class="kw">VALUES</span> (<span class="dv">2592</span>, <span class="dv">2</span>, <span class="st">'RM610'</span>, <span class="st">'GAL'</span>, <span class="fl">210.5</span>, <span class="dv">210</span>, <span class="st">'3/10/2006'</span>, <span class="fl">0.50</span>, <span class="st">'OPEN'</span>);</span>
+<span id="cb10-15"><a href=""></a></span>
+<span id="cb10-16"><a href=""></a><span class="kw">INSERT</span> <span class="kw">INTO</span> PO_DETAIL (PO_NUMBER, PO_LINE_ITEM, MATERIAL_ID, UNITS, QUANTITY, BALANCE, PROMISED_DEL_DATE, UNIT_COST, STATUS)</span>
+<span id="cb10-17"><a href=""></a><span class="kw">VALUES</span> (<span class="dv">2594</span>, <span class="dv">1</span>, <span class="st">'RM510'</span>, <span class="st">'LB'</span>, <span class="fl">4000.0</span>, <span class="dv">4000</span>, <span class="st">'3/12/2006'</span>, <span class="fl">0.50</span>, <span class="st">'OPEN'</span>);</span>
+<span id="cb10-18"><a href=""></a></span>
+<span id="cb10-19"><a href=""></a><span class="kw">INSERT</span> <span class="kw">INTO</span> PO_DETAIL (PO_NUMBER, PO_LINE_ITEM, MATERIAL_ID, UNITS, QUANTITY, BALANCE, PROMISED_DEL_DATE, UNIT_COST, STATUS)</span>
+<span id="cb10-20"><a href=""></a><span class="kw">VALUES</span> (<span class="dv">2594</span>, <span class="dv">2</span>, <span class="st">'RM511'</span>, <span class="st">'LB'</span>, <span class="fl">2000.0</span>, <span class="dv">2000</span>, <span class="st">'3/12/2006'</span>, <span class="fl">0.25</span>, <span class="st">'OPEN'</span>);</span>
+<span id="cb10-21"><a href=""></a></span>
+<span id="cb10-22"><a href=""></a><span class="kw">INSERT</span> <span class="kw">INTO</span> PO_DETAIL (PO_NUMBER, PO_LINE_ITEM, MATERIAL_ID, UNITS, QUANTITY, BALANCE, PROMISED_DEL_DATE, UNIT_COST, STATUS)</span>
+<span id="cb10-23"><a href=""></a><span class="kw">VALUES</span> (<span class="dv">2594</span>, <span class="dv">3</span>, <span class="st">'RM516'</span>, <span class="st">'LB'</span>, <span class="fl">2000.0</span>, <span class="dv">2000</span>, <span class="st">'3/12/2006'</span>, <span class="fl">0.25</span>, <span class="st">'OPEN'</span>);</span>
+<span id="cb10-24"><a href=""></a></span>
+<span id="cb10-25"><a href=""></a><span class="kw">INSERT</span> <span class="kw">INTO</span> PO_DETAIL (PO_NUMBER, PO_LINE_ITEM, MATERIAL_ID, UNITS, QUANTITY, BALANCE, PROMISED_DEL_DATE, UNIT_COST, STATUS)</span>
+<span id="cb10-26"><a href=""></a><span class="kw">VALUES</span> (<span class="dv">2594</span>, <span class="dv">4</span>, <span class="st">'RM540'</span>, <span class="st">'LB'</span>, <span class="fl">560.0</span>, <span class="dv">560</span>, <span class="st">'3/20/2006'</span>, <span class="fl">0.50</span>, <span class="st">'OPEN'</span>);</span>
+<span id="cb10-27"><a href=""></a></span>
+<span id="cb10-28"><a href=""></a><span class="kw">INSERT</span> <span class="kw">INTO</span> PO_DETAIL (PO_NUMBER, PO_LINE_ITEM, MATERIAL_ID, UNITS, QUANTITY, BALANCE, PROMISED_DEL_DATE, UNIT_COST, STATUS)</span>
+<span id="cb10-29"><a href=""></a><span class="kw">VALUES</span> (<span class="dv">2593</span>, <span class="dv">1</span>, <span class="st">'RM210'</span>, <span class="st">'LB'</span>, <span class="fl">1000.0</span>, <span class="dv">500</span>, <span class="st">'2/25/2006'</span>, <span class="fl">2.00</span>, <span class="st">'OPEN'</span>);</span>
+<span id="cb10-30"><a href=""></a></span>
+<span id="cb10-31"><a href=""></a><span class="kw">INSERT</span> <span class="kw">INTO</span> PO_DETAIL (PO_NUMBER, PO_LINE_ITEM, MATERIAL_ID, UNITS, QUANTITY, BALANCE, PROMISED_DEL_DATE, UNIT_COST, STATUS)</span>
+<span id="cb10-32"><a href=""></a><span class="kw">VALUES</span> (<span class="dv">2593</span>, <span class="dv">2</span>, <span class="st">'RM211'</span>, <span class="st">'LB'</span>, <span class="fl">2000.0</span>, <span class="dv">2000</span>, <span class="st">'3/10/2006'</span>, <span class="fl">1.00</span>, <span class="st">'OPEN'</span>);</span>
+<span id="cb10-33"><a href=""></a></span>
+<span id="cb10-34"><a href=""></a><span class="kw">INSERT</span> <span class="kw">INTO</span> PO_DETAIL (PO_NUMBER, PO_LINE_ITEM, MATERIAL_ID, UNITS, QUANTITY, BALANCE, PROMISED_DEL_DATE, UNIT_COST, STATUS)</span>
+<span id="cb10-35"><a href=""></a><span class="kw">VALUES</span> (<span class="dv">2595</span>, <span class="dv">1</span>, <span class="st">'RM305'</span>, <span class="st">'LB'</span>, <span class="fl">400.0</span>, <span class="dv">400</span>, <span class="st">'2/27/2006'</span>, <span class="fl">0.50</span>, <span class="st">'OPEN'</span>);</span>
+<span id="cb10-36"><a href=""></a></span>
+<span id="cb10-37"><a href=""></a><span class="kw">INSERT</span> <span class="kw">INTO</span> PO_DETAIL (PO_NUMBER, PO_LINE_ITEM, MATERIAL_ID, UNITS, QUANTITY, BALANCE, PROMISED_DEL_DATE, UNIT_COST, STATUS)</span>
+<span id="cb10-38"><a href=""></a><span class="kw">VALUES</span> (<span class="dv">2595</span>, <span class="dv">2</span>, <span class="st">'RM505'</span>, <span class="st">'LB'</span>, <span class="fl">1200.0</span>, <span class="dv">1200</span>, <span class="st">'2/27/2006'</span>, <span class="fl">0.25</span>, <span class="st">'OPEN'</span>);</span>
+<span id="cb10-39"><a href=""></a></span>
+<span id="cb10-40"><a href=""></a><span class="kw">INSERT</span> <span class="kw">INTO</span> PO_DETAIL (PO_NUMBER, PO_LINE_ITEM, MATERIAL_ID, UNITS, QUANTITY, BALANCE, PROMISED_DEL_DATE, UNIT_COST, STATUS)</span>
+<span id="cb10-41"><a href=""></a><span class="kw">VALUES</span> (<span class="dv">2596</span>, <span class="dv">1</span>, <span class="st">'RM502'</span>, <span class="st">'LB'</span>, <span class="fl">5000.0</span>, <span class="dv">5000</span>, <span class="kw">NULL</span>, <span class="fl">0.20</span>, <span class="st">'OPEN'</span>);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="structured-query-language-7" class="slide level2">
+<h2>5. Structured Query Language</h2>
+<p><span class="highlight-primary">MANAGING THE DATA IN THE DATABASE TABLE</span></p>
+<p><strong>SELECT Keyword</strong></p>
+<p>The workhorse in retrieving and manipulating data in a table is the <strong>SELECT</strong> keyword, which can be used in many command variations. The syntax of a <strong>SELECT</strong> command is as follows:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb11-1"><a href=""></a><span class="kw">SELECT</span> [<span class="kw">DISTINCT</span>] <span class="op">&lt;</span><span class="kw">attributes</span><span class="co">/*&gt;</span></span>
+<span id="cb11-2"><a href=""></a><span class="co">FROM &lt;table name&gt;</span></span>
+<span id="cb11-3"><a href=""></a><span class="co">WHERE &lt;condition&gt;</span></span>
+<span id="cb11-4"><a href=""></a><span class="co">ORDER BY &lt;attribute name&gt; ASC/DESC;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="structured-query-language-8" class="slide level2">
+<h2>5. Structured Query Language</h2>
+<p><span class="highlight-primary">MANAGING THE DATA IN THE DATABASE TABLE</span></p>
+<p><strong>SELECT Keyword</strong><br>
+The functions of the various clauses shall be illustrated in the following examples.<br>
+When the <strong>SELECT</strong> command is used, the minimum requirement is to identify the attributes to be selected and the table from which they are selected.</p>
+<p>The wildcard * identifies all attribute fields of the table. Thus, the command to retrieve the entire contents of the table <strong>PURCHASE_ORDER</strong> would be as follows:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb12-1"><a href=""></a><span class="kw">SELECT</span> <span class="op">*</span></span>
+<span id="cb12-2"><a href=""></a><span class="kw">FROM</span> PURCHASE_ORDER;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>On execution of this command, the entire contents of the table <strong>PURCHASE_ORDER</strong> is retrieved and displayed on the screen. Users can be more specific about the columns they wish to retrieve by specifying the column’s attribute name in the SELECT clause</p>
+</section>
+<section id="structured-query-language-9" class="slide level2">
+<h2>5. Structured Query Language</h2>
+<p><span class="highlight-primary">MANAGING THE DATA IN THE DATABASE TABLE</span></p>
+<p><strong>SELECT Keyword</strong></p>
+<p>• There may be more than one selection criterion for a retrieval</p>
+<p>• This can be handled by extending the WHERE clause using logical operators</p>
+<p>• The <strong>logical operators</strong> are AND, OR, and NOT</p>
+<p>For example, suppose we wish to look at all open orders that are above $500. This would require the logical AND, since we want the orders that are open AND greater than $500. The WHERE clause is extended using logical operators as follows:</p>
+<details>
+<summary>
+Click to show SQL solution
+</summary>
+<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb13-1"><a href=""></a><span class="kw">SELECT</span> <span class="op">*</span></span>
+<span id="cb13-2"><a href=""></a><span class="kw">FROM</span> PURCHASE_ORDER</span>
+<span id="cb13-3"><a href=""></a><span class="kw">WHERE</span> PO_STATUS<span class="op">=</span><span class="ot">"OPEN"</span></span>
+<span id="cb13-4"><a href=""></a><span class="kw">AND</span> PO_AMT<span class="op">&gt;</span><span class="dv">500</span>;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details></section>
+<section id="structured-query-language-10" class="slide level2 scrollable">
+<h2>5. Structured Query Language</h2>
+<p><span class="highlight-primary">MANAGING THE DATA IN THE DATABASE TABLE</span></p>
+<p><strong>Access Exercise 2.4:</strong></p>
+<ol type="1">
+<li>Open the Query window and retrieve the following data from the table <strong>PURCHASE_ORDER</strong></li>
+</ol>
+<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb14-1"><a href=""></a>PO_NUMBER, PO_STATUS, PO_AMT</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="2" type="1">
+<li>After execution, the table of retrieved data should appear as shown in Figure 2.4.</li>
+</ol>
+<table class="caption-top">
+<caption>Result of Access Exercise 2.4</caption>
+<thead>
+<tr class="header">
+<th>PO_NUMBER</th>
+<th>PO_STATUS</th>
+<th>PO_AMT</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>2591</td>
+<td>CLOSED</td>
+<td>$4,300.00</td>
+</tr>
+<tr class="even">
+<td>2592</td>
+<td>OPEN</td>
+<td>$505.50</td>
+</tr>
+<tr class="odd">
+<td>2593</td>
+<td>OPEN</td>
+<td>$4,000.00</td>
+</tr>
+<tr class="even">
+<td>2594</td>
+<td>OPEN</td>
+<td>$3,260.00</td>
+</tr>
+<tr class="odd">
+<td>2595</td>
+<td>OPEN</td>
+<td>$500.00</td>
+</tr>
+<tr class="even">
+<td>2596</td>
+<td>HOLD</td>
+<td>$1,000.00</td>
+</tr>
+</tbody>
+</table>
+<details>
+<summary>
+Click to show SQL solution
+</summary>
+<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb15-1"><a href=""></a><span class="kw">SELECT</span> PO_NUMBER, PO_STATUS, PO_AMT</span>
+<span id="cb15-2"><a href=""></a><span class="kw">FROM</span> PURCHASE_ORDER;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details></section>
+<section id="structured-query-language-11" class="slide level2 scrollable">
+<h2>5. Structured Query Language</h2>
+<p><span class="highlight-primary">MANAGING THE DATA IN THE DATABASE TABLE</span></p>
+<p><strong>Access Exercise 2.5:</strong></p>
+<ol type="1">
+<li>Open the Query window and retrieve the following data from the table <strong>PURCHASE_ORDER</strong>, but order by PO_AMT (smallest to largest)</li>
+</ol>
+<div class="sourceCode" id="cb16"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb16-1"><a href=""></a>PO_NUMBER, PO_STATUS, PO_AMT</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="2" type="1">
+<li>After execution, the table of retrieved data should appear as shown in Figure 2.5.</li>
+</ol>
+<table class="caption-top">
+<caption>Result of Access Exercise 2.5</caption>
+<thead>
+<tr class="header">
+<th>PO_NUMBER</th>
+<th>PO_STATUS</th>
+<th>PO_AMT</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>2595</td>
+<td>OPEN</td>
+<td>$500.00</td>
+</tr>
+<tr class="even">
+<td>2592</td>
+<td>OPEN</td>
+<td>$505.50</td>
+</tr>
+<tr class="odd">
+<td>2596</td>
+<td>HOLD</td>
+<td>$1,000.00</td>
+</tr>
+<tr class="even">
+<td>2594</td>
+<td>OPEN</td>
+<td>$3,260.00</td>
+</tr>
+<tr class="odd">
+<td>2593</td>
+<td>OPEN</td>
+<td>$4,000.00</td>
+</tr>
+<tr class="even">
+<td>2591</td>
+<td>CLOSED</td>
+<td>$4,300.00</td>
+</tr>
+</tbody>
+</table>
+<p><strong>note</strong><br>
+The default is to use ascending order. For descending order, the keyword DESC is used following the attribute name.</p>
+<details>
+<summary>
+Click to show SQL solution
+</summary>
+<div class="sourceCode" id="cb17"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb17-1"><a href=""></a><span class="kw">SELECT</span> PO_NUMBER, PO_STATUS, PO_AMT</span>
+<span id="cb17-2"><a href=""></a><span class="kw">FROM</span> PURCHASE_ORDER</span>
+<span id="cb17-3"><a href=""></a><span class="kw">ORDER</span> <span class="kw">BY</span> PO_AMT;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details></section>
+<section id="structured-query-language-12" class="slide level2 scrollable">
+<h2>5. Structured Query Language</h2>
+<p><span class="highlight-primary">MANAGING THE DATA IN THE DATABASE TABLE</span></p>
+<p><strong>SELECT Keyword</strong></p>
+<p><strong>Access Exercise 2.6:</strong></p>
+<ol type="1">
+<li>Open the Query window and retrieve the following data from the table <strong>PURCHASE_ORDER</strong>, order by VENDOR_ID, and within each vendor group, order by PO_AMT in descending order</li>
+</ol>
+<div class="sourceCode" id="cb18"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb18-1"><a href=""></a>VENDOR_ID, PO_AMT, PO_NUMBER, PO_STATUS</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="2" type="1">
+<li>After execution, the table of retrieved data should appear as shown in Figure 2.6.</li>
+</ol>
+<table class="caption-top">
+<caption>Results of Access Exercise 2.6</caption>
+<thead>
+<tr class="header">
+<th>VENDOR_ID</th>
+<th>PO_AMT</th>
+<th>PO_NUMBER</th>
+<th>PO_STATUS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>V110</td>
+<td>$4,300.00</td>
+<td>2591</td>
+<td>CLOSED</td>
+</tr>
+<tr class="even">
+<td>V110</td>
+<td>$4,000.00</td>
+<td>2593</td>
+<td>OPEN</td>
+</tr>
+<tr class="odd">
+<td>V25</td>
+<td>$505.50</td>
+<td>2592</td>
+<td>OPEN</td>
+</tr>
+<tr class="even">
+<td>V250</td>
+<td>$3,260.00</td>
+<td>2594</td>
+<td>OPEN</td>
+</tr>
+<tr class="odd">
+<td>V250</td>
+<td>$500.00</td>
+<td>2595</td>
+<td>OPEN</td>
+</tr>
+<tr class="even">
+<td>V75</td>
+<td>$1,000.00</td>
+<td>2596</td>
+<td>HOLD</td>
+</tr>
+</tbody>
+</table>
+<details>
+<summary>
+Click to show SQL solution
+</summary>
+<div class="sourceCode" id="cb19"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb19-1"><a href=""></a><span class="kw">SELECT</span> VENDOR_ID, PO_AMT, PO_NUMBER, PO_STATUS</span>
+<span id="cb19-2"><a href=""></a><span class="kw">FROM</span> PURCHASE_ORDER</span>
+<span id="cb19-3"><a href=""></a><span class="kw">ORDER</span> <span class="kw">BY</span> VENDOR_ID, PO_AMT <span class="kw">DESC</span>;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details></section>
+<section id="structured-query-language-13" class="slide level2">
+<h2>5. Structured Query Language</h2>
+<p><span class="highlight-primary">MANAGING THE DATA IN THE DATABASE TABLE</span></p>
+<p><strong><em>SELECT Keyword</em></strong></p>
+<p>The DISTINCT keyword in the SELECT clause allows the user to sort a single column of a table and to return a list of the unique entries in that column. In effect, the resulting list does not contain redundancies.</p>
+<p>For example, the following command will return the unique VENDOR_IDs in the PURCHASE_ORDERS table:</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb20-1"><a href=""></a><span class="kw">SELECT</span> <span class="kw">DISTINCT</span> VENDOR_ID</span>
+<span id="cb20-2"><a href=""></a><span class="kw">FROM</span> PURCHASE_ORDER;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>VENDOR_ID</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>V110</td>
+</tr>
+<tr class="even">
+<td>V25</td>
+</tr>
+<tr class="odd">
+<td>V250</td>
+</tr>
+<tr class="even">
+<td>V75</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="structured-query-language-14" class="slide level2 scrollable">
+<h2>5. Structured Query Language</h2>
+<p><span class="highlight-primary">MANAGING THE DATA IN THE DATABASE TABLE</span></p>
+<p><strong><em>SELECT Keyword</em></strong></p>
+<p><strong>Access Exercise 2.7:</strong></p>
+<ol type="1">
+<li>Open the Query window and retrieve the following data from the table <em>PURCHASE_ORDER</em> where the PO_AMT is more than 1000. Order by PO_AMT in ascending order</li>
+</ol>
+<div class="sourceCode" id="cb21"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb21-1"><a href=""></a>VENDOR_ID, PO_NUMBER, PO_AMT</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="2" type="1">
+<li>After execution, the table of retrieved data should appear as shown in Figure 2.7.</li>
+</ol>
+<table class="caption-top">
+<caption>Results of Access Exercise 2.7</caption>
+<thead>
+<tr class="header">
+<th>VENDOR_ID</th>
+<th>PO_NUMBER</th>
+<th>PO_AMT</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>V250</td>
+<td>2594</td>
+<td>$3,260.00</td>
+</tr>
+<tr class="even">
+<td>V110</td>
+<td>2593</td>
+<td>$4,000.00</td>
+</tr>
+<tr class="odd">
+<td>V110</td>
+<td>2591</td>
+<td>$4,300.00</td>
+</tr>
+</tbody>
+</table>
+<details>
+<summary>
+Click to show SQL solution
+</summary>
+<div class="sourceCode" id="cb22"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb22-1"><a href=""></a><span class="kw">SELECT</span> VENDOR_ID, PO_NUMBER, PO_AMT</span>
+<span id="cb22-2"><a href=""></a><span class="kw">FROM</span> PURCHASE_ORDER</span>
+<span id="cb22-3"><a href=""></a><span class="kw">WHERE</span> PO_AMT <span class="op">&gt;</span> <span class="dv">1000</span></span>
+<span id="cb22-4"><a href=""></a><span class="kw">ORDER</span> <span class="kw">BY</span> PO_AMT;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details></section>
+<section id="structured-query-language-15" class="slide level2 scrollable">
+<h2>5. Structured Query Language</h2>
+<p><span class="highlight-primary">MANAGING THE DATA IN THE DATABASE TABLE</span></p>
+<h3 id="select-keyword">SELECT Keyword</h3>
+<p><strong>Access Exercise 2.8:</strong></p>
+<ol type="1">
+<li>Open the Query window and retrieve the following data from the table <strong>PURCHASE_ORDER</strong></li>
+</ol>
+<div class="sourceCode" id="cb23"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb23-1"><a href=""></a><span class="kw">SELECT</span> <span class="op">*</span></span>
+<span id="cb23-2"><a href=""></a><span class="kw">FROM</span> PURCHASE_ORDER</span>
+<span id="cb23-3"><a href=""></a><span class="kw">WHERE</span> PO_STATUS<span class="op">=</span><span class="ot">"OPEN"</span></span>
+<span id="cb23-4"><a href=""></a><span class="kw">AND</span> (VENDOR_ID<span class="op">&gt;</span><span class="ot">"V150"</span> <span class="kw">AND</span> PO_AMT<span class="op">&gt;</span><span class="dv">500</span>)</span>
+<span id="cb23-5"><a href=""></a><span class="kw">ORDER</span> <span class="kw">BY</span> PO_AMT;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="2" type="1">
+<li>After execution, the retrieved data should appear as shown in Figure 2.8.</li>
+</ol>
+<table class="caption-top">
+<caption>Results of Access Exercise 2.8</caption>
+<thead>
+<tr class="header">
+<th>PO_NUMBER</th>
+<th>RELEASE_DATE</th>
+<th>PO_STATUS</th>
+<th>PO_AMT</th>
+<th>VENDOR_ID</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>2592</td>
+<td>2/10/06</td>
+<td>OPEN</td>
+<td>$505.50</td>
+<td>V25</td>
+</tr>
+<tr class="even">
+<td>2594</td>
+<td>2/12/06</td>
+<td>OPEN</td>
+<td>$3260.00</td>
+<td>V250</td>
+</tr>
+</tbody>
+</table>
+<p><strong>note</strong><br>
+There are more keywords that you can use. <strong>LIKE</strong>, <strong>BETWEEN</strong>, <strong>NULL</strong>.</p>
+<p>Create queries using these keywords to understand each one.</p>
+</section>
+<section id="structured-query-language-16" class="slide level2">
+<h2>5. Structured Query Language</h2>
+<p><span class="highlight-primary">MANAGING THE DATA IN THE DATABASE TABLE</span></p>
+<p><strong>UPDATE Keyword</strong></p>
+<p>The <strong>UPDATE</strong> keyword allows the user to replace existing values in a table with new values. For example, if a vendor were to change the promised delivery date of an order, it would be desirable to reflect this change immediately in the appropriate table of the database</p>
+<p>The syntax of the UPDATE command is as follows:</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb24-1"><a href=""></a><span class="kw">UPDATE</span> <span class="op">&lt;</span><span class="kw">table</span> name<span class="op">&gt;</span></span>
+<span id="cb24-2"><a href=""></a><span class="kw">SET</span> <span class="op">&lt;</span><span class="kw">attribute</span> name<span class="op">&gt;</span> <span class="op">=</span> <span class="op">&lt;</span><span class="fu">value</span><span class="op">/</span>expression<span class="op">&gt;</span> [<span class="op">..</span>.]</span>
+<span id="cb24-3"><a href=""></a>[<span class="kw">WHERE</span> <span class="op">&lt;</span>condition<span class="op">&gt;</span>];</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The updated field value may be a new value or any admissible expression, typically an arithmetic expression. So, for example, if the attribute is the price of a product and the company raises all its prices by 2%, the SET clause could read as follows:</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb25-1"><a href=""></a><span class="kw">SET</span> PRICE <span class="op">=</span> PRICE <span class="op">*</span> <span class="fl">1.02</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="structured-query-language-17" class="slide level2 scrollable">
+<h2>5. Structured Query Language</h2>
+<p><span class="highlight-primary">MANAGING THE DATA IN THE DATABASE TABLE</span></p>
+<p><strong>UPDATE Keyword</strong></p>
+<p><strong>Access Exercise 2.9:</strong></p>
+<p>Vendor V250 has just informed us that all items on purchase order number 2594 will not be delivered until 03/22/06.</p>
+<ol type="1">
+<li>Open the Query window and perform the data update in the table <strong>PO_DETAIL</strong>.</li>
+</ol>
+<div class="sourceCode" id="cb26"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb26-1"><a href=""></a><span class="kw">UPDATE</span> PO_DETAIL</span>
+<span id="cb26-2"><a href=""></a><span class="kw">SET</span>    PROMISED_DEL_DATE <span class="op">=</span> <span class="ot">"03/22/06"</span></span>
+<span id="cb26-3"><a href=""></a><span class="kw">WHERE</span>  PO_NUMBER<span class="op">=</span><span class="dv">2594</span>;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="2" type="1">
+<li>After execution, open the table <strong>PO_DETAIL</strong> and confirm that the changes have occurred.</li>
+</ol>
+</section>
+<section id="structured-query-language-18" class="slide level2">
+<h2>5. Structured Query Language</h2>
+<p><span class="highlight-primary">MANAGING THE DATA IN THE DATABASE TABLE</span></p>
+<p><strong>DELETE Keyword</strong></p>
+<p>The <strong>DELETE</strong> keyword allows the user to remove one or more rows from a table (i.e., delete one or more records). The syntax for the DELETE command is as follows:</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb27-1"><a href=""></a><span class="kw">DELETE</span> <span class="kw">FROM</span> <span class="op">&lt;</span><span class="kw">table</span> name<span class="op">&gt;</span></span>
+<span id="cb27-2"><a href=""></a><span class="kw">WHERE</span> <span class="op">&lt;</span>condition<span class="op">&gt;</span>;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>So, for example, if it was determined that purchase order number 2596 would not be released because the requisitioning department reconsidered the purchase, we may want to delete that record from the database. This can be accomplished with the following commands:</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb28-1"><a href=""></a><span class="kw">DELETE</span> <span class="kw">FROM</span> PO_DETAIL</span>
+<span id="cb28-2"><a href=""></a><span class="kw">WHERE</span> PO_NUMBER <span class="op">=</span> <span class="dv">2596</span>;</span>
+<span id="cb28-3"><a href=""></a></span>
+<span id="cb28-4"><a href=""></a><span class="kw">DELETE</span> <span class="kw">FROM</span> PURCHASE_ORDER</span>
+<span id="cb28-5"><a href=""></a><span class="kw">WHERE</span> PO_NUMBER <span class="op">=</span> <span class="dv">2596</span>;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="structured-query-language-19" class="slide level2">
+<h2>5. Structured Query Language</h2>
+<p><strong>CONVERTING DATA INTO INFORMATION</strong></p>
+<p>The purpose of having data is to be able to summarize them in ways that support decision making</p>
+<p><strong>Aggregate Functions in SQL</strong></p>
+<p>The <strong>aggregate functions</strong> allow the user to specify a summary mathematical operation with a keyword.</p>
+<p>The basic aggregate functions of the SQL are <strong>AVG</strong>, <strong>SUM</strong>, <strong>MIN</strong>, <strong>MAX</strong>, and <strong>COUNT</strong>.</p>
+<p>The syntax of the aggregate functions is as follows:</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb29-1"><a href=""></a><span class="kw">SELECT</span> AGGREGATE <span class="kw">FUNCTION</span> ([<span class="kw">DISTINCT</span>] <span class="op">&lt;</span><span class="kw">attribute</span> name<span class="op">&gt;</span>)</span>
+<span id="cb29-2"><a href=""></a><span class="kw">FROM</span> <span class="op">&lt;</span><span class="kw">table</span> name<span class="op">&gt;</span></span>
+<span id="cb29-3"><a href=""></a><span class="kw">WHERE</span> <span class="op">&lt;</span>condition<span class="op">&gt;</span></span>
+<span id="cb29-4"><a href=""></a><span class="kw">GROUP</span> <span class="kw">BY</span> <span class="op">&lt;</span><span class="kw">attribute</span> name<span class="op">&gt;</span> [<span class="kw">HAVING</span> <span class="op">&lt;</span>condition<span class="op">&gt;</span>];</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="structured-query-language-20" class="slide level2">
+<h2>5. Structured Query Language</h2>
+<p><strong>CONVERTING DATA INTO INFORMATION</strong></p>
+<p>Suppose we are interested in the average dollar value of open purchase orders.</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb30-1"><a href=""></a><span class="kw">SELECT</span> <span class="fu">AVG</span>(PO_AMT)</span>
+<span id="cb30-2"><a href=""></a><span class="kw">FROM</span> PURCHASE_ORDER</span>
+<span id="cb30-3"><a href=""></a><span class="kw">WHERE</span> PO_STATUS<span class="op">=</span>“OPEN”;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Suppose we want the minimum of PO_AMT</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb31-1"><a href=""></a><span class="kw">SELECT</span> <span class="fu">MIN</span>(PO_AMT) <span class="kw">AS</span> MIN_AMT</span>
+<span id="cb31-2"><a href=""></a><span class="kw">FROM</span> PURCHASE_ORDER;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="structured-query-language-21" class="slide level2">
+<h2>5. Structured Query Language</h2>
+<p><strong>Grouping Data</strong></p>
+<p>The <strong>GROUP BY</strong> clause can be used to group data from an aggregate function by a column attribute. This allows you to display the results of several aggregates by some meaningful summary.</p>
+<p>For example, suppose you want to summarize aggregates of data from the PO_DETAIL table by PO_NUMBER.</p>
+<p>Consider the following example:</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb32-1"><a href=""></a><span class="kw">SELECT</span> PO_NUMBER, <span class="fu">MIN</span>(QUANTITY), <span class="fu">MAX</span>(QUANTITY)</span>
+<span id="cb32-2"><a href=""></a><span class="kw">FROM</span> PO_DETAIL</span>
+<span id="cb32-3"><a href=""></a><span class="kw">GROUP</span> <span class="kw">BY</span> PO_NUMBER;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>• A subclause of the GROUP BY clause is the <strong>HAVING</strong> clause.</p>
+<p>• This clause allows the programmer to place a condition or filter on the group.</p>
+<p>For example, suppose we are interested in the maximum and minimum quantities of those purchase orders that have a maximum quantity greater than 1000.</p>
+<p>This can be accomplished by applying the HAVING clause as follows:</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb33-1"><a href=""></a><span class="kw">SELECT</span> PO_NUMBER, <span class="fu">MIN</span>(QUANTITY), <span class="fu">MAX</span>(QUANTITY)</span>
+<span id="cb33-2"><a href=""></a><span class="kw">FROM</span> PO_DETAIL</span>
+<span id="cb33-3"><a href=""></a><span class="kw">GROUP</span> <span class="kw">BY</span> PO_NUMBER <span class="kw">HAVING</span> <span class="fu">MAX</span>(QUANTITY)<span class="op">&gt;</span><span class="dv">1000</span>;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="structured-query-language-22" class="slide level2">
+<h2>5. Structured Query Language</h2>
+<p><strong>Subqueries in SQL</strong></p>
+<p>Subqueries allow the user to condition one query on the results of another query from a table and also allow the user to retrieve information in a table based on the results of a query in another table.</p>
+<p>As an example of a subquery on a single table, suppose that you want to list all purchase order numbers that have amounts that are greater than the average amount of all purchase orders.</p>
+<p>Query 1:</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb34-1"><a href=""></a><span class="kw">SELECT</span> <span class="fu">AVG</span>(PO_AMT)</span>
+<span id="cb34-2"><a href=""></a><span class="kw">FROM</span> PURCHASE_ORDER;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Query 2:</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb35-1"><a href=""></a><span class="kw">SELECT</span> PO_NUMBER, PO_AMT</span>
+<span id="cb35-2"><a href=""></a><span class="kw">FROM</span> PURCHASE_ORDER</span>
+<span id="cb35-3"><a href=""></a><span class="kw">WHERE</span> PO_AMT <span class="op">&gt;</span> ( result <span class="kw">of</span> <span class="kw">query</span> <span class="dv">1</span>);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The query would be:</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb36-1"><a href=""></a><span class="kw">SELECT</span> PO_NUMBER, PO_AMT</span>
+<span id="cb36-2"><a href=""></a><span class="kw">FROM</span> PURCHASE_ORDER</span>
+<span id="cb36-3"><a href=""></a><span class="kw">WHERE</span> PO_AMT <span class="op">&gt;</span> (<span class="kw">SELECT</span> <span class="fu">AVG</span>(PO_AMT)</span>
+<span id="cb36-4"><a href=""></a><span class="kw">FROM</span> PURCHASE_ORDER);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="structured-query-language-23" class="slide level2">
+<h2>5. Structured Query Language</h2>
+<p><strong>Subqueries in SQL</strong></p>
+<p>A subquery can also be used to retrieve related data in more than one table. For example, suppose you are interested in seeing the details of all the purchase orders that have been placed with vendor V250. These details are listed in the table PO_DETAIL. However, the table PO_DETAIL does not contain any reference to VENDOR_ID V250.</p>
+<p>On the other hand, V250 appears in the table PURCHASE_ORDER, and that table is related to PO_DETAIL by the attribute they have in common: PO_NUMBER.</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb37-1"><a href=""></a><span class="kw">SELECT</span> <span class="op">*</span> </span>
+<span id="cb37-2"><a href=""></a><span class="kw">FROM</span> PO_DETAIL</span>
+<span id="cb37-3"><a href=""></a><span class="kw">WHERE</span> PO_NUMBER <span class="kw">IN</span> (<span class="kw">SELECT</span> PO_NUMBER </span>
+<span id="cb37-4"><a href=""></a><span class="kw">FROM</span> PURCHASE_ORDER</span>
+<span id="cb37-5"><a href=""></a><span class="kw">WHERE</span> VENDOR_ID <span class="op">=</span> <span class="ot">"v250);</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="structured-query-language-24" class="slide level2">
+<h2>5. Structured Query Language</h2>
+<p><strong>Appending Tables Using Joins</strong></p>
+<p>Note that the subquery in the previous section used the IN operator to return information from one table as criterion for retrieving from another table.<br>
+However, the displayed information came only from the table referenced in the main query.<br>
+There are times when it is desirable to display information from more than one table on the same retrieval.</p>
+<p>For example, one might want to display the VENDOR_ID and RELEASE_DATE from the PURCHASE_ORDER table along with the related details from the PO_DETAIL table.<br>
+This is the purpose of a table join. The syntax for a join is as follows:</p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb38-1"><a href=""></a><span class="kw">SELECT</span> <span class="op">&lt;</span>table1 name.<span class="kw">attribute</span> name<span class="op">&gt;</span>, <span class="op">&lt;</span>table2 name.<span class="kw">attribute</span> name<span class="op">&gt;</span>,<span class="op">..</span>.</span>
+<span id="cb38-2"><a href=""></a><span class="kw">FROM</span> <span class="op">&lt;</span>table1 name<span class="op">&gt;</span>, <span class="op">&lt;</span>table2 name<span class="op">&gt;</span>,<span class="op">..</span>.</span>
+<span id="cb38-3"><a href=""></a><span class="kw">WHERE</span> <span class="op">&lt;</span><span class="kw">join</span> condition<span class="op">&gt;</span></span>
+<span id="cb38-4"><a href=""></a><span class="kw">ORDER</span> <span class="kw">BY</span> <span class="op">&lt;</span><span class="kw">column</span> name<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="structured-query-language-25" class="slide level2 scrollable">
+<h2>5. Structured Query Language</h2>
+<p><strong>Access Exercise 2.13:</strong></p>
+<ol type="1">
+<li>Open the Query window and perform the following query which joins data from <strong>PURCHASE_ORDER</strong> and <strong>PO_DETAIL</strong> tables.</li>
+</ol>
+<div class="sourceCode" id="cb39"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb39-1"><a href=""></a><span class="kw">SELECT</span> PURCHASE_ORDER.VENDOR_ID,</span>
+<span id="cb39-2"><a href=""></a>       PURCHASE_ORDER.RELEASE_DATE,</span>
+<span id="cb39-3"><a href=""></a>       PURCHASE_ORDER.PO_NUMBER,</span>
+<span id="cb39-4"><a href=""></a>       PO_DETAIL.<span class="op">*</span></span>
+<span id="cb39-5"><a href=""></a><span class="kw">FROM</span>   PURCHASE_ORDER, PO_DETAIL</span>
+<span id="cb39-6"><a href=""></a><span class="kw">WHERE</span>  PURCHASE_ORDER.PO_NUMBER <span class="op">=</span> </span>
+<span id="cb39-7"><a href=""></a>       PO_DETAIL.PO_NUMBER</span>
+<span id="cb39-8"><a href=""></a><span class="kw">AND</span>    PURCHASE_ORDER.VENDOR_ID<span class="op">=</span><span class="ot">"V250"</span>;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="2" type="1">
+<li>The result should appear as in Figure 2.12, below.</li>
+</ol>
+<table class="caption-top">
+<caption>Result of Access Exercise 2.13</caption>
+<colgroup>
+<col style="width: 8%">
+<col style="width: 10%">
+<col style="width: 8%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 9%">
+<col style="width: 6%">
+<col style="width: 7%">
+<col style="width: 6%">
+<col style="width: 14%">
+<col style="width: 8%">
+<col style="width: 6%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>VENDOR_ID</th>
+<th>RELEASE_DATE</th>
+<th>PO_NUMBER</th>
+<th>PO_NUM</th>
+<th>PO_LINE</th>
+<th>MATERIAL_ID</th>
+<th>UNITS</th>
+<th>QUANTITY</th>
+<th>BALANCE</th>
+<th>PROMISED_DEL_DATE</th>
+<th>UNIT_COST</th>
+<th>STATUS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>V250</td>
+<td>2/12/06</td>
+<td>2594</td>
+<td>2594</td>
+<td>1</td>
+<td>RM510</td>
+<td>LB</td>
+<td>4000</td>
+<td>4000</td>
+<td>3/12/06</td>
+<td>$0.50</td>
+<td>OPEN</td>
+</tr>
+<tr class="even">
+<td>V250</td>
+<td>2/12/06</td>
+<td>2594</td>
+<td>2594</td>
+<td>2</td>
+<td>RM511</td>
+<td>LB</td>
+<td>2000</td>
+<td>2000</td>
+<td>3/12/06</td>
+<td>$0.25</td>
+<td>OPEN</td>
+</tr>
+<tr class="odd">
+<td>V250</td>
+<td>2/12/06</td>
+<td>2594</td>
+<td>2594</td>
+<td>3</td>
+<td>RM516</td>
+<td>LB</td>
+<td>2000</td>
+<td>2000</td>
+<td>3/12/06</td>
+<td>$0.25</td>
+<td>OPEN</td>
+</tr>
+<tr class="even">
+<td>V250</td>
+<td>2/12/06</td>
+<td>2594</td>
+<td>2594</td>
+<td>4</td>
+<td>RM540</td>
+<td>LB</td>
+<td>560</td>
+<td>560</td>
+<td>3/20/06</td>
+<td>$0.50</td>
+<td>OPEN</td>
+</tr>
+<tr class="odd">
+<td>V250</td>
+<td>2/15/06</td>
+<td>2595</td>
+<td>2595</td>
+<td>1</td>
+<td>RM305</td>
+<td>LB</td>
+<td>400</td>
+<td>400</td>
+<td>2/27/06</td>
+<td>$0.50</td>
+<td>OPEN</td>
+</tr>
+<tr class="even">
+<td>V250</td>
+<td>2/15/06</td>
+<td>2595</td>
+<td>2595</td>
+<td>2</td>
+<td>RM505</td>
+<td>LB</td>
+<td>1200</td>
+<td>1200</td>
+<td>2/27/06</td>
+<td>$0.25</td>
+<td>OPEN</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="to-conclude" class="slide level2">
+<h2>To Conclude</h2>
+<p>• The relational database model can be viewed by a user as a set of tables. The tables are defined by an entity set name and contains the values of attributes for instances of that entity set. Each instance in a table is uniquely identified by a primary key. Tables are related to each other through the use of foreign keys.</p>
+<p>• The programming language of relational databases is Structured Query Language.</p>
+<p>• In this chapter, we demonstrated the use of SQL to give the reader some concept of how tables are related to each other in the relational design.</p>
+<p>• An information system design project begins by establishing the requirements of the design project. The next chapters focus on this aspect of the design problem by demonstrating the use of design methodologies at the conceptual level.</p>
+</section>
+<section id="hw" class="slide level2">
+<h2>HW</h2>
+<p>On Blackboard Due next week!</p>
+
+</section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<div class="footer footer-default">
+<p>Dr.&nbsp;Jomana Bashatah | ISE 351</p>
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="Lecture_Three_S_files/libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="Lecture_Three_S_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="Lecture_Three_S_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="Lecture_Three_S_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="Lecture_Three_S_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="Lecture_Three_S_files/libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="Lecture_Three_S_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="Lecture_Three_S_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="Lecture_Three_S_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="Lecture_Three_S_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="Lecture_Three_S_files/libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"8\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'chalkboard': {"buttons":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'slide',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'fade',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1600,
+
+        height: 900,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        // Bounds for smallest/largest possible scale to apply to content
+        minScale: 0.2,
+
+        maxScale: 2,
+
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+    window.document.addEventListener("DOMContentLoaded", function (event) {
+      const toggleBodyColorMode = (bsSheetEl) => {
+        const mode = bsSheetEl.getAttribute("data-mode");
+        const bodyEl = window.document.querySelector("body");
+        if (mode === "dark") {
+          bodyEl.classList.add("quarto-dark");
+          bodyEl.classList.remove("quarto-light");
+        } else {
+          bodyEl.classList.add("quarto-light");
+          bodyEl.classList.remove("quarto-dark");
+        }
+      }
+      const toggleBodyColorPrimary = () => {
+        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+        if (bsSheetEl) {
+          toggleBodyColorMode(bsSheetEl);
+        }
+      }
+      toggleBodyColorPrimary();  
+      const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+      tabsets.forEach(function(tabset) {
+        const tabby = new Tabby('#' + tabset.id);
+      });
+      const isCodeAnnotation = (el) => {
+        for (const clz of el.classList) {
+          if (clz.startsWith('code-annotation-')) {                     
+            return true;
+          }
+        }
+        return false;
+      }
+      const onCopySuccess = function(e) {
+        // button target
+        const button = e.trigger;
+        // don't keep focus
+        button.blur();
+        // flash "checked"
+        button.classList.add('code-copy-button-checked');
+        var currentTitle = button.getAttribute("title");
+        button.setAttribute("title", "Copied!");
+        let tooltip;
+        if (window.bootstrap) {
+          button.setAttribute("data-bs-toggle", "tooltip");
+          button.setAttribute("data-bs-placement", "left");
+          button.setAttribute("data-bs-title", "Copied!");
+          tooltip = new bootstrap.Tooltip(button, 
+            { trigger: "manual", 
+              customClass: "code-copy-button-tooltip",
+              offset: [0, -8]});
+          tooltip.show();    
+        }
+        setTimeout(function() {
+          if (tooltip) {
+            tooltip.hide();
+            button.removeAttribute("data-bs-title");
+            button.removeAttribute("data-bs-toggle");
+            button.removeAttribute("data-bs-placement");
+          }
+          button.setAttribute("title", currentTitle);
+          button.classList.remove('code-copy-button-checked');
+        }, 1000);
+        // clear code selection
+        e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
+      });
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp('/' + window.location.host + '/');
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+        const config = {
+          allowHTML: true,
+          maxWidth: 500,
+          delay: 100,
+          arrow: false,
+          appendTo: function(el) {
+              return el.closest('section.slide') || el.parentElement;
+          },
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start',
+        };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
+          config['offset'] = [0,0];
+          config['maxWidth'] = 700;
+        window.tippy(el, config); 
+      }
+      const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+      for (var i=0; i<noterefs.length; i++) {
+        const ref = noterefs[i];
+        tippyHover(ref, function() {
+          // use id or data attribute instead here
+          let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+          try { href = new URL(href).hash; } catch {}
+          const id = href.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
+        });
+      }
+      const findCites = (el) => {
+        const parentEl = el.parentElement;
+        if (parentEl) {
+          const cites = parentEl.dataset.cites;
+          if (cites) {
+            return {
+              el,
+              cites: cites.split(' ')
+            };
+          } else {
+            return findCites(el.parentElement)
+          }
+        } else {
+          return undefined;
+        }
+      };
+      var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+      for (var i=0; i<bibliorefs.length; i++) {
+        const ref = bibliorefs[i];
+        const citeInfo = findCites(ref);
+        if (citeInfo) {
+          tippyHover(citeInfo.el, function() {
+            var popup = window.document.createElement('div');
+            citeInfo.cites.forEach(function(cite) {
+              var citeDiv = window.document.createElement('div');
+              citeDiv.classList.add('hanging-indent');
+              citeDiv.classList.add('csl-entry');
+              var biblioDiv = window.document.getElementById('ref-' + cite);
+              if (biblioDiv) {
+                citeDiv.innerHTML = biblioDiv.innerHTML;
+              }
+              popup.appendChild(citeDiv);
+            });
+            return popup.innerHTML;
+          });
+        }
+      }
+    });
+    </script>
+    
+
+</body></html>
