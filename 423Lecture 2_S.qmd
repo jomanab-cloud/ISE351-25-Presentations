@@ -1,0 +1,473 @@
+---
+title: "Introduction to R and RStudio"
+subtitle: "Part 1: Basics (Follow Along in RStudio)"
+author: "Dr. Jomana Bashatah"
+
+format: 
+  revealjs:
+    theme: [default, Theme/custom.scss]
+    #footer: "ISE 423 - Special Topics | Dr. Jomana Bashatah| Lecture 2"
+    highlight-style: github
+    slide-number: true
+    #chalkboard: true
+    self-contained: true
+    width: 1920
+    height: 1080
+    margin: 0.05
+    min-scale: 0.2
+    max-scale: 3.0
+    code-fold: true
+    scrollable: true
+execute:
+  echo: true
+  
+#format: 
+  #pptx:
+    #slide-level: 2
+    #fig-width: 10
+    #fig-height: 6
+    #fig-dpi: 150
+    #df-print: kable
+    #toc: false
+---
+
+## Learning Outcomes
+
+What you will learn in this session:
+
+- How to install R and RStudio
+- What is the windows layout of RStudio
+- How to setup RStudio 
+- How to create a project (folder) in RStudio 
+- How to use major functionalities of RStudio 
+- How to extend R's functionality with R-packages 
+- Which packages you should install for this course
+- Data types and data objects in R 
+- How very big and very small numbers can be displayed
+
+---
+
+## Install and Setup R and RStudio
+
+A typical setup to work with R consists of two components:
+
+- **The R Console** which executes R code
+- **An integrated development environment (IDE)** such as RStudio
+
+You can download and install R and RStudio by following the steps in:
+
+[https://ise423-25.blogspot.com/2025/09/installing-r-and-rstudio-complete-step.html](https://ise423-25.blogspot.com/2025/09/installing-r-and-rstudio-complete-step.html)
+
+---
+
+## RStudio - Integrated Development Environment (IDE)
+
+RStudio provides a user-friendly interface with four main panes:
+
+- **Source Editor** (top-left): Write and edit R scripts
+- **Console** (bottom-left): Execute R commands directly
+- **Environment/History** (top-right): View variables and command history
+- **Files/Plots/Packages/Help** (bottom-right): Manage files, view plots, install packages
+
+![RStudio Window](Images/RStudio.png) 
+
+---
+
+## Recommended RStudio Settings
+
+### Essential Setup Steps:
+
+1. **Do not Restore .RData into workspace at startup:**
+   - Go to Tools → Global Options
+   - Uncheck "Restore .RData into workspace at startup"
+
+2. **Work with R Projects:**
+   - This assigns a directory on your hard drive to your R analysis
+   - File → New Project
+
+---
+
+## R Packages
+
+R Packages extend R's functionality. They have to be installed only once:
+
+```{r}
+#| echo: true
+#| eval: false
+# Install packages using Tools -> Install Packages... or:
+install.packages(c("tidyverse", "rio"))
+```
+
+After installation they need to be loaded every new R script:
+
+```{r}
+#| echo: true
+#| eval: false
+library(rio)
+library(tidyverse)
+```
+
+
+Please install these packages soon:
+
+- **tidyverse**: supports easy data processing
+- **rio**: allows loading various data resources with one import() command
+- **janitor**: provides functionality to clean data and rename variable names
+- **tidymodels**: streamlines data engineering and machine learning tasks
+- **kableExtra**: supports rendering tables in HTML
+- **shiny**: needed together with the *learnr* package for interactive exercises
+
+---
+
+## Example: The rio and tidyverse Package
+
+```{r}
+#| echo: true
+#| eval: true
+library(rio); library(tidyverse)
+
+DataHousing = import("Data/HousingData.csv") |> 
+  select(Price=price, Sqft=sqft_living, 
+         Bedrooms=bedrooms, Waterfront=waterfront) 
+
+print(DataHousing[1:3,])
+```
+
+**Note:** `import()` requires rio package; `select()` requires tidyverse package
+
+---
+
+## Data Types & Data Objects Overview
+
+### Data Types: What can R store?
+- **numerical** (num)
+- **character** (chr)
+- **factor** 
+- **logic** 
+
+### Data Objects: What containers does R use?
+- **single entry** - single variable 
+- **list of entries** - vectors
+- **table** - dataframe and tibble
+- **advanced objects** - plots, models, prediction results
+
+---
+
+## Data Types
+
+::: {.panel-tabset}
+
+## Main
+
+- **Numerical Data Type (num)**: Numerical values (e.g., 1, 523, 3.45) used for calculation. ZIP-Codes are NOT numerical data type.
+
+- **Character Data Type (chr)**: Storing sequence of characters, numbers, and/or symbols (e.g. first/last names, street addresses, Zip-codes)
+
+- **Factor Data Type (factor)**: A factor is an R data type that stores categorical data in an effective way. factor data types are also required by many classification models in R.
+
+- **Logic Data Type (logic)**: A data type that stores the logic states TRUE and FALSE is called a logic object (sometimes called Boolean)
+
+## Numerical
+
+Numerical values are used for calculations (therefore ZIP-Codes are not numerical). 
+Numerical data can be discrete (integer) or continuous (double).
+
+```{r}
+#| echo: true
+#| evaluate: true
+A = as.integer(2)
+B = as.integer(3)
+str(A)  # str() returns structure of a variable
+```
+
+```{r}
+#| echo: true
+#| evaluate: true
+C = 1.23
+str(C)
+```
+
+```{r}
+#| echo: true
+#| evaluate: true
+print(A * C)
+A^B
+A/B  # Returns num type
+```
+
+## Character
+
+**Note:** What is called a "character" in R is often called a "string" in other programming languages.
+
+Character data types must be surrounded by quotes:
+
+```{r}
+#| echo: true
+#| evaluate: true
+MyText = "Hello world!"
+print(MyText)
+```
+
+Character variables can be concatenated with the `cat()` command:
+
+```{r}
+#| echo: true
+#| evaluate: true
+FirstName = "Jomana"
+LastName = "Bashatah"
+cat(FirstName, LastName)  # R adds a space automatically
+```
+
+## Factor
+
+A factor stores categorical data efficiently. Categorical data are character type data covering a few categories such as hair color (blonde, brown, red, black). They can be coded with numbers (e.g., 1-5 for hair color) and use less memory.
+
+```{r}
+#| echo: true
+#| eval: true
+People=tribble(~Name,~Sex,
+                  "John", "male",
+                  "Jane", "female",
+                  "Mia", "female",
+                  "Brid", "female",
+                  "Greg", "male")
+print(People)
+```
+
+
+## Logic
+
+Logic variables store TRUE and FALSE. They can be combined with and/or. 
+Internally TRUE is stored as 1 and FALSE is stored as 0.
+
+```{r}
+#| echo: true
+#| eval: true
+IsConcertGood = FALSE
+IsCompanyGood = TRUE
+cat("Is the concert good?", IsConcertGood, "Is the company good?", IsCompanyGood)
+```
+```{r}
+#| echo: true
+#| eval: true
+IsEveningAmazing=IsConcertGood & IsCompanyGood
+cat("Is the evening amazing?", IsEveningAmazing)
+```
+
+```{r}
+#| echo: true
+#| eval: true
+IsEveningGood = IsConcertGood | IsCompanyGood  # | stands for "or"
+cat("Is the evening good?", IsEveningGood)
+```
+
+```{r}
+#| echo: true
+#| eval: true
+IsConcertGood+IsCompanyGood+17
+```
+
+## Truth Table
+
+| R object A | R object B | A & B | A \| B |
+|------------|------------|-------|--------|
+| TRUE       | TRUE       | TRUE  | TRUE   |
+| TRUE       | FALSE      | FALSE | TRUE   |
+| FALSE      | TRUE       | FALSE | TRUE   |
+| FALSE      | FALSE      | FALSE | FALSE  |
+
+:::
+
+---
+
+## Data Objects
+
+- **Single Value Object**: Stores just one value
+- **Vector Object**: Stores a list of values
+- **Data Frame (Tibble) Object**: Table-like structure
+- **List Object**: (not covered in this course)
+- **Advanced Objects**: plots, models, recipes
+
+---
+
+## Single Value Object
+
+Object stores a single value:
+
+```{r}
+#| echo: true
+A = 123.768
+B = 3
+C = "Hello World"
+IsLifeGood = TRUE
+```
+
+---
+
+## Vector Objects
+
+A vector object stores a list of values (numerical, character, factor, or logic).
+
+**Example:** Weather during the last three days in Stattown:
+
+```{r}
+#| echo: true
+#| eval: true
+VecTemp = c(70, 68, 55)
+VecWindSpeed = c("low", "low", "high")
+VecIsSunny = c(TRUE, TRUE, FALSE)
+```
+Vector objects can be used as arguments for an R command to calculate
+
+```{r}
+#| echo: true
+#| eval: true
+MeanForecTemp=mean(VecTemp)
+cat("The average forecasted temperature is", MeanForecTemp)
+```
+
+```{r}
+#| echo: true
+#| eval: true
+ForecDays=length(VecTemp)
+cat("The forecast is for", ForecDays, "days.")
+```
+---
+
+## Data Frames (Tibbles)
+
+A data frame is similar to an Excel table:
+
+| Survived | Pclass | Sex    | Age | FareInPounds |
+|----------|--------|--------|-----|--------------|
+| 0        | 3      | male   | 22  | 7.2500       |
+| 1        | 1      | female | 38  | 71.2833      |
+| 1        | 3      | female | 26  | 7.9250       |
+| 1        | 1      | female | 35  | 53.1000      |
+| 0        | 3      | male   | 35  | 8.0500       |
+
+---
+
+## Extracting Vectors and Performing Calculations
+
+### Numerical Vectors
+
+```{r}
+library(rio); library(tidyverse)
+DataTitanic = import("Data/Titanic.csv")
+```
+
+```{r}
+#| echo: true
+#| eval: true
+VecFareInPounds = DataTitanic$FareInPounds
+AvgFare = mean(VecFareInPounds)
+cat("The average fare of Titanic passengers was:", AvgFare, "British Pounds")
+```
+
+---
+
+## Extracting Vectors and Performing Calculations
+
+### Logical Vectors
+
+```{r}
+#| echo: true
+#| eval: true
+DataTitanic$Survived = as.logical(DataTitanic$Survived)
+str(DataTitanic)
+```
+
+```{r}
+#| echo: true
+#| eval: true
+SurvRate = mean(DataTitanic$Survived)
+cat("The average survival rate of Titanic passengers was:", SurvRate)
+```
+
+---
+
+## Data Frames vs. Tibbles
+
+A tibble is a more advanced sub-type of a data frame. Convert with `as_tibble()`:
+
+### Key Differences:
+
+A few of the differences between data frames and tibbles:  
+
+1. A data frame outputs all its rows and columns by default. A tibble outputs only the first 10 rows and the variables that fit on the screen but provides information about omitted variables and rows.  
+
+2. A data frame can have row names, while a tibble cannot.  
+ 
+3. In R version <4.1 a data frame converts all character values to factor type. This conversion was often confusing and annoying. In contrast, a tibble only coerces character values into factor on demand. Since R version 4.1 regular data frames behave the same as tibbles.
+
+---
+
+## Summary: Data Types and Objects
+![](Images/image.png)
+
+
+---
+
+## How Are Very Big Numbers Presented
+
+The GDP for 2021 in the US was $22,996,086,000,000 (rounded to millions)
+
+$$\begin{align}
+GDP &= 2.2996086 \cdot 10000000000000 \\
+&\Longleftrightarrow \\
+GDP &= 2.2996086 \cdot 10 \cdot 10 \cdot 10 \cdot 10 \cdot 10 \cdot 10 \cdot 10 \cdot 10 \cdot 10 \cdot 10 \cdot 10 \cdot 10 \cdot 10 \\
+&\Longleftrightarrow \\
+GDP &= 2.2996086 \cdot 10^{13}
+\end{align}$$
+
+**What R does:**
+
+```{r}
+#| echo: true
+#| eval: true
+GDPUS = 22996086000000
+print(GDPUS)
+```
+
+---
+
+## How Are Very Small Numbers Presented
+
+:::{.panel-tabset} 
+
+## main
+
+The probability of getting struck by lightning in the US is about 0.000000000365 on any randomly chosen day.
+
+$$\begin{align}
+ProbLight &= \frac{3.65}{10000000000} \\
+&\Longleftrightarrow \\
+ProbLight &= \frac{3.65}{10 \cdot 10 \cdot 10 \cdot 10 \cdot 10 \cdot 10 \cdot 10 \cdot 10 \cdot 10 \cdot 10} \\
+&\Longleftrightarrow \\
+ProbLight &= \frac{3.65}{10^{10}} \\
+&\Longleftrightarrow \\
+ProbLight &= 3.65 \cdot 10^{-10}
+\end{align}$$
+
+## Why?
+
+In the U.S., a person has a 1:10,000-lifetime risk of being struck by lightning. Assuming a life span of 75 years and 365.25 days per year, the probability per day is:
+
+$$\begin{align}
+\frac{1}{10,000 \cdot 365.25 \cdot 75} &= \frac{1}{273,937,500} \\
+&= 0.000000000365 \\
+&= 3.65 \times 10^{-10}
+\end{align}$$
+
+::: 
+
+### What R Does
+
+```{r}
+#| echo: true
+#| eval: true
+ProbStruck = 0.000000000365
+cat("Probability to get struck by lightning on an avg. day:", ProbStruck)
+```
+
