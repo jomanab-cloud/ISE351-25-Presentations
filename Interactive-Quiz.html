@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.42">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Test Your Knowledge!</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="Interactive-Quiz_files/libs/clipboard/clipboard.min.js"></script>
+<script src="Interactive-Quiz_files/libs/quarto-html/quarto.js"></script>
+<script src="Interactive-Quiz_files/libs/quarto-html/popper.min.js"></script>
+<script src="Interactive-Quiz_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="Interactive-Quiz_files/libs/quarto-html/anchor.min.js"></script>
+<link href="Interactive-Quiz_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="Interactive-Quiz_files/libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="Interactive-Quiz_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="Interactive-Quiz_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="Interactive-Quiz_files/libs/bootstrap/bootstrap-32162a2fca7cb0439643f2faaab1edf3.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script type="module" src="Interactive-Quiz_files/libs/quarto-ojs/quarto-ojs-runtime.js"></script>
+<link href="Interactive-Quiz_files/libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
+
+
+</head>
+
+<body>
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article toc-left">
+<div id="quarto-sidebar-toc-left" class="sidebar toc-left">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#test-your-knowledge" id="toc-test-your-knowledge" class="nav-link active" data-scroll-target="#test-your-knowledge">Test Your Knowledge!</a></li>
+  <li><a href="#question-1-entity-types" id="toc-question-1-entity-types" class="nav-link" data-scroll-target="#question-1-entity-types">Question 1: Entity Types</a></li>
+  <li><a href="#question-2-attributes" id="toc-question-2-attributes" class="nav-link" data-scroll-target="#question-2-attributes">Question 2: Attributes</a></li>
+  <li><a href="#question-3-cardinality-challenge" id="toc-question-3-cardinality-challenge" class="nav-link" data-scroll-target="#question-3-cardinality-challenge">Question 3: Cardinality Challenge</a></li>
+  <li><a href="#question-4-relationship-degrees" id="toc-question-4-relationship-degrees" class="nav-link" data-scroll-target="#question-4-relationship-degrees">Question 4: Relationship Degrees</a></li>
+  <li><a href="#question-5-participation-challenge" id="toc-question-5-participation-challenge" class="nav-link" data-scroll-target="#question-5-participation-challenge">Question 5: Participation Challenge</a></li>
+  <li><a href="#scenario-analysis-challenge" id="toc-scenario-analysis-challenge" class="nav-link" data-scroll-target="#scenario-analysis-challenge">Scenario Analysis Challenge</a></li>
+  <li><a href="#quick-fire-round" id="toc-quick-fire-round" class="nav-link" data-scroll-target="#quick-fire-round">Quick Fire Round!</a></li>
+  <li><a href="#final-challenge-design-time" id="toc-final-challenge-design-time" class="nav-link" data-scroll-target="#final-challenge-design-time">Final Challenge: Design Time!</a></li>
+  <li><a href="#how-did-you-do" id="toc-how-did-you-do" class="nav-link" data-scroll-target="#how-did-you-do">How Did You Do?</a></li>
+  <li><a href="#ready-for-the-next-challenge" id="toc-ready-for-the-next-challenge" class="nav-link" data-scroll-target="#ready-for-the-next-challenge">Ready for the Next Challenge?</a></li>
+  </ul>
+</nav>
+</div>
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+</div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Test Your Knowledge!</h1>
+<p class="subtitle lead">E-R Modeling Concepts Quiz</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="test-your-knowledge" class="level2 center">
+<h2 class="center anchored" data-anchor-id="test-your-knowledge">Test Your Knowledge!</h2>
+<p>Let’s see how well you understand E-R modeling concepts before we continue.</p>
+<p><strong>Interactive Quiz Game</strong></p>
+<hr>
+</section>
+<section id="question-1-entity-types" class="level2">
+<h2 class="anchored" data-anchor-id="question-1-entity-types">Question 1: Entity Types</h2>
+<div class="cell">
+<details class="code-fold hidden">
+<summary>Code</summary>
+<div class="sourceCode cell-code hidden" id="cb1" data-startfrom="26" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 25;"><span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>viewof q1_answer <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">radio</span>(</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>  [<span class="st">"Strong Entity"</span><span class="op">,</span> <span class="st">"Weak Entity"</span><span class="op">,</span> <span class="st">"Composite Entity"</span><span class="op">,</span> <span class="st">"Recursive Entity"</span>]<span class="op">,</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>  {</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>    <span class="dt">label</span><span class="op">:</span> <span class="st">"An EMPLOYEE entity that can exist independently in the database is called a:"</span><span class="op">,</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>    <span class="dt">value</span><span class="op">:</span> <span class="kw">null</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>q1_result <span class="op">=</span> {</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (q1_answer <span class="op">===</span> <span class="kw">null</span>) <span class="cf">return</span> <span class="st">""</span><span class="op">;</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (q1_answer <span class="op">===</span> <span class="st">"Strong Entity"</span>) {</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="fu">html</span><span class="vs">`&lt;div style="color: green; font-weight: bold; margin-top: 10px;"&gt;</span></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="vs">    ✓ Correct! A strong entity can exist independently and doesn't depend on other entities.</span></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="vs">    &lt;/div&gt;`</span><span class="op">;</span></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="fu">html</span><span class="vs">`&lt;div style="color: red; font-weight: bold; margin-top: 10px;"&gt;</span></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a><span class="vs">    ✗ Incorrect. Try again! Think about which type of entity can exist on its own.</span></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a><span class="vs">    &lt;/div&gt;`</span><span class="op">;</span></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-1-1" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-1-2" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+</div>
+<p><span><span id="ojs-element-id-1"></span></span></p>
+<hr>
+</section>
+<section id="question-2-attributes" class="level2">
+<h2 class="anchored" data-anchor-id="question-2-attributes">Question 2: Attributes</h2>
+<div class="cell">
+<details class="code-fold hidden">
+<summary>Code</summary>
+<div class="sourceCode cell-code hidden" id="cb2" data-startfrom="56" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 55;"><span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a>viewof q2_answer <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">checkbox</span>(</span>
+<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a>  [<span class="st">"Primary key attributes"</span><span class="op">,</span> <span class="st">"Foreign key attributes"</span><span class="op">,</span> <span class="st">"Composite attributes"</span><span class="op">,</span> <span class="st">"Multi-valued attributes"</span><span class="op">,</span> <span class="st">"Derived attributes"</span>]<span class="op">,</span></span>
+<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a>  {</span>
+<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a>    <span class="dt">label</span><span class="op">:</span> <span class="st">"Which of the following are typically shown in E-R diagrams? (Select all that apply):"</span><span class="op">,</span></span>
+<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a>    <span class="dt">value</span><span class="op">:</span> []</span>
+<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a>q2_result <span class="op">=</span> {</span>
+<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (q2_answer<span class="op">.</span><span class="at">length</span> <span class="op">===</span> <span class="dv">0</span>) <span class="cf">return</span> <span class="st">""</span><span class="op">;</span></span>
+<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> correct <span class="op">=</span> [<span class="st">"Primary key attributes"</span><span class="op">,</span> <span class="st">"Composite attributes"</span><span class="op">,</span> <span class="st">"Multi-valued attributes"</span>]<span class="op">;</span></span>
+<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> isCorrect <span class="op">=</span> correct<span class="op">.</span><span class="fu">every</span>(item <span class="kw">=&gt;</span> q2_answer<span class="op">.</span><span class="fu">includes</span>(item)) <span class="op">&amp;&amp;</span> </span>
+<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a>                   <span class="op">!</span>q2_answer<span class="op">.</span><span class="fu">includes</span>(<span class="st">"Foreign key attributes"</span>) <span class="op">&amp;&amp;</span> </span>
+<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a>                   <span class="op">!</span>q2_answer<span class="op">.</span><span class="fu">includes</span>(<span class="st">"Derived attributes"</span>)<span class="op">;</span></span>
+<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (isCorrect) {</span>
+<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="fu">html</span><span class="vs">`&lt;div style="color: green; font-weight: bold; margin-top: 10px;"&gt;</span></span>
+<span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a><span class="vs">    ✓ Excellent! E-R diagrams show primary keys (underlined), composite attributes, and multi-valued attributes (double lines). Foreign keys are implied by relationships and derived attributes are usually not shown at the conceptual level.</span></span>
+<span id="cb2-75"><a href="#cb2-75" aria-hidden="true" tabindex="-1"></a><span class="vs">    &lt;/div&gt;`</span><span class="op">;</span></span>
+<span id="cb2-76"><a href="#cb2-76" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb2-77"><a href="#cb2-77" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="fu">html</span><span class="vs">`&lt;div style="color: orange; font-weight: bold; margin-top: 10px;"&gt;</span></span>
+<span id="cb2-78"><a href="#cb2-78" aria-hidden="true" tabindex="-1"></a><span class="vs">    Partially correct. Remember: Foreign keys are not explicitly shown in E-R diagrams - they're implied by the relationships. Derived attributes are typically not included at the conceptual level.</span></span>
+<span id="cb2-79"><a href="#cb2-79" aria-hidden="true" tabindex="-1"></a><span class="vs">    &lt;/div&gt;`</span><span class="op">;</span></span>
+<span id="cb2-80"><a href="#cb2-80" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb2-81"><a href="#cb2-81" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-2-1" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-2-2" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+</div>
+<p><span><span id="ojs-element-id-2"></span></span></p>
+<hr>
+</section>
+<section id="question-3-cardinality-challenge" class="level2">
+<h2 class="anchored" data-anchor-id="question-3-cardinality-challenge">Question 3: Cardinality Challenge</h2>
+<div class="cell">
+<details class="code-fold hidden">
+<summary>Code</summary>
+<div class="sourceCode cell-code hidden" id="cb3" data-startfrom="92" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 91;"><span id="cb3-92"><a href="#cb3-92" aria-hidden="true" tabindex="-1"></a>viewof q3_answer <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">radio</span>(</span>
+<span id="cb3-93"><a href="#cb3-93" aria-hidden="true" tabindex="-1"></a>  [<span class="st">"1:1 (One-to-One)"</span><span class="op">,</span> <span class="st">"1:M (One-to-Many)"</span><span class="op">,</span> <span class="st">"M:N (Many-to-Many)"</span><span class="op">,</span> <span class="st">"Cannot be determined"</span>]<span class="op">,</span></span>
+<span id="cb3-94"><a href="#cb3-94" aria-hidden="true" tabindex="-1"></a>  {</span>
+<span id="cb3-95"><a href="#cb3-95" aria-hidden="true" tabindex="-1"></a>    <span class="dt">label</span><span class="op">:</span> <span class="st">"A STUDENT can enroll in many COURSES, and each COURSE can have many STUDENTS. What is the cardinality?"</span><span class="op">,</span></span>
+<span id="cb3-96"><a href="#cb3-96" aria-hidden="true" tabindex="-1"></a>    <span class="dt">value</span><span class="op">:</span> <span class="kw">null</span></span>
+<span id="cb3-97"><a href="#cb3-97" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb3-98"><a href="#cb3-98" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-99"><a href="#cb3-99" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-100"><a href="#cb3-100" aria-hidden="true" tabindex="-1"></a>q3_result <span class="op">=</span> {</span>
+<span id="cb3-101"><a href="#cb3-101" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (q3_answer <span class="op">===</span> <span class="kw">null</span>) <span class="cf">return</span> <span class="st">""</span><span class="op">;</span></span>
+<span id="cb3-102"><a href="#cb3-102" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (q3_answer <span class="op">===</span> <span class="st">"M:N (Many-to-Many)"</span>) {</span>
+<span id="cb3-103"><a href="#cb3-103" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="fu">html</span><span class="vs">`&lt;div style="color: green; font-weight: bold; margin-top: 10px;"&gt;</span></span>
+<span id="cb3-104"><a href="#cb3-104" aria-hidden="true" tabindex="-1"></a><span class="vs">    ✓ Perfect! This is a classic many-to-many relationship. In implementation, this would need a composite entity (like ENROLLMENT) to resolve it into two 1:M relationships.</span></span>
+<span id="cb3-105"><a href="#cb3-105" aria-hidden="true" tabindex="-1"></a><span class="vs">    &lt;/div&gt;`</span><span class="op">;</span></span>
+<span id="cb3-106"><a href="#cb3-106" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb3-107"><a href="#cb3-107" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="fu">html</span><span class="vs">`&lt;div style="color: red; font-weight: bold; margin-top: 10px;"&gt;</span></span>
+<span id="cb3-108"><a href="#cb3-108" aria-hidden="true" tabindex="-1"></a><span class="vs">    ✗ Think again. If one student can take multiple courses AND one course can have multiple students, what does that tell you about the relationship?</span></span>
+<span id="cb3-109"><a href="#cb3-109" aria-hidden="true" tabindex="-1"></a><span class="vs">    &lt;/div&gt;`</span><span class="op">;</span></span>
+<span id="cb3-110"><a href="#cb3-110" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb3-111"><a href="#cb3-111" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-3-1" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-3-2" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+</div>
+<p><span><span id="ojs-element-id-3"></span></span></p>
+<hr>
+</section>
+<section id="question-4-relationship-degrees" class="level2">
+<h2 class="anchored" data-anchor-id="question-4-relationship-degrees">Question 4: Relationship Degrees</h2>
+<div class="cell">
+<details class="code-fold hidden">
+<summary>Code</summary>
+<div class="sourceCode cell-code hidden" id="cb4" data-startfrom="122" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 121;"><span id="cb4-122"><a href="#cb4-122" aria-hidden="true" tabindex="-1"></a>viewof q4_answer <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">select</span>(</span>
+<span id="cb4-123"><a href="#cb4-123" aria-hidden="true" tabindex="-1"></a>  [<span class="st">"Binary"</span><span class="op">,</span> <span class="st">"Ternary"</span><span class="op">,</span> <span class="st">"Quaternary"</span><span class="op">,</span> <span class="st">"Unary"</span>]<span class="op">,</span></span>
+<span id="cb4-124"><a href="#cb4-124" aria-hidden="true" tabindex="-1"></a>  {</span>
+<span id="cb4-125"><a href="#cb4-125" aria-hidden="true" tabindex="-1"></a>    <span class="dt">label</span><span class="op">:</span> <span class="st">"A relationship involving VENDOR, MATERIAL, and QUALITY_TEST entities is called:"</span><span class="op">,</span></span>
+<span id="cb4-126"><a href="#cb4-126" aria-hidden="true" tabindex="-1"></a>    <span class="dt">value</span><span class="op">:</span> <span class="kw">null</span></span>
+<span id="cb4-127"><a href="#cb4-127" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb4-128"><a href="#cb4-128" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb4-129"><a href="#cb4-129" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-130"><a href="#cb4-130" aria-hidden="true" tabindex="-1"></a>q4_result <span class="op">=</span> {</span>
+<span id="cb4-131"><a href="#cb4-131" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (q4_answer <span class="op">===</span> <span class="kw">null</span>) <span class="cf">return</span> <span class="st">""</span><span class="op">;</span></span>
+<span id="cb4-132"><a href="#cb4-132" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (q4_answer <span class="op">===</span> <span class="st">"Ternary"</span>) {</span>
+<span id="cb4-133"><a href="#cb4-133" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="fu">html</span><span class="vs">`&lt;div style="color: green; font-weight: bold; margin-top: 10px;"&gt;</span></span>
+<span id="cb4-134"><a href="#cb4-134" aria-hidden="true" tabindex="-1"></a><span class="vs">    ✓ Correct! A ternary relationship involves exactly three entities. This means a specific vendor tests a specific material with a specific quality test.</span></span>
+<span id="cb4-135"><a href="#cb4-135" aria-hidden="true" tabindex="-1"></a><span class="vs">    &lt;/div&gt;`</span><span class="op">;</span></span>
+<span id="cb4-136"><a href="#cb4-136" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (q4_answer <span class="op">===</span> <span class="st">"Binary"</span>) {</span>
+<span id="cb4-137"><a href="#cb4-137" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="fu">html</span><span class="vs">`&lt;div style="color: red; font-weight: bold; margin-top: 10px;"&gt;</span></span>
+<span id="cb4-138"><a href="#cb4-138" aria-hidden="true" tabindex="-1"></a><span class="vs">    ✗ Binary relationships involve only two entities. Count again!</span></span>
+<span id="cb4-139"><a href="#cb4-139" aria-hidden="true" tabindex="-1"></a><span class="vs">    &lt;/div&gt;`</span><span class="op">;</span></span>
+<span id="cb4-140"><a href="#cb4-140" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (q4_answer <span class="op">===</span> <span class="st">"Unary"</span>) {</span>
+<span id="cb4-141"><a href="#cb4-141" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="fu">html</span><span class="vs">`&lt;div style="color: red; font-weight: bold; margin-top: 10px;"&gt;</span></span>
+<span id="cb4-142"><a href="#cb4-142" aria-hidden="true" tabindex="-1"></a><span class="vs">    ✗ Unary relationships involve one entity relating to itself. This involves three different entities.</span></span>
+<span id="cb4-143"><a href="#cb4-143" aria-hidden="true" tabindex="-1"></a><span class="vs">    &lt;/div&gt;`</span><span class="op">;</span></span>
+<span id="cb4-144"><a href="#cb4-144" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb4-145"><a href="#cb4-145" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="fu">html</span><span class="vs">`&lt;div style="color: red; font-weight: bold; margin-top: 10px;"&gt;</span></span>
+<span id="cb4-146"><a href="#cb4-146" aria-hidden="true" tabindex="-1"></a><span class="vs">    ✗ Quaternary would be four entities. We have three entities here.</span></span>
+<span id="cb4-147"><a href="#cb4-147" aria-hidden="true" tabindex="-1"></a><span class="vs">    &lt;/div&gt;`</span><span class="op">;</span></span>
+<span id="cb4-148"><a href="#cb4-148" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb4-149"><a href="#cb4-149" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-4-1" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-4-2" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+</div>
+<p><span><span id="ojs-element-id-4"></span></span></p>
+<hr>
+</section>
+<section id="question-5-participation-challenge" class="level2">
+<h2 class="anchored" data-anchor-id="question-5-participation-challenge">Question 5: Participation Challenge</h2>
+<div class="cell">
+<details class="code-fold hidden">
+<summary>Code</summary>
+<div class="sourceCode cell-code hidden" id="cb5" data-startfrom="160" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 159;"><span id="cb5-160"><a href="#cb5-160" aria-hidden="true" tabindex="-1"></a>viewof q5_answer <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">radio</span>(</span>
+<span id="cb5-161"><a href="#cb5-161" aria-hidden="true" tabindex="-1"></a>  [<span class="st">"EMPLOYEE has optional participation"</span><span class="op">,</span> <span class="st">"PROJECT has optional participation"</span><span class="op">,</span> <span class="st">"Both have mandatory participation"</span><span class="op">,</span> <span class="st">"Both have optional participation"</span>]<span class="op">,</span></span>
+<span id="cb5-162"><a href="#cb5-162" aria-hidden="true" tabindex="-1"></a>  {</span>
+<span id="cb5-163"><a href="#cb5-163" aria-hidden="true" tabindex="-1"></a>    <span class="dt">label</span><span class="op">:</span> <span class="st">"If 'Every PROJECT must have a manager' but 'Not every EMPLOYEE manages a project', what can you say about participation?"</span><span class="op">,</span></span>
+<span id="cb5-164"><a href="#cb5-164" aria-hidden="true" tabindex="-1"></a>    <span class="dt">value</span><span class="op">:</span> <span class="kw">null</span></span>
+<span id="cb5-165"><a href="#cb5-165" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb5-166"><a href="#cb5-166" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb5-167"><a href="#cb5-167" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-168"><a href="#cb5-168" aria-hidden="true" tabindex="-1"></a>q5_result <span class="op">=</span> {</span>
+<span id="cb5-169"><a href="#cb5-169" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (q5_answer <span class="op">===</span> <span class="kw">null</span>) <span class="cf">return</span> <span class="st">""</span><span class="op">;</span></span>
+<span id="cb5-170"><a href="#cb5-170" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (q5_answer <span class="op">===</span> <span class="st">"EMPLOYEE has optional participation"</span>) {</span>
+<span id="cb5-171"><a href="#cb5-171" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="fu">html</span><span class="vs">`&lt;div style="color: green; font-weight: bold; margin-top: 10px;"&gt;</span></span>
+<span id="cb5-172"><a href="#cb5-172" aria-hidden="true" tabindex="-1"></a><span class="vs">    ✓ Exactly right! EMPLOYEE has optional participation (shown with single line) because not all employees are managers. PROJECT has mandatory participation (double line) because every project needs a manager.</span></span>
+<span id="cb5-173"><a href="#cb5-173" aria-hidden="true" tabindex="-1"></a><span class="vs">    &lt;/div&gt;`</span><span class="op">;</span></span>
+<span id="cb5-174"><a href="#cb5-174" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb5-175"><a href="#cb5-175" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="fu">html</span><span class="vs">`&lt;div style="color: red; font-weight: bold; margin-top: 10px;"&gt;</span></span>
+<span id="cb5-176"><a href="#cb5-176" aria-hidden="true" tabindex="-1"></a><span class="vs">    ✗ Read the business rule carefully. What does 'not every employee manages a project' tell you about employee participation?</span></span>
+<span id="cb5-177"><a href="#cb5-177" aria-hidden="true" tabindex="-1"></a><span class="vs">    &lt;/div&gt;`</span><span class="op">;</span></span>
+<span id="cb5-178"><a href="#cb5-178" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb5-179"><a href="#cb5-179" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-5-1" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-5-2" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+</div>
+<p><span><span id="ojs-element-id-5"></span></span></p>
+<hr>
+</section>
+<section id="scenario-analysis-challenge" class="level2">
+<h2 class="anchored" data-anchor-id="scenario-analysis-challenge">Scenario Analysis Challenge</h2>
+<p><strong>Real-World Scenario:</strong> A university library system</p>
+<div class="cell">
+<details class="code-fold hidden">
+<summary>Code</summary>
+<div class="sourceCode cell-code hidden" id="cb6" data-startfrom="192" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 191;"><span id="cb6-192"><a href="#cb6-192" aria-hidden="true" tabindex="-1"></a>viewof scenario_answers <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">form</span>({</span>
+<span id="cb6-193"><a href="#cb6-193" aria-hidden="true" tabindex="-1"></a>  <span class="dt">entity_type</span><span class="op">:</span> Inputs<span class="op">.</span><span class="fu">radio</span>(</span>
+<span id="cb6-194"><a href="#cb6-194" aria-hidden="true" tabindex="-1"></a>    [<span class="st">"BOOK is strong, COPY is weak"</span><span class="op">,</span> <span class="st">"BOOK is weak, COPY is strong"</span><span class="op">,</span> <span class="st">"Both are strong"</span><span class="op">,</span> <span class="st">"Both are weak"</span>]<span class="op">,</span></span>
+<span id="cb6-195"><a href="#cb6-195" aria-hidden="true" tabindex="-1"></a>    {<span class="dt">label</span><span class="op">:</span> <span class="st">"BOOK entity contains book information. COPY entity represents individual physical copies. Which is correct?"</span>}</span>
+<span id="cb6-196"><a href="#cb6-196" aria-hidden="true" tabindex="-1"></a>  )<span class="op">,</span></span>
+<span id="cb6-197"><a href="#cb6-197" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb6-198"><a href="#cb6-198" aria-hidden="true" tabindex="-1"></a>  <span class="dt">cardinality</span><span class="op">:</span> Inputs<span class="op">.</span><span class="fu">radio</span>(</span>
+<span id="cb6-199"><a href="#cb6-199" aria-hidden="true" tabindex="-1"></a>    [<span class="st">"1:1"</span><span class="op">,</span> <span class="st">"1:M"</span><span class="op">,</span> <span class="st">"M:N"</span><span class="op">,</span> <span class="st">"Cannot determine"</span>]<span class="op">,</span></span>
+<span id="cb6-200"><a href="#cb6-200" aria-hidden="true" tabindex="-1"></a>    {<span class="dt">label</span><span class="op">:</span> <span class="st">"One BOOK can have many COPIES, each COPY belongs to one BOOK. What's the cardinality?"</span>}</span>
+<span id="cb6-201"><a href="#cb6-201" aria-hidden="true" tabindex="-1"></a>  )<span class="op">,</span></span>
+<span id="cb6-202"><a href="#cb6-202" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb6-203"><a href="#cb6-203" aria-hidden="true" tabindex="-1"></a>  <span class="dt">participation</span><span class="op">:</span> Inputs<span class="op">.</span><span class="fu">radio</span>(</span>
+<span id="cb6-204"><a href="#cb6-204" aria-hidden="true" tabindex="-1"></a>    [<span class="st">"BOOK optional, COPY mandatory"</span><span class="op">,</span> <span class="st">"BOOK mandatory, COPY optional"</span><span class="op">,</span> <span class="st">"Both mandatory"</span><span class="op">,</span> <span class="st">"Both optional"</span>]<span class="op">,</span></span>
+<span id="cb6-205"><a href="#cb6-205" aria-hidden="true" tabindex="-1"></a>    {<span class="dt">label</span><span class="op">:</span> <span class="st">"Every COPY must be of some BOOK, but a BOOK might not have any COPIES yet (just ordered). Participation?"</span>}</span>
+<span id="cb6-206"><a href="#cb6-206" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb6-207"><a href="#cb6-207" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb6-208"><a href="#cb6-208" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-209"><a href="#cb6-209" aria-hidden="true" tabindex="-1"></a>scenario_result <span class="op">=</span> {</span>
+<span id="cb6-210"><a href="#cb6-210" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="op">!</span>scenario_answers<span class="op">.</span><span class="at">entity_type</span> <span class="op">||</span> <span class="op">!</span>scenario_answers<span class="op">.</span><span class="at">cardinality</span> <span class="op">||</span> <span class="op">!</span>scenario_answers<span class="op">.</span><span class="at">participation</span>) {</span>
+<span id="cb6-211"><a href="#cb6-211" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="st">""</span><span class="op">;</span></span>
+<span id="cb6-212"><a href="#cb6-212" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb6-213"><a href="#cb6-213" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb6-214"><a href="#cb6-214" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> score <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb6-215"><a href="#cb6-215" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> feedback <span class="op">=</span> []<span class="op">;</span></span>
+<span id="cb6-216"><a href="#cb6-216" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb6-217"><a href="#cb6-217" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (scenario_answers<span class="op">.</span><span class="at">entity_type</span> <span class="op">===</span> <span class="st">"BOOK is strong, COPY is weak"</span>) {</span>
+<span id="cb6-218"><a href="#cb6-218" aria-hidden="true" tabindex="-1"></a>    score<span class="op">++;</span></span>
+<span id="cb6-219"><a href="#cb6-219" aria-hidden="true" tabindex="-1"></a>    feedback<span class="op">.</span><span class="fu">push</span>(<span class="st">"✓ Correct! BOOK is strong (exists independently), COPY is weak (depends on BOOK)"</span>)<span class="op">;</span></span>
+<span id="cb6-220"><a href="#cb6-220" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb6-221"><a href="#cb6-221" aria-hidden="true" tabindex="-1"></a>    feedback<span class="op">.</span><span class="fu">push</span>(<span class="st">"✗ Think about dependency: Can a copy exist without knowing which book it is?"</span>)<span class="op">;</span></span>
+<span id="cb6-222"><a href="#cb6-222" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb6-223"><a href="#cb6-223" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb6-224"><a href="#cb6-224" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (scenario_answers<span class="op">.</span><span class="at">cardinality</span> <span class="op">===</span> <span class="st">"1:M"</span>) {</span>
+<span id="cb6-225"><a href="#cb6-225" aria-hidden="true" tabindex="-1"></a>    score<span class="op">++;</span></span>
+<span id="cb6-226"><a href="#cb6-226" aria-hidden="true" tabindex="-1"></a>    feedback<span class="op">.</span><span class="fu">push</span>(<span class="st">"✓ Right! One book to many copies"</span>)<span class="op">;</span></span>
+<span id="cb6-227"><a href="#cb6-227" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb6-228"><a href="#cb6-228" aria-hidden="true" tabindex="-1"></a>    feedback<span class="op">.</span><span class="fu">push</span>(<span class="st">"✗ One book can have multiple copies, each copy is of one book"</span>)<span class="op">;</span></span>
+<span id="cb6-229"><a href="#cb6-229" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb6-230"><a href="#cb6-230" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb6-231"><a href="#cb6-231" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (scenario_answers<span class="op">.</span><span class="at">participation</span> <span class="op">===</span> <span class="st">"BOOK optional, COPY mandatory"</span>) {</span>
+<span id="cb6-232"><a href="#cb6-232" aria-hidden="true" tabindex="-1"></a>    score<span class="op">++;</span></span>
+<span id="cb6-233"><a href="#cb6-233" aria-hidden="true" tabindex="-1"></a>    feedback<span class="op">.</span><span class="fu">push</span>(<span class="st">"✓ Perfect! COPY must relate to a BOOK (mandatory), but BOOK might not have copies yet (optional)"</span>)<span class="op">;</span></span>
+<span id="cb6-234"><a href="#cb6-234" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb6-235"><a href="#cb6-235" aria-hidden="true" tabindex="-1"></a>    feedback<span class="op">.</span><span class="fu">push</span>(<span class="st">"✗ Consider: Must every copy belong to a book? Can a book exist without copies?"</span>)<span class="op">;</span></span>
+<span id="cb6-236"><a href="#cb6-236" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb6-237"><a href="#cb6-237" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb6-238"><a href="#cb6-238" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> color <span class="op">=</span> score <span class="op">===</span> <span class="dv">3</span> <span class="op">?</span> <span class="st">"green"</span> <span class="op">:</span> score <span class="op">&gt;=</span> <span class="dv">2</span> <span class="op">?</span> <span class="st">"orange"</span> <span class="op">:</span> <span class="st">"red"</span><span class="op">;</span></span>
+<span id="cb6-239"><a href="#cb6-239" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> message <span class="op">=</span> score <span class="op">===</span> <span class="dv">3</span> <span class="op">?</span> <span class="st">"Excellent work!"</span> <span class="op">:</span> score <span class="op">&gt;=</span> <span class="dv">2</span> <span class="op">?</span> <span class="st">"Good job, review the missed concepts"</span> <span class="op">:</span> <span class="st">"Review the concepts and try again"</span><span class="op">;</span></span>
+<span id="cb6-240"><a href="#cb6-240" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb6-241"><a href="#cb6-241" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="fu">html</span><span class="vs">`&lt;div style="color: </span><span class="sc">${</span>color<span class="sc">}</span><span class="vs">; font-weight: bold; margin-top: 15px;"&gt;</span></span>
+<span id="cb6-242"><a href="#cb6-242" aria-hidden="true" tabindex="-1"></a><span class="vs">    &lt;div&gt;Score: </span><span class="sc">${</span>score<span class="sc">}</span><span class="vs">/3 - </span><span class="sc">${</span>message<span class="sc">}</span><span class="vs">&lt;/div&gt;</span></span>
+<span id="cb6-243"><a href="#cb6-243" aria-hidden="true" tabindex="-1"></a><span class="vs">    </span><span class="sc">${</span>feedback<span class="op">.</span><span class="fu">map</span>(f <span class="kw">=&gt;</span> <span class="fu">html</span><span class="vs">`&lt;div style="margin: 5px 0;"&gt;</span><span class="sc">${</span>f<span class="sc">}</span><span class="vs">&lt;/div&gt;`</span>)<span class="sc">}</span></span>
+<span id="cb6-244"><a href="#cb6-244" aria-hidden="true" tabindex="-1"></a><span class="vs">  &lt;/div&gt;`</span><span class="op">;</span></span>
+<span id="cb6-245"><a href="#cb6-245" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-6-1" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-6-2" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+</div>
+<p><span><span id="ojs-element-id-6"></span></span></p>
+<hr>
+</section>
+<section id="quick-fire-round" class="level2 center">
+<h2 class="center anchored" data-anchor-id="quick-fire-round">Quick Fire Round!</h2>
+<p><strong>30 seconds each - Think fast!</strong></p>
+<div class="cell">
+<details class="code-fold hidden">
+<summary>Code</summary>
+<div class="sourceCode cell-code hidden" id="cb7" data-startfrom="258" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 257;"><span id="cb7-258"><a href="#cb7-258" aria-hidden="true" tabindex="-1"></a>viewof quickfire <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">form</span>({</span>
+<span id="cb7-259"><a href="#cb7-259" aria-hidden="true" tabindex="-1"></a>  <span class="dt">q1</span><span class="op">:</span> Inputs<span class="op">.</span><span class="fu">radio</span>([<span class="st">"True"</span><span class="op">,</span> <span class="st">"False"</span>]<span class="op">,</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">"Foreign keys are always shown in E-R diagrams"</span>})<span class="op">,</span></span>
+<span id="cb7-260"><a href="#cb7-260" aria-hidden="true" tabindex="-1"></a>  <span class="dt">q2</span><span class="op">:</span> Inputs<span class="op">.</span><span class="fu">radio</span>([<span class="st">"True"</span><span class="op">,</span> <span class="st">"False"</span>]<span class="op">,</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">"A recursive relationship is when an entity relates to itself"</span>})<span class="op">,</span></span>
+<span id="cb7-261"><a href="#cb7-261" aria-hidden="true" tabindex="-1"></a>  <span class="dt">q3</span><span class="op">:</span> Inputs<span class="op">.</span><span class="fu">radio</span>([<span class="st">"True"</span><span class="op">,</span> <span class="st">"False"</span>]<span class="op">,</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">"Cardinality (1,5) means minimum 1, maximum 5"</span>})<span class="op">,</span></span>
+<span id="cb7-262"><a href="#cb7-262" aria-hidden="true" tabindex="-1"></a>  <span class="dt">q4</span><span class="op">:</span> Inputs<span class="op">.</span><span class="fu">radio</span>([<span class="st">"True"</span><span class="op">,</span> <span class="st">"False"</span>]<span class="op">,</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">"Double-line rectangles represent strong entities"</span>})<span class="op">,</span></span>
+<span id="cb7-263"><a href="#cb7-263" aria-hidden="true" tabindex="-1"></a>  <span class="dt">q5</span><span class="op">:</span> Inputs<span class="op">.</span><span class="fu">radio</span>([<span class="st">"True"</span><span class="op">,</span> <span class="st">"False"</span>]<span class="op">,</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">"Multi-valued attributes are shown with double lines"</span>})</span>
+<span id="cb7-264"><a href="#cb7-264" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb7-265"><a href="#cb7-265" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-266"><a href="#cb7-266" aria-hidden="true" tabindex="-1"></a>quickfire_result <span class="op">=</span> {</span>
+<span id="cb7-267"><a href="#cb7-267" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="op">!</span>quickfire<span class="op">.</span><span class="at">q1</span> <span class="op">||</span> <span class="op">!</span>quickfire<span class="op">.</span><span class="at">q2</span> <span class="op">||</span> <span class="op">!</span>quickfire<span class="op">.</span><span class="at">q3</span> <span class="op">||</span> <span class="op">!</span>quickfire<span class="op">.</span><span class="at">q4</span> <span class="op">||</span> <span class="op">!</span>quickfire<span class="op">.</span><span class="at">q5</span>) {</span>
+<span id="cb7-268"><a href="#cb7-268" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="st">""</span><span class="op">;</span></span>
+<span id="cb7-269"><a href="#cb7-269" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb7-270"><a href="#cb7-270" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb7-271"><a href="#cb7-271" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> answers <span class="op">=</span> [<span class="st">"False"</span><span class="op">,</span> <span class="st">"True"</span><span class="op">,</span> <span class="st">"True"</span><span class="op">,</span> <span class="st">"False"</span><span class="op">,</span> <span class="st">"True"</span>]<span class="op">;</span></span>
+<span id="cb7-272"><a href="#cb7-272" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> responses <span class="op">=</span> [quickfire<span class="op">.</span><span class="at">q1</span><span class="op">,</span> quickfire<span class="op">.</span><span class="at">q2</span><span class="op">,</span> quickfire<span class="op">.</span><span class="at">q3</span><span class="op">,</span> quickfire<span class="op">.</span><span class="at">q4</span><span class="op">,</span> quickfire<span class="op">.</span><span class="at">q5</span>]<span class="op">;</span></span>
+<span id="cb7-273"><a href="#cb7-273" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> questions <span class="op">=</span> [</span>
+<span id="cb7-274"><a href="#cb7-274" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Foreign keys are IMPLIED by relationships, not explicitly shown"</span><span class="op">,</span></span>
+<span id="cb7-275"><a href="#cb7-275" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Correct! Like PART relating to PART in bill of materials"</span><span class="op">,</span></span>
+<span id="cb7-276"><a href="#cb7-276" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Correct! Cardinality limits show min and max"</span><span class="op">,</span></span>
+<span id="cb7-277"><a href="#cb7-277" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Double lines show WEAK entities, single lines show strong"</span><span class="op">,</span></span>
+<span id="cb7-278"><a href="#cb7-278" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Correct! Double lines indicate multiple values possible"</span></span>
+<span id="cb7-279"><a href="#cb7-279" aria-hidden="true" tabindex="-1"></a>  ]<span class="op">;</span></span>
+<span id="cb7-280"><a href="#cb7-280" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb7-281"><a href="#cb7-281" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> score <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb7-282"><a href="#cb7-282" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> feedback <span class="op">=</span> []<span class="op">;</span></span>
+<span id="cb7-283"><a href="#cb7-283" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb7-284"><a href="#cb7-284" aria-hidden="true" tabindex="-1"></a>  responses<span class="op">.</span><span class="fu">forEach</span>((response<span class="op">,</span> i) <span class="kw">=&gt;</span> {</span>
+<span id="cb7-285"><a href="#cb7-285" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (response <span class="op">===</span> answers[i]) {</span>
+<span id="cb7-286"><a href="#cb7-286" aria-hidden="true" tabindex="-1"></a>      score<span class="op">++;</span></span>
+<span id="cb7-287"><a href="#cb7-287" aria-hidden="true" tabindex="-1"></a>      feedback<span class="op">.</span><span class="fu">push</span>(<span class="vs">`✓ Q</span><span class="sc">${</span>i<span class="op">+</span><span class="dv">1</span><span class="sc">}</span><span class="vs">: </span><span class="sc">${</span>questions[i]<span class="sc">}</span><span class="vs">`</span>)<span class="op">;</span></span>
+<span id="cb7-288"><a href="#cb7-288" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span> {</span>
+<span id="cb7-289"><a href="#cb7-289" aria-hidden="true" tabindex="-1"></a>      feedback<span class="op">.</span><span class="fu">push</span>(<span class="vs">`✗ Q</span><span class="sc">${</span>i<span class="op">+</span><span class="dv">1</span><span class="sc">}</span><span class="vs">: </span><span class="sc">${</span>questions[i]<span class="sc">}</span><span class="vs">`</span>)<span class="op">;</span></span>
+<span id="cb7-290"><a href="#cb7-290" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb7-291"><a href="#cb7-291" aria-hidden="true" tabindex="-1"></a>  })<span class="op">;</span></span>
+<span id="cb7-292"><a href="#cb7-292" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb7-293"><a href="#cb7-293" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> percentage <span class="op">=</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">round</span>((score<span class="op">/</span><span class="dv">5</span>) <span class="op">*</span> <span class="dv">100</span>)<span class="op">;</span></span>
+<span id="cb7-294"><a href="#cb7-294" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> color <span class="op">=</span> score <span class="op">&gt;=</span> <span class="dv">4</span> <span class="op">?</span> <span class="st">"green"</span> <span class="op">:</span> score <span class="op">&gt;=</span> <span class="dv">3</span> <span class="op">?</span> <span class="st">"orange"</span> <span class="op">:</span> <span class="st">"red"</span><span class="op">;</span></span>
+<span id="cb7-295"><a href="#cb7-295" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb7-296"><a href="#cb7-296" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="fu">html</span><span class="vs">`&lt;div style="color: </span><span class="sc">${</span>color<span class="sc">}</span><span class="vs">; font-weight: bold; margin-top: 15px;"&gt;</span></span>
+<span id="cb7-297"><a href="#cb7-297" aria-hidden="true" tabindex="-1"></a><span class="vs">    &lt;div style="font-size: 1.2em;"&gt;Quick Fire Score: </span><span class="sc">${</span>score<span class="sc">}</span><span class="vs">/5 (</span><span class="sc">${</span>percentage<span class="sc">}</span><span class="vs">%)&lt;/div&gt;</span></span>
+<span id="cb7-298"><a href="#cb7-298" aria-hidden="true" tabindex="-1"></a><span class="vs">    </span><span class="sc">${</span>feedback<span class="op">.</span><span class="fu">map</span>(f <span class="kw">=&gt;</span> <span class="fu">html</span><span class="vs">`&lt;div style="margin: 5px 0; font-size: 0.9em;"&gt;</span><span class="sc">${</span>f<span class="sc">}</span><span class="vs">&lt;/div&gt;`</span>)<span class="sc">}</span></span>
+<span id="cb7-299"><a href="#cb7-299" aria-hidden="true" tabindex="-1"></a><span class="vs">  &lt;/div&gt;`</span><span class="op">;</span></span>
+<span id="cb7-300"><a href="#cb7-300" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-7-1" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-7-2" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+</div>
+<p><span><span id="ojs-element-id-7"></span></span></p>
+<hr>
+</section>
+<section id="final-challenge-design-time" class="level2 center">
+<h2 class="center anchored" data-anchor-id="final-challenge-design-time">Final Challenge: Design Time!</h2>
+<p><strong>Scenario:</strong> A gym membership system</p>
+<ul>
+<li>Members can join multiple gyms</li>
+<li>Each gym has many members<br>
+</li>
+<li>Members attend classes</li>
+<li>Each class has one instructor</li>
+<li>Instructors can teach multiple classes</li>
+</ul>
+<div class="cell">
+<details class="code-fold hidden">
+<summary>Code</summary>
+<div class="sourceCode cell-code hidden" id="cb8" data-startfrom="319" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 318;"><span id="cb8-319"><a href="#cb8-319" aria-hidden="true" tabindex="-1"></a>viewof design_challenge <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">form</span>({</span>
+<span id="cb8-320"><a href="#cb8-320" aria-hidden="true" tabindex="-1"></a>  <span class="dt">member_gym</span><span class="op">:</span> Inputs<span class="op">.</span><span class="fu">radio</span>([<span class="st">"1:1"</span><span class="op">,</span> <span class="st">"1:M"</span><span class="op">,</span> <span class="st">"M:N"</span>]<span class="op">,</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">"MEMBER to GYM relationship:"</span>})<span class="op">,</span></span>
+<span id="cb8-321"><a href="#cb8-321" aria-hidden="true" tabindex="-1"></a>  <span class="dt">member_class</span><span class="op">:</span> Inputs<span class="op">.</span><span class="fu">radio</span>([<span class="st">"1:1"</span><span class="op">,</span> <span class="st">"1:M"</span><span class="op">,</span> <span class="st">"M:N"</span>]<span class="op">,</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">"MEMBER to CLASS relationship:"</span>})<span class="op">,</span></span>
+<span id="cb8-322"><a href="#cb8-322" aria-hidden="true" tabindex="-1"></a>  <span class="dt">instructor_class</span><span class="op">:</span> Inputs<span class="op">.</span><span class="fu">radio</span>([<span class="st">"1:1"</span><span class="op">,</span> <span class="st">"1:M"</span><span class="op">,</span> <span class="st">"M:N"</span>]<span class="op">,</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">"INSTRUCTOR to CLASS relationship:"</span>})<span class="op">,</span></span>
+<span id="cb8-323"><a href="#cb8-323" aria-hidden="true" tabindex="-1"></a>  <span class="dt">entities_needed</span><span class="op">:</span> Inputs<span class="op">.</span><span class="fu">number</span>({<span class="dt">label</span><span class="op">:</span> <span class="st">"How many entities would you need minimum?"</span><span class="op">,</span> <span class="dt">min</span><span class="op">:</span> <span class="dv">3</span><span class="op">,</span> <span class="dt">max</span><span class="op">:</span> <span class="dv">10</span><span class="op">,</span> <span class="dt">step</span><span class="op">:</span> <span class="dv">1</span>})</span>
+<span id="cb8-324"><a href="#cb8-324" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb8-325"><a href="#cb8-325" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-326"><a href="#cb8-326" aria-hidden="true" tabindex="-1"></a>design_result <span class="op">=</span> {</span>
+<span id="cb8-327"><a href="#cb8-327" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="op">!</span>design_challenge<span class="op">.</span><span class="at">member_gym</span> <span class="op">||</span> <span class="op">!</span>design_challenge<span class="op">.</span><span class="at">member_class</span> <span class="op">||</span> <span class="op">!</span>design_challenge<span class="op">.</span><span class="at">instructor_class</span> <span class="op">||</span> <span class="op">!</span>design_challenge<span class="op">.</span><span class="at">entities_needed</span>) {</span>
+<span id="cb8-328"><a href="#cb8-328" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="st">""</span><span class="op">;</span></span>
+<span id="cb8-329"><a href="#cb8-329" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb8-330"><a href="#cb8-330" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb8-331"><a href="#cb8-331" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> score <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb8-332"><a href="#cb8-332" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> feedback <span class="op">=</span> []<span class="op">;</span></span>
+<span id="cb8-333"><a href="#cb8-333" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb8-334"><a href="#cb8-334" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (design_challenge<span class="op">.</span><span class="at">member_gym</span> <span class="op">===</span> <span class="st">"M:N"</span>) {</span>
+<span id="cb8-335"><a href="#cb8-335" aria-hidden="true" tabindex="-1"></a>    score<span class="op">++;</span></span>
+<span id="cb8-336"><a href="#cb8-336" aria-hidden="true" tabindex="-1"></a>    feedback<span class="op">.</span><span class="fu">push</span>(<span class="st">"✓ MEMBER-GYM: Correctly identified M:N relationship"</span>)<span class="op">;</span></span>
+<span id="cb8-337"><a href="#cb8-337" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb8-338"><a href="#cb8-338" aria-hidden="true" tabindex="-1"></a>    feedback<span class="op">.</span><span class="fu">push</span>(<span class="st">"✗ MEMBER-GYM: Members can join multiple gyms, gyms have multiple members = M:N"</span>)<span class="op">;</span></span>
+<span id="cb8-339"><a href="#cb8-339" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb8-340"><a href="#cb8-340" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb8-341"><a href="#cb8-341" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (design_challenge<span class="op">.</span><span class="at">member_class</span> <span class="op">===</span> <span class="st">"M:N"</span>) {</span>
+<span id="cb8-342"><a href="#cb8-342" aria-hidden="true" tabindex="-1"></a>    score<span class="op">++;</span></span>
+<span id="cb8-343"><a href="#cb8-343" aria-hidden="true" tabindex="-1"></a>    feedback<span class="op">.</span><span class="fu">push</span>(<span class="st">"✓ MEMBER-CLASS: Correctly identified M:N relationship"</span>)<span class="op">;</span></span>
+<span id="cb8-344"><a href="#cb8-344" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb8-345"><a href="#cb8-345" aria-hidden="true" tabindex="-1"></a>    feedback<span class="op">.</span><span class="fu">push</span>(<span class="st">"✗ MEMBER-CLASS: Members attend multiple classes, classes have multiple members = M:N"</span>)<span class="op">;</span></span>
+<span id="cb8-346"><a href="#cb8-346" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb8-347"><a href="#cb8-347" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb8-348"><a href="#cb8-348" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (design_challenge<span class="op">.</span><span class="at">instructor_class</span> <span class="op">===</span> <span class="st">"1:M"</span>) {</span>
+<span id="cb8-349"><a href="#cb8-349" aria-hidden="true" tabindex="-1"></a>    score<span class="op">++;</span></span>
+<span id="cb8-350"><a href="#cb8-350" aria-hidden="true" tabindex="-1"></a>    feedback<span class="op">.</span><span class="fu">push</span>(<span class="st">"✓ INSTRUCTOR-CLASS: Correctly identified 1:M relationship"</span>)<span class="op">;</span></span>
+<span id="cb8-351"><a href="#cb8-351" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb8-352"><a href="#cb8-352" aria-hidden="true" tabindex="-1"></a>    feedback<span class="op">.</span><span class="fu">push</span>(<span class="st">"✗ INSTRUCTOR-CLASS: One instructor per class, but instructors can teach multiple classes = 1:M"</span>)<span class="op">;</span></span>
+<span id="cb8-353"><a href="#cb8-353" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb8-354"><a href="#cb8-354" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb8-355"><a href="#cb8-355" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (design_challenge<span class="op">.</span><span class="at">entities_needed</span> <span class="op">&gt;=</span> <span class="dv">4</span> <span class="op">&amp;&amp;</span> design_challenge<span class="op">.</span><span class="at">entities_needed</span> <span class="op">&lt;=</span> <span class="dv">6</span>) {</span>
+<span id="cb8-356"><a href="#cb8-356" aria-hidden="true" tabindex="-1"></a>    score<span class="op">++;</span></span>
+<span id="cb8-357"><a href="#cb8-357" aria-hidden="true" tabindex="-1"></a>    feedback<span class="op">.</span><span class="fu">push</span>(<span class="st">"✓ Good estimate! MEMBER, GYM, CLASS, INSTRUCTOR minimum (4), plus composite entities for M:N relationships"</span>)<span class="op">;</span></span>
+<span id="cb8-358"><a href="#cb8-358" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb8-359"><a href="#cb8-359" aria-hidden="true" tabindex="-1"></a>    feedback<span class="op">.</span><span class="fu">push</span>(<span class="st">"✗ Think about: MEMBER, GYM, CLASS, INSTRUCTOR + composite entities for M:N relationships"</span>)<span class="op">;</span></span>
+<span id="cb8-360"><a href="#cb8-360" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb8-361"><a href="#cb8-361" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb8-362"><a href="#cb8-362" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> color <span class="op">=</span> score <span class="op">===</span> <span class="dv">4</span> <span class="op">?</span> <span class="st">"green"</span> <span class="op">:</span> score <span class="op">&gt;=</span> <span class="dv">3</span> <span class="op">?</span> <span class="st">"orange"</span> <span class="op">:</span> <span class="st">"red"</span><span class="op">;</span></span>
+<span id="cb8-363"><a href="#cb8-363" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> message <span class="op">=</span> score <span class="op">===</span> <span class="dv">4</span> <span class="op">?</span> <span class="st">"Excellent design thinking!"</span> <span class="op">:</span> score <span class="op">&gt;=</span> <span class="dv">3</span> <span class="op">?</span> <span class="st">"Good analysis!"</span> <span class="op">:</span> <span class="st">"Review M:N relationships"</span><span class="op">;</span></span>
+<span id="cb8-364"><a href="#cb8-364" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb8-365"><a href="#cb8-365" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="fu">html</span><span class="vs">`&lt;div style="color: </span><span class="sc">${</span>color<span class="sc">}</span><span class="vs">; font-weight: bold; margin-top: 15px;"&gt;</span></span>
+<span id="cb8-366"><a href="#cb8-366" aria-hidden="true" tabindex="-1"></a><span class="vs">    &lt;div&gt;Design Score: </span><span class="sc">${</span>score<span class="sc">}</span><span class="vs">/4 - </span><span class="sc">${</span>message<span class="sc">}</span><span class="vs">&lt;/div&gt;</span></span>
+<span id="cb8-367"><a href="#cb8-367" aria-hidden="true" tabindex="-1"></a><span class="vs">    </span><span class="sc">${</span>feedback<span class="op">.</span><span class="fu">map</span>(f <span class="kw">=&gt;</span> <span class="fu">html</span><span class="vs">`&lt;div style="margin: 5px 0;"&gt;</span><span class="sc">${</span>f<span class="sc">}</span><span class="vs">&lt;/div&gt;`</span>)<span class="sc">}</span></span>
+<span id="cb8-368"><a href="#cb8-368" aria-hidden="true" tabindex="-1"></a><span class="vs">  &lt;/div&gt;`</span><span class="op">;</span></span>
+<span id="cb8-369"><a href="#cb8-369" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-8-1" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-8-2" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+</div>
+<p><span><span id="ojs-element-id-8"></span></span></p>
+<hr>
+</section>
+<section id="how-did-you-do" class="level2 center">
+<h2 class="center anchored" data-anchor-id="how-did-you-do">How Did You Do?</h2>
+<p><strong>Self-Assessment:</strong></p>
+<ul>
+<li><strong>90-100%:</strong> E-R Modeling Expert! Ready for advanced topics</li>
+<li><strong>70-89%:</strong> Good understanding, review weak areas<br>
+</li>
+<li><strong>50-69%:</strong> Need more practice with basic concepts</li>
+<li><strong>Below 50%:</strong> Let’s review the fundamentals together</li>
+</ul>
+<p><strong>Remember:</strong> These concepts build on each other. Make sure you’re comfortable with entities, attributes, and relationships before we move to normalization!</p>
+<hr>
+</section>
+<section id="ready-for-the-next-challenge" class="level2">
+<h2 class="anchored" data-anchor-id="ready-for-the-next-challenge">Ready for the Next Challenge?</h2>
+<p>Now that you’ve tested your E-R modeling knowledge, let’s explore what happens when we don’t organize our data properly…</p>
+<p><strong>Coming up: Normalization and Data Anomalies</strong></p>
+<div class="ojs-auto-generated hidden">
+<script type="ojs-module-contents">
+eyJjb250ZW50cyI6WyAgeyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiaW5saW5lIjoidHJ1ZSIsInNvdXJjZSI6Imh0bC5odG1sYDxzcGFuPiR7cTFfcmVzdWx0fTwvc3Bhbj5gIiwgImNlbGxOYW1lIjoib2pzLWVsZW1lbnQtaWQtMSJ9LCAgeyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiaW5saW5lIjoidHJ1ZSIsInNvdXJjZSI6Imh0bC5odG1sYDxzcGFuPiR7cTJfcmVzdWx0fTwvc3Bhbj5gIiwgImNlbGxOYW1lIjoib2pzLWVsZW1lbnQtaWQtMiJ9LCAgeyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiaW5saW5lIjoidHJ1ZSIsInNvdXJjZSI6Imh0bC5odG1sYDxzcGFuPiR7cTNfcmVzdWx0fTwvc3Bhbj5gIiwgImNlbGxOYW1lIjoib2pzLWVsZW1lbnQtaWQtMyJ9LCAgeyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiaW5saW5lIjoidHJ1ZSIsInNvdXJjZSI6Imh0bC5odG1sYDxzcGFuPiR7cTRfcmVzdWx0fTwvc3Bhbj5gIiwgImNlbGxOYW1lIjoib2pzLWVsZW1lbnQtaWQtNCJ9LCAgeyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiaW5saW5lIjoidHJ1ZSIsInNvdXJjZSI6Imh0bC5odG1sYDxzcGFuPiR7cTVfcmVzdWx0fTwvc3Bhbj5gIiwgImNlbGxOYW1lIjoib2pzLWVsZW1lbnQtaWQtNSJ9LCAgeyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiaW5saW5lIjoidHJ1ZSIsInNvdXJjZSI6Imh0bC5odG1sYDxzcGFuPiR7c2NlbmFyaW9fcmVzdWx0fTwvc3Bhbj5gIiwgImNlbGxOYW1lIjoib2pzLWVsZW1lbnQtaWQtNiJ9LCAgeyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiaW5saW5lIjoidHJ1ZSIsInNvdXJjZSI6Imh0bC5odG1sYDxzcGFuPiR7cXVpY2tmaXJlX3Jlc3VsdH08L3NwYW4+YCIsICJjZWxsTmFtZSI6Im9qcy1lbGVtZW50LWlkLTcifSwgIHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImlubGluZSI6InRydWUiLCJzb3VyY2UiOiJodGwuaHRtbGA8c3Bhbj4ke2Rlc2lnbl9yZXN1bHR9PC9zcGFuPmAiLCAiY2VsbE5hbWUiOiJvanMtZWxlbWVudC1pZC04In1dfQ==
+</script>
+</div>
+</section>
+
+</main>
+<!-- /main column -->
+<script type="ojs-module-contents">
+eyJjb250ZW50cyI6W3sibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6InZpZXdvZiBxMV9hbnN3ZXIgPSBJbnB1dHMucmFkaW8oXHJcbiAgW1wiU3Ryb25nIEVudGl0eVwiLCBcIldlYWsgRW50aXR5XCIsIFwiQ29tcG9zaXRlIEVudGl0eVwiLCBcIlJlY3Vyc2l2ZSBFbnRpdHlcIl0sXHJcbiAge1xyXG4gICAgbGFiZWw6IFwiQW4gRU1QTE9ZRUUgZW50aXR5IHRoYXQgY2FuIGV4aXN0IGluZGVwZW5kZW50bHkgaW4gdGhlIGRhdGFiYXNlIGlzIGNhbGxlZCBhOlwiLFxyXG4gICAgdmFsdWU6IG51bGxcclxuICB9XHJcbilcclxuXHJcbnExX3Jlc3VsdCA9IHtcclxuICBpZiAocTFfYW5zd2VyID09PSBudWxsKSByZXR1cm4gXCJcIjtcclxuICBpZiAocTFfYW5zd2VyID09PSBcIlN0cm9uZyBFbnRpdHlcIikge1xyXG4gICAgcmV0dXJuIGh0bWxgPGRpdiBzdHlsZT1cImNvbG9yOiBncmVlbjsgZm9udC13ZWlnaHQ6IGJvbGQ7IG1hcmdpbi10b3A6IDEwcHg7XCI+XHJcbiAgICDinJMgQ29ycmVjdCEgQSBzdHJvbmcgZW50aXR5IGNhbiBleGlzdCBpbmRlcGVuZGVudGx5IGFuZCBkb2Vzbid0IGRlcGVuZCBvbiBvdGhlciBlbnRpdGllcy5cclxuICAgIDwvZGl2PmA7XHJcbiAgfSBlbHNlIHtcclxuICAgIHJldHVybiBodG1sYDxkaXYgc3R5bGU9XCJjb2xvcjogcmVkOyBmb250LXdlaWdodDogYm9sZDsgbWFyZ2luLXRvcDogMTBweDtcIj5cclxuICAgIOKclyBJbmNvcnJlY3QuIFRyeSBhZ2FpbiEgVGhpbmsgYWJvdXQgd2hpY2ggdHlwZSBvZiBlbnRpdHkgY2FuIGV4aXN0IG9uIGl0cyBvd24uXHJcbiAgICA8L2Rpdj5gO1xyXG4gIH1cclxufVxyXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTIiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJ2aWV3b2YgcTJfYW5zd2VyID0gSW5wdXRzLmNoZWNrYm94KFxyXG4gIFtcIlByaW1hcnkga2V5IGF0dHJpYnV0ZXNcIiwgXCJGb3JlaWduIGtleSBhdHRyaWJ1dGVzXCIsIFwiQ29tcG9zaXRlIGF0dHJpYnV0ZXNcIiwgXCJNdWx0aS12YWx1ZWQgYXR0cmlidXRlc1wiLCBcIkRlcml2ZWQgYXR0cmlidXRlc1wiXSxcclxuICB7XHJcbiAgICBsYWJlbDogXCJXaGljaCBvZiB0aGUgZm9sbG93aW5nIGFyZSB0eXBpY2FsbHkgc2hvd24gaW4gRS1SIGRpYWdyYW1zPyAoU2VsZWN0IGFsbCB0aGF0IGFwcGx5KTpcIixcclxuICAgIHZhbHVlOiBbXVxyXG4gIH1cclxuKVxyXG5cclxucTJfcmVzdWx0ID0ge1xyXG4gIGlmIChxMl9hbnN3ZXIubGVuZ3RoID09PSAwKSByZXR1cm4gXCJcIjtcclxuICBcclxuICBjb25zdCBjb3JyZWN0ID0gW1wiUHJpbWFyeSBrZXkgYXR0cmlidXRlc1wiLCBcIkNvbXBvc2l0ZSBhdHRyaWJ1dGVzXCIsIFwiTXVsdGktdmFsdWVkIGF0dHJpYnV0ZXNcIl07XHJcbiAgY29uc3QgaXNDb3JyZWN0ID0gY29ycmVjdC5ldmVyeShpdGVtID0+IHEyX2Fuc3dlci5pbmNsdWRlcyhpdGVtKSkgJiYgXHJcbiAgICAgICAgICAgICAgICAgICAhcTJfYW5zd2VyLmluY2x1ZGVzKFwiRm9yZWlnbiBrZXkgYXR0cmlidXRlc1wiKSAmJiBcclxuICAgICAgICAgICAgICAgICAgICFxMl9hbnN3ZXIuaW5jbHVkZXMoXCJEZXJpdmVkIGF0dHJpYnV0ZXNcIik7XHJcbiAgXHJcbiAgaWYgKGlzQ29ycmVjdCkge1xyXG4gICAgcmV0dXJuIGh0bWxgPGRpdiBzdHlsZT1cImNvbG9yOiBncmVlbjsgZm9udC13ZWlnaHQ6IGJvbGQ7IG1hcmdpbi10b3A6IDEwcHg7XCI+XHJcbiAgICDinJMgRXhjZWxsZW50ISBFLVIgZGlhZ3JhbXMgc2hvdyBwcmltYXJ5IGtleXMgKHVuZGVybGluZWQpLCBjb21wb3NpdGUgYXR0cmlidXRlcywgYW5kIG11bHRpLXZhbHVlZCBhdHRyaWJ1dGVzIChkb3VibGUgbGluZXMpLiBGb3JlaWduIGtleXMgYXJlIGltcGxpZWQgYnkgcmVsYXRpb25zaGlwcyBhbmQgZGVyaXZlZCBhdHRyaWJ1dGVzIGFyZSB1c3VhbGx5IG5vdCBzaG93biBhdCB0aGUgY29uY2VwdHVhbCBsZXZlbC5cclxuICAgIDwvZGl2PmA7XHJcbiAgfSBlbHNlIHtcclxuICAgIHJldHVybiBodG1sYDxkaXYgc3R5bGU9XCJjb2xvcjogb3JhbmdlOyBmb250LXdlaWdodDogYm9sZDsgbWFyZ2luLXRvcDogMTBweDtcIj5cclxuICAgIFBhcnRpYWxseSBjb3JyZWN0LiBSZW1lbWJlcjogRm9yZWlnbiBrZXlzIGFyZSBub3QgZXhwbGljaXRseSBzaG93biBpbiBFLVIgZGlhZ3JhbXMgLSB0aGV5J3JlIGltcGxpZWQgYnkgdGhlIHJlbGF0aW9uc2hpcHMuIERlcml2ZWQgYXR0cmlidXRlcyBhcmUgdHlwaWNhbGx5IG5vdCBpbmNsdWRlZCBhdCB0aGUgY29uY2VwdHVhbCBsZXZlbC5cclxuICAgIDwvZGl2PmA7XHJcbiAgfVxyXG59XHJcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMyIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6InZpZXdvZiBxM19hbnN3ZXIgPSBJbnB1dHMucmFkaW8oXHJcbiAgW1wiMToxIChPbmUtdG8tT25lKVwiLCBcIjE6TSAoT25lLXRvLU1hbnkpXCIsIFwiTTpOIChNYW55LXRvLU1hbnkpXCIsIFwiQ2Fubm90IGJlIGRldGVybWluZWRcIl0sXHJcbiAge1xyXG4gICAgbGFiZWw6IFwiQSBTVFVERU5UIGNhbiBlbnJvbGwgaW4gbWFueSBDT1VSU0VTLCBhbmQgZWFjaCBDT1VSU0UgY2FuIGhhdmUgbWFueSBTVFVERU5UUy4gV2hhdCBpcyB0aGUgY2FyZGluYWxpdHk/XCIsXHJcbiAgICB2YWx1ZTogbnVsbFxyXG4gIH1cclxuKVxyXG5cclxucTNfcmVzdWx0ID0ge1xyXG4gIGlmIChxM19hbnN3ZXIgPT09IG51bGwpIHJldHVybiBcIlwiO1xyXG4gIGlmIChxM19hbnN3ZXIgPT09IFwiTTpOIChNYW55LXRvLU1hbnkpXCIpIHtcclxuICAgIHJldHVybiBodG1sYDxkaXYgc3R5bGU9XCJjb2xvcjogZ3JlZW47IGZvbnQtd2VpZ2h0OiBib2xkOyBtYXJnaW4tdG9wOiAxMHB4O1wiPlxyXG4gICAg4pyTIFBlcmZlY3QhIFRoaXMgaXMgYSBjbGFzc2ljIG1hbnktdG8tbWFueSByZWxhdGlvbnNoaXAuIEluIGltcGxlbWVudGF0aW9uLCB0aGlzIHdvdWxkIG5lZWQgYSBjb21wb3NpdGUgZW50aXR5IChsaWtlIEVOUk9MTE1FTlQpIHRvIHJlc29sdmUgaXQgaW50byB0d28gMTpNIHJlbGF0aW9uc2hpcHMuXHJcbiAgICA8L2Rpdj5gO1xyXG4gIH0gZWxzZSB7XHJcbiAgICByZXR1cm4gaHRtbGA8ZGl2IHN0eWxlPVwiY29sb3I6IHJlZDsgZm9udC13ZWlnaHQ6IGJvbGQ7IG1hcmdpbi10b3A6IDEwcHg7XCI+XHJcbiAgICDinJcgVGhpbmsgYWdhaW4uIElmIG9uZSBzdHVkZW50IGNhbiB0YWtlIG11bHRpcGxlIGNvdXJzZXMgQU5EIG9uZSBjb3Vyc2UgY2FuIGhhdmUgbXVsdGlwbGUgc3R1ZGVudHMsIHdoYXQgZG9lcyB0aGF0IHRlbGwgeW91IGFib3V0IHRoZSByZWxhdGlvbnNoaXA/XHJcbiAgICA8L2Rpdj5gO1xyXG4gIH1cclxufVxyXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTQiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJ2aWV3b2YgcTRfYW5zd2VyID0gSW5wdXRzLnNlbGVjdChcclxuICBbXCJCaW5hcnlcIiwgXCJUZXJuYXJ5XCIsIFwiUXVhdGVybmFyeVwiLCBcIlVuYXJ5XCJdLFxyXG4gIHtcclxuICAgIGxhYmVsOiBcIkEgcmVsYXRpb25zaGlwIGludm9sdmluZyBWRU5ET1IsIE1BVEVSSUFMLCBhbmQgUVVBTElUWV9URVNUIGVudGl0aWVzIGlzIGNhbGxlZDpcIixcclxuICAgIHZhbHVlOiBudWxsXHJcbiAgfVxyXG4pXHJcblxyXG5xNF9yZXN1bHQgPSB7XHJcbiAgaWYgKHE0X2Fuc3dlciA9PT0gbnVsbCkgcmV0dXJuIFwiXCI7XHJcbiAgaWYgKHE0X2Fuc3dlciA9PT0gXCJUZXJuYXJ5XCIpIHtcclxuICAgIHJldHVybiBodG1sYDxkaXYgc3R5bGU9XCJjb2xvcjogZ3JlZW47IGZvbnQtd2VpZ2h0OiBib2xkOyBtYXJnaW4tdG9wOiAxMHB4O1wiPlxyXG4gICAg4pyTIENvcnJlY3QhIEEgdGVybmFyeSByZWxhdGlvbnNoaXAgaW52b2x2ZXMgZXhhY3RseSB0aHJlZSBlbnRpdGllcy4gVGhpcyBtZWFucyBhIHNwZWNpZmljIHZlbmRvciB0ZXN0cyBhIHNwZWNpZmljIG1hdGVyaWFsIHdpdGggYSBzcGVjaWZpYyBxdWFsaXR5IHRlc3QuXHJcbiAgICA8L2Rpdj5gO1xyXG4gIH0gZWxzZSBpZiAocTRfYW5zd2VyID09PSBcIkJpbmFyeVwiKSB7XHJcbiAgICByZXR1cm4gaHRtbGA8ZGl2IHN0eWxlPVwiY29sb3I6IHJlZDsgZm9udC13ZWlnaHQ6IGJvbGQ7IG1hcmdpbi10b3A6IDEwcHg7XCI+XHJcbiAgICDinJcgQmluYXJ5IHJlbGF0aW9uc2hpcHMgaW52b2x2ZSBvbmx5IHR3byBlbnRpdGllcy4gQ291bnQgYWdhaW4hXHJcbiAgICA8L2Rpdj5gO1xyXG4gIH0gZWxzZSBpZiAocTRfYW5zd2VyID09PSBcIlVuYXJ5XCIpIHtcclxuICAgIHJldHVybiBodG1sYDxkaXYgc3R5bGU9XCJjb2xvcjogcmVkOyBmb250LXdlaWdodDogYm9sZDsgbWFyZ2luLXRvcDogMTBweDtcIj5cclxuICAgIOKclyBVbmFyeSByZWxhdGlvbnNoaXBzIGludm9sdmUgb25lIGVudGl0eSByZWxhdGluZyB0byBpdHNlbGYuIFRoaXMgaW52b2x2ZXMgdGhyZWUgZGlmZmVyZW50IGVudGl0aWVzLlxyXG4gICAgPC9kaXY+YDtcclxuICB9IGVsc2Uge1xyXG4gICAgcmV0dXJuIGh0bWxgPGRpdiBzdHlsZT1cImNvbG9yOiByZWQ7IGZvbnQtd2VpZ2h0OiBib2xkOyBtYXJnaW4tdG9wOiAxMHB4O1wiPlxyXG4gICAg4pyXIFF1YXRlcm5hcnkgd291bGQgYmUgZm91ciBlbnRpdGllcy4gV2UgaGF2ZSB0aHJlZSBlbnRpdGllcyBoZXJlLlxyXG4gICAgPC9kaXY+YDtcclxuICB9XHJcbn1cclxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC01IiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoidmlld29mIHE1X2Fuc3dlciA9IElucHV0cy5yYWRpbyhcclxuICBbXCJFTVBMT1lFRSBoYXMgb3B0aW9uYWwgcGFydGljaXBhdGlvblwiLCBcIlBST0pFQ1QgaGFzIG9wdGlvbmFsIHBhcnRpY2lwYXRpb25cIiwgXCJCb3RoIGhhdmUgbWFuZGF0b3J5IHBhcnRpY2lwYXRpb25cIiwgXCJCb3RoIGhhdmUgb3B0aW9uYWwgcGFydGljaXBhdGlvblwiXSxcclxuICB7XHJcbiAgICBsYWJlbDogXCJJZiAnRXZlcnkgUFJPSkVDVCBtdXN0IGhhdmUgYSBtYW5hZ2VyJyBidXQgJ05vdCBldmVyeSBFTVBMT1lFRSBtYW5hZ2VzIGEgcHJvamVjdCcsIHdoYXQgY2FuIHlvdSBzYXkgYWJvdXQgcGFydGljaXBhdGlvbj9cIixcclxuICAgIHZhbHVlOiBudWxsXHJcbiAgfVxyXG4pXHJcblxyXG5xNV9yZXN1bHQgPSB7XHJcbiAgaWYgKHE1X2Fuc3dlciA9PT0gbnVsbCkgcmV0dXJuIFwiXCI7XHJcbiAgaWYgKHE1X2Fuc3dlciA9PT0gXCJFTVBMT1lFRSBoYXMgb3B0aW9uYWwgcGFydGljaXBhdGlvblwiKSB7XHJcbiAgICByZXR1cm4gaHRtbGA8ZGl2IHN0eWxlPVwiY29sb3I6IGdyZWVuOyBmb250LXdlaWdodDogYm9sZDsgbWFyZ2luLXRvcDogMTBweDtcIj5cclxuICAgIOKckyBFeGFjdGx5IHJpZ2h0ISBFTVBMT1lFRSBoYXMgb3B0aW9uYWwgcGFydGljaXBhdGlvbiAoc2hvd24gd2l0aCBzaW5nbGUgbGluZSkgYmVjYXVzZSBub3QgYWxsIGVtcGxveWVlcyBhcmUgbWFuYWdlcnMuIFBST0pFQ1QgaGFzIG1hbmRhdG9yeSBwYXJ0aWNpcGF0aW9uIChkb3VibGUgbGluZSkgYmVjYXVzZSBldmVyeSBwcm9qZWN0IG5lZWRzIGEgbWFuYWdlci5cclxuICAgIDwvZGl2PmA7XHJcbiAgfSBlbHNlIHtcclxuICAgIHJldHVybiBodG1sYDxkaXYgc3R5bGU9XCJjb2xvcjogcmVkOyBmb250LXdlaWdodDogYm9sZDsgbWFyZ2luLXRvcDogMTBweDtcIj5cclxuICAgIOKclyBSZWFkIHRoZSBidXNpbmVzcyBydWxlIGNhcmVmdWxseS4gV2hhdCBkb2VzICdub3QgZXZlcnkgZW1wbG95ZWUgbWFuYWdlcyBhIHByb2plY3QnIHRlbGwgeW91IGFib3V0IGVtcGxveWVlIHBhcnRpY2lwYXRpb24/XHJcbiAgICA8L2Rpdj5gO1xyXG4gIH1cclxufVxyXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTYiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJ2aWV3b2Ygc2NlbmFyaW9fYW5zd2VycyA9IElucHV0cy5mb3JtKHtcclxuICBlbnRpdHlfdHlwZTogSW5wdXRzLnJhZGlvKFxyXG4gICAgW1wiQk9PSyBpcyBzdHJvbmcsIENPUFkgaXMgd2Vha1wiLCBcIkJPT0sgaXMgd2VhaywgQ09QWSBpcyBzdHJvbmdcIiwgXCJCb3RoIGFyZSBzdHJvbmdcIiwgXCJCb3RoIGFyZSB3ZWFrXCJdLFxyXG4gICAge2xhYmVsOiBcIkJPT0sgZW50aXR5IGNvbnRhaW5zIGJvb2sgaW5mb3JtYXRpb24uIENPUFkgZW50aXR5IHJlcHJlc2VudHMgaW5kaXZpZHVhbCBwaHlzaWNhbCBjb3BpZXMuIFdoaWNoIGlzIGNvcnJlY3Q/XCJ9XHJcbiAgKSxcclxuICBcclxuICBjYXJkaW5hbGl0eTogSW5wdXRzLnJhZGlvKFxyXG4gICAgW1wiMToxXCIsIFwiMTpNXCIsIFwiTTpOXCIsIFwiQ2Fubm90IGRldGVybWluZVwiXSxcclxuICAgIHtsYWJlbDogXCJPbmUgQk9PSyBjYW4gaGF2ZSBtYW55IENPUElFUywgZWFjaCBDT1BZIGJlbG9uZ3MgdG8gb25lIEJPT0suIFdoYXQncyB0aGUgY2FyZGluYWxpdHk/XCJ9XHJcbiAgKSxcclxuICBcclxuICBwYXJ0aWNpcGF0aW9uOiBJbnB1dHMucmFkaW8oXHJcbiAgICBbXCJCT09LIG9wdGlvbmFsLCBDT1BZIG1hbmRhdG9yeVwiLCBcIkJPT0sgbWFuZGF0b3J5LCBDT1BZIG9wdGlvbmFsXCIsIFwiQm90aCBtYW5kYXRvcnlcIiwgXCJCb3RoIG9wdGlvbmFsXCJdLFxyXG4gICAge2xhYmVsOiBcIkV2ZXJ5IENPUFkgbXVzdCBiZSBvZiBzb21lIEJPT0ssIGJ1dCBhIEJPT0sgbWlnaHQgbm90IGhhdmUgYW55IENPUElFUyB5ZXQgKGp1c3Qgb3JkZXJlZCkuIFBhcnRpY2lwYXRpb24/XCJ9XHJcbiAgKVxyXG59KVxyXG5cclxuc2NlbmFyaW9fcmVzdWx0ID0ge1xyXG4gIGlmICghc2NlbmFyaW9fYW5zd2Vycy5lbnRpdHlfdHlwZSB8fCAhc2NlbmFyaW9fYW5zd2Vycy5jYXJkaW5hbGl0eSB8fCAhc2NlbmFyaW9fYW5zd2Vycy5wYXJ0aWNpcGF0aW9uKSB7XHJcbiAgICByZXR1cm4gXCJcIjtcclxuICB9XHJcbiAgXHJcbiAgbGV0IHNjb3JlID0gMDtcclxuICBsZXQgZmVlZGJhY2sgPSBbXTtcclxuICBcclxuICBpZiAoc2NlbmFyaW9fYW5zd2Vycy5lbnRpdHlfdHlwZSA9PT0gXCJCT09LIGlzIHN0cm9uZywgQ09QWSBpcyB3ZWFrXCIpIHtcclxuICAgIHNjb3JlKys7XHJcbiAgICBmZWVkYmFjay5wdXNoKFwi4pyTIENvcnJlY3QhIEJPT0sgaXMgc3Ryb25nIChleGlzdHMgaW5kZXBlbmRlbnRseSksIENPUFkgaXMgd2VhayAoZGVwZW5kcyBvbiBCT09LKVwiKTtcclxuICB9IGVsc2Uge1xyXG4gICAgZmVlZGJhY2sucHVzaChcIuKclyBUaGluayBhYm91dCBkZXBlbmRlbmN5OiBDYW4gYSBjb3B5IGV4aXN0IHdpdGhvdXQga25vd2luZyB3aGljaCBib29rIGl0IGlzP1wiKTtcclxuICB9XHJcbiAgXHJcbiAgaWYgKHNjZW5hcmlvX2Fuc3dlcnMuY2FyZGluYWxpdHkgPT09IFwiMTpNXCIpIHtcclxuICAgIHNjb3JlKys7XHJcbiAgICBmZWVkYmFjay5wdXNoKFwi4pyTIFJpZ2h0ISBPbmUgYm9vayB0byBtYW55IGNvcGllc1wiKTtcclxuICB9IGVsc2Uge1xyXG4gICAgZmVlZGJhY2sucHVzaChcIuKclyBPbmUgYm9vayBjYW4gaGF2ZSBtdWx0aXBsZSBjb3BpZXMsIGVhY2ggY29weSBpcyBvZiBvbmUgYm9va1wiKTtcclxuICB9XHJcbiAgXHJcbiAgaWYgKHNjZW5hcmlvX2Fuc3dlcnMucGFydGljaXBhdGlvbiA9PT0gXCJCT09LIG9wdGlvbmFsLCBDT1BZIG1hbmRhdG9yeVwiKSB7XHJcbiAgICBzY29yZSsrO1xyXG4gICAgZmVlZGJhY2sucHVzaChcIuKckyBQZXJmZWN0ISBDT1BZIG11c3QgcmVsYXRlIHRvIGEgQk9PSyAobWFuZGF0b3J5KSwgYnV0IEJPT0sgbWlnaHQgbm90IGhhdmUgY29waWVzIHlldCAob3B0aW9uYWwpXCIpO1xyXG4gIH0gZWxzZSB7XHJcbiAgICBmZWVkYmFjay5wdXNoKFwi4pyXIENvbnNpZGVyOiBNdXN0IGV2ZXJ5IGNvcHkgYmVsb25nIHRvIGEgYm9vaz8gQ2FuIGEgYm9vayBleGlzdCB3aXRob3V0IGNvcGllcz9cIik7XHJcbiAgfVxyXG4gIFxyXG4gIGNvbnN0IGNvbG9yID0gc2NvcmUgPT09IDMgPyBcImdyZWVuXCIgOiBzY29yZSA+PSAyID8gXCJvcmFuZ2VcIiA6IFwicmVkXCI7XHJcbiAgY29uc3QgbWVzc2FnZSA9IHNjb3JlID09PSAzID8gXCJFeGNlbGxlbnQgd29yayFcIiA6IHNjb3JlID49IDIgPyBcIkdvb2Qgam9iLCByZXZpZXcgdGhlIG1pc3NlZCBjb25jZXB0c1wiIDogXCJSZXZpZXcgdGhlIGNvbmNlcHRzIGFuZCB0cnkgYWdhaW5cIjtcclxuICBcclxuICByZXR1cm4gaHRtbGA8ZGl2IHN0eWxlPVwiY29sb3I6ICR7Y29sb3J9OyBmb250LXdlaWdodDogYm9sZDsgbWFyZ2luLXRvcDogMTVweDtcIj5cclxuICAgIDxkaXY+U2NvcmU6ICR7c2NvcmV9LzMgLSAke21lc3NhZ2V9PC9kaXY+XHJcbiAgICAke2ZlZWRiYWNrLm1hcChmID0+IGh0bWxgPGRpdiBzdHlsZT1cIm1hcmdpbjogNXB4IDA7XCI+JHtmfTwvZGl2PmApfVxyXG4gIDwvZGl2PmA7XHJcbn1cclxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC03IiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoidmlld29mIHF1aWNrZmlyZSA9IElucHV0cy5mb3JtKHtcclxuICBxMTogSW5wdXRzLnJhZGlvKFtcIlRydWVcIiwgXCJGYWxzZVwiXSwge2xhYmVsOiBcIkZvcmVpZ24ga2V5cyBhcmUgYWx3YXlzIHNob3duIGluIEUtUiBkaWFncmFtc1wifSksXHJcbiAgcTI6IElucHV0cy5yYWRpbyhbXCJUcnVlXCIsIFwiRmFsc2VcIl0sIHtsYWJlbDogXCJBIHJlY3Vyc2l2ZSByZWxhdGlvbnNoaXAgaXMgd2hlbiBhbiBlbnRpdHkgcmVsYXRlcyB0byBpdHNlbGZcIn0pLFxyXG4gIHEzOiBJbnB1dHMucmFkaW8oW1wiVHJ1ZVwiLCBcIkZhbHNlXCJdLCB7bGFiZWw6IFwiQ2FyZGluYWxpdHkgKDEsNSkgbWVhbnMgbWluaW11bSAxLCBtYXhpbXVtIDVcIn0pLFxyXG4gIHE0OiBJbnB1dHMucmFkaW8oW1wiVHJ1ZVwiLCBcIkZhbHNlXCJdLCB7bGFiZWw6IFwiRG91YmxlLWxpbmUgcmVjdGFuZ2xlcyByZXByZXNlbnQgc3Ryb25nIGVudGl0aWVzXCJ9KSxcclxuICBxNTogSW5wdXRzLnJhZGlvKFtcIlRydWVcIiwgXCJGYWxzZVwiXSwge2xhYmVsOiBcIk11bHRpLXZhbHVlZCBhdHRyaWJ1dGVzIGFyZSBzaG93biB3aXRoIGRvdWJsZSBsaW5lc1wifSlcclxufSlcclxuXHJcbnF1aWNrZmlyZV9yZXN1bHQgPSB7XHJcbiAgaWYgKCFxdWlja2ZpcmUucTEgfHwgIXF1aWNrZmlyZS5xMiB8fCAhcXVpY2tmaXJlLnEzIHx8ICFxdWlja2ZpcmUucTQgfHwgIXF1aWNrZmlyZS5xNSkge1xyXG4gICAgcmV0dXJuIFwiXCI7XHJcbiAgfVxyXG4gIFxyXG4gIGNvbnN0IGFuc3dlcnMgPSBbXCJGYWxzZVwiLCBcIlRydWVcIiwgXCJUcnVlXCIsIFwiRmFsc2VcIiwgXCJUcnVlXCJdO1xyXG4gIGNvbnN0IHJlc3BvbnNlcyA9IFtxdWlja2ZpcmUucTEsIHF1aWNrZmlyZS5xMiwgcXVpY2tmaXJlLnEzLCBxdWlja2ZpcmUucTQsIHF1aWNrZmlyZS5xNV07XHJcbiAgY29uc3QgcXVlc3Rpb25zID0gW1xyXG4gICAgXCJGb3JlaWduIGtleXMgYXJlIElNUExJRUQgYnkgcmVsYXRpb25zaGlwcywgbm90IGV4cGxpY2l0bHkgc2hvd25cIixcclxuICAgIFwiQ29ycmVjdCEgTGlrZSBQQVJUIHJlbGF0aW5nIHRvIFBBUlQgaW4gYmlsbCBvZiBtYXRlcmlhbHNcIixcclxuICAgIFwiQ29ycmVjdCEgQ2FyZGluYWxpdHkgbGltaXRzIHNob3cgbWluIGFuZCBtYXhcIixcclxuICAgIFwiRG91YmxlIGxpbmVzIHNob3cgV0VBSyBlbnRpdGllcywgc2luZ2xlIGxpbmVzIHNob3cgc3Ryb25nXCIsXHJcbiAgICBcIkNvcnJlY3QhIERvdWJsZSBsaW5lcyBpbmRpY2F0ZSBtdWx0aXBsZSB2YWx1ZXMgcG9zc2libGVcIlxyXG4gIF07XHJcbiAgXHJcbiAgbGV0IHNjb3JlID0gMDtcclxuICBsZXQgZmVlZGJhY2sgPSBbXTtcclxuICBcclxuICByZXNwb25zZXMuZm9yRWFjaCgocmVzcG9uc2UsIGkpID0+IHtcclxuICAgIGlmIChyZXNwb25zZSA9PT0gYW5zd2Vyc1tpXSkge1xyXG4gICAgICBzY29yZSsrO1xyXG4gICAgICBmZWVkYmFjay5wdXNoKGDinJMgUSR7aSsxfTogJHtxdWVzdGlvbnNbaV19YCk7XHJcbiAgICB9IGVsc2Uge1xyXG4gICAgICBmZWVkYmFjay5wdXNoKGDinJcgUSR7aSsxfTogJHtxdWVzdGlvbnNbaV19YCk7XHJcbiAgICB9XHJcbiAgfSk7XHJcbiAgXHJcbiAgY29uc3QgcGVyY2VudGFnZSA9IE1hdGgucm91bmQoKHNjb3JlLzUpICogMTAwKTtcclxuICBjb25zdCBjb2xvciA9IHNjb3JlID49IDQgPyBcImdyZWVuXCIgOiBzY29yZSA+PSAzID8gXCJvcmFuZ2VcIiA6IFwicmVkXCI7XHJcbiAgXHJcbiAgcmV0dXJuIGh0bWxgPGRpdiBzdHlsZT1cImNvbG9yOiAke2NvbG9yfTsgZm9udC13ZWlnaHQ6IGJvbGQ7IG1hcmdpbi10b3A6IDE1cHg7XCI+XHJcbiAgICA8ZGl2IHN0eWxlPVwiZm9udC1zaXplOiAxLjJlbTtcIj5RdWljayBGaXJlIFNjb3JlOiAke3Njb3JlfS81ICgke3BlcmNlbnRhZ2V9JSk8L2Rpdj5cclxuICAgICR7ZmVlZGJhY2subWFwKGYgPT4gaHRtbGA8ZGl2IHN0eWxlPVwibWFyZ2luOiA1cHggMDsgZm9udC1zaXplOiAwLjllbTtcIj4ke2Z9PC9kaXY+YCl9XHJcbiAgPC9kaXY+YDtcclxufVxyXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTgiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJ2aWV3b2YgZGVzaWduX2NoYWxsZW5nZSA9IElucHV0cy5mb3JtKHtcclxuICBtZW1iZXJfZ3ltOiBJbnB1dHMucmFkaW8oW1wiMToxXCIsIFwiMTpNXCIsIFwiTTpOXCJdLCB7bGFiZWw6IFwiTUVNQkVSIHRvIEdZTSByZWxhdGlvbnNoaXA6XCJ9KSxcclxuICBtZW1iZXJfY2xhc3M6IElucHV0cy5yYWRpbyhbXCIxOjFcIiwgXCIxOk1cIiwgXCJNOk5cIl0sIHtsYWJlbDogXCJNRU1CRVIgdG8gQ0xBU1MgcmVsYXRpb25zaGlwOlwifSksXHJcbiAgaW5zdHJ1Y3Rvcl9jbGFzczogSW5wdXRzLnJhZGlvKFtcIjE6MVwiLCBcIjE6TVwiLCBcIk06TlwiXSwge2xhYmVsOiBcIklOU1RSVUNUT1IgdG8gQ0xBU1MgcmVsYXRpb25zaGlwOlwifSksXHJcbiAgZW50aXRpZXNfbmVlZGVkOiBJbnB1dHMubnVtYmVyKHtsYWJlbDogXCJIb3cgbWFueSBlbnRpdGllcyB3b3VsZCB5b3UgbmVlZCBtaW5pbXVtP1wiLCBtaW46IDMsIG1heDogMTAsIHN0ZXA6IDF9KVxyXG59KVxyXG5cclxuZGVzaWduX3Jlc3VsdCA9IHtcclxuICBpZiAoIWRlc2lnbl9jaGFsbGVuZ2UubWVtYmVyX2d5bSB8fCAhZGVzaWduX2NoYWxsZW5nZS5tZW1iZXJfY2xhc3MgfHwgIWRlc2lnbl9jaGFsbGVuZ2UuaW5zdHJ1Y3Rvcl9jbGFzcyB8fCAhZGVzaWduX2NoYWxsZW5nZS5lbnRpdGllc19uZWVkZWQpIHtcclxuICAgIHJldHVybiBcIlwiO1xyXG4gIH1cclxuICBcclxuICBsZXQgc2NvcmUgPSAwO1xyXG4gIGxldCBmZWVkYmFjayA9IFtdO1xyXG4gIFxyXG4gIGlmIChkZXNpZ25fY2hhbGxlbmdlLm1lbWJlcl9neW0gPT09IFwiTTpOXCIpIHtcclxuICAgIHNjb3JlKys7XHJcbiAgICBmZWVkYmFjay5wdXNoKFwi4pyTIE1FTUJFUi1HWU06IENvcnJlY3RseSBpZGVudGlmaWVkIE06TiByZWxhdGlvbnNoaXBcIik7XHJcbiAgfSBlbHNlIHtcclxuICAgIGZlZWRiYWNrLnB1c2goXCLinJcgTUVNQkVSLUdZTTogTWVtYmVycyBjYW4gam9pbiBtdWx0aXBsZSBneW1zLCBneW1zIGhhdmUgbXVsdGlwbGUgbWVtYmVycyA9IE06TlwiKTtcclxuICB9XHJcbiAgXHJcbiAgaWYgKGRlc2lnbl9jaGFsbGVuZ2UubWVtYmVyX2NsYXNzID09PSBcIk06TlwiKSB7XHJcbiAgICBzY29yZSsrO1xyXG4gICAgZmVlZGJhY2sucHVzaChcIuKckyBNRU1CRVItQ0xBU1M6IENvcnJlY3RseSBpZGVudGlmaWVkIE06TiByZWxhdGlvbnNoaXBcIik7XHJcbiAgfSBlbHNlIHtcclxuICAgIGZlZWRiYWNrLnB1c2goXCLinJcgTUVNQkVSLUNMQVNTOiBNZW1iZXJzIGF0dGVuZCBtdWx0aXBsZSBjbGFzc2VzLCBjbGFzc2VzIGhhdmUgbXVsdGlwbGUgbWVtYmVycyA9IE06TlwiKTtcclxuICB9XHJcbiAgXHJcbiAgaWYgKGRlc2lnbl9jaGFsbGVuZ2UuaW5zdHJ1Y3Rvcl9jbGFzcyA9PT0gXCIxOk1cIikge1xyXG4gICAgc2NvcmUrKztcclxuICAgIGZlZWRiYWNrLnB1c2goXCLinJMgSU5TVFJVQ1RPUi1DTEFTUzogQ29ycmVjdGx5IGlkZW50aWZpZWQgMTpNIHJlbGF0aW9uc2hpcFwiKTtcclxuICB9IGVsc2Uge1xyXG4gICAgZmVlZGJhY2sucHVzaChcIuKclyBJTlNUUlVDVE9SLUNMQVNTOiBPbmUgaW5zdHJ1Y3RvciBwZXIgY2xhc3MsIGJ1dCBpbnN0cnVjdG9ycyBjYW4gdGVhY2ggbXVsdGlwbGUgY2xhc3NlcyA9IDE6TVwiKTtcclxuICB9XHJcbiAgXHJcbiAgaWYgKGRlc2lnbl9jaGFsbGVuZ2UuZW50aXRpZXNfbmVlZGVkID49IDQgJiYgZGVzaWduX2NoYWxsZW5nZS5lbnRpdGllc19uZWVkZWQgPD0gNikge1xyXG4gICAgc2NvcmUrKztcclxuICAgIGZlZWRiYWNrLnB1c2goXCLinJMgR29vZCBlc3RpbWF0ZSEgTUVNQkVSLCBHWU0sIENMQVNTLCBJTlNUUlVDVE9SIG1pbmltdW0gKDQpLCBwbHVzIGNvbXBvc2l0ZSBlbnRpdGllcyBmb3IgTTpOIHJlbGF0aW9uc2hpcHNcIik7XHJcbiAgfSBlbHNlIHtcclxuICAgIGZlZWRiYWNrLnB1c2goXCLinJcgVGhpbmsgYWJvdXQ6IE1FTUJFUiwgR1lNLCBDTEFTUywgSU5TVFJVQ1RPUiArIGNvbXBvc2l0ZSBlbnRpdGllcyBmb3IgTTpOIHJlbGF0aW9uc2hpcHNcIik7XHJcbiAgfVxyXG4gIFxyXG4gIGNvbnN0IGNvbG9yID0gc2NvcmUgPT09IDQgPyBcImdyZWVuXCIgOiBzY29yZSA+PSAzID8gXCJvcmFuZ2VcIiA6IFwicmVkXCI7XHJcbiAgY29uc3QgbWVzc2FnZSA9IHNjb3JlID09PSA0ID8gXCJFeGNlbGxlbnQgZGVzaWduIHRoaW5raW5nIVwiIDogc2NvcmUgPj0gMyA/IFwiR29vZCBhbmFseXNpcyFcIiA6IFwiUmV2aWV3IE06TiByZWxhdGlvbnNoaXBzXCI7XHJcbiAgXHJcbiAgcmV0dXJuIGh0bWxgPGRpdiBzdHlsZT1cImNvbG9yOiAke2NvbG9yfTsgZm9udC13ZWlnaHQ6IGJvbGQ7IG1hcmdpbi10b3A6IDE1cHg7XCI+XHJcbiAgICA8ZGl2PkRlc2lnbiBTY29yZTogJHtzY29yZX0vNCAtICR7bWVzc2FnZX08L2Rpdj5cclxuICAgICR7ZmVlZGJhY2subWFwKGYgPT4gaHRtbGA8ZGl2IHN0eWxlPVwibWFyZ2luOiA1cHggMDtcIj4ke2Z9PC9kaXY+YCl9XHJcbiAgPC9kaXY+YDtcclxufVxyXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6InNoaW55SW5wdXQoJ3ExX2Fuc3dlcicpIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJzaGlueUlucHV0KCdxMl9hbnN3ZXInKSJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoic2hpbnlJbnB1dCgncTNfYW5zd2VyJykifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6InNoaW55SW5wdXQoJ3E0X2Fuc3dlcicpIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJzaGlueUlucHV0KCdxNV9hbnN3ZXInKSJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoic2hpbnlJbnB1dCgnc2NlbmFyaW9fYW5zd2VycycpIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJzaGlueUlucHV0KCdxdWlja2ZpcmUnKSJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoic2hpbnlJbnB1dCgnZGVzaWduX2NoYWxsZW5nZScpIn1dfQ==
+</script>
+<script type="module">
+if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
+window._ojs.paths.runtimeToDoc = "../../..";
+window._ojs.paths.runtimeToRoot = "../../..";
+window._ojs.paths.docToRoot = "";
+window._ojs.selfContained = false;
+window._ojs.runtime.interpretFromScriptTags();
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
