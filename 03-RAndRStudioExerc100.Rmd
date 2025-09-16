@@ -1,0 +1,330 @@
+---
+title: "Interactive Section"
+output:
+  learnr::tutorial:
+    progressive: true
+    allow_skip: true
+runtime: shiny_prerendered
+description: Exercises
+
+---
+
+<style>
+  div.yellowbox {
+    background-color: #f1dfa6;
+    border: 1px solid black;
+    padding: 21px;
+  }
+
+  strong {
+    color: #d10056
+  }
+
+  .center {
+    text-align: center;
+  }
+</style>
+
+
+```{r setup, include=FALSE}
+library(learnr)
+library(rio)
+library(tidyverse)
+library(tidymodels)
+library(janitor)
+library(kableExtra)
+
+knitr::opts_chunk$set(exercise=TRUE, exercise.eval=FALSE, exercise.lines=6, attr.source = ".numberLines")
+```
+
+:::: {.yellowbox data-latex=""}
+
+::: {.center data-latex=""}
+**How to Work with this Interactive Section**
+:::
+
+Here you find the complete interactive section from the book, including book content, and R-code-blocks. Read the content in a browser as you would read it in the textbook. 
+With the R-code blocks, you can work in various ways:
+
+* Use the `Run Code` button to execute the R-code and see the result.
+
+* Change the R-code, click the `Run Code` button, and then see the new results.
+
+* To get the original R-code back, click the `Start Over` button at the left-top corner of each R-code block. 
+
+* To reset the R-code for all code blocks, click the `Start Over` in the left menu.
+
+**Make sure you installed all needed packages!** See Section "R Packages Required"  in this Chapter for a list of packages that need to be installed. Section 3.2 explain how to install a packege in *RStudio*.
+
+
+
+**For Troubleshooting:** [Click here](https://blog.lange-analytics.com/2024/01/interactsessions.html)
+::::
+
+
+ 
+ 
+ <clex id="Exc100">
+
+### Introduction: Was Chivalry Dead on the Titanic? \index{Chivalry Dead Exercise}
+
+In this interactive section, you will work on a small project to determine if chivalry was dead when the *Titanic* sank in 1912[^03-randrstudio-17]. The background for the project is an article written by Hannah Furness (Royal Correspondent at The Telegraph).[^03-randrstudio-18] She cites a Swedish historian claiming, "It was 'not true' that women and children on board the *Titanic* survived thanks to the gallantry of men."[^03-randrstudio-19] Hannah Furness also reports anecdotal evidence about men being in the lifeboats instead of women: "Over on the starboard side, it was a different story. On the last boats to leave, the majority were men."[^03-randrstudio-20] However, Furness did not use any statistics to support her claim, although data are publicly available.
+
+[^03-randrstudio-17]: The website History.com (keyword: *Titanic*) provides a comprehensive article about the *Titanic* disaster (see @History2021)
+
+[^03-randrstudio-18]: See @Furness2022.
+
+[^03-randrstudio-19]: See @Furness2022.
+
+[^03-randrstudio-20]: See @Furness2022.
+
+It is now your job to fill this gap. The question is:
+
+**Was the proportion of women surviving the Titanic disaster greater than the one of men?**
+
+If true, that would strongly indicate that the ultimate chivalry --- dying to protect a woman's life --- was still present when the *Titanic* sank and that Furness' claim that chivalry was dead in 1912 is likely incorrect.
+
+### Analyzing Titanic Survival Rates for Women and Men
+
+```{r RAndRStudio-Exerc100-DataChivalryLoad, exercise=FALSE, include=FALSE}
+library(tidyverse);library(rio)
+
+DataTitanic=import("https://jomanab-cloud.github.io/ISE351-25-Presentations/Titanic.csv") 
+
+DataAnalysis=DataTitanic |>
+             as_tibble() |> 
+             select(Survived, Gender, PasClass=Pclass) |>
+             mutate(Survived=ifelse(Survived==1,TRUE,FALSE))
+DataWomen=DataAnalysis |> 
+          filter(Gender=="female")
+DataMen=DataAnalysis |> 
+          filter(Gender=="male")
+FemTotal=nrow(DataWomen)
+FemSurv=sum(DataWomen$Survived)
+MaleTotal=nrow(DataMen)
+MaleSurv=sum(DataMen$Survived)
+FemSurvRate=mean(DataWomen$Survived)
+MaleSurvRate=mean(DataMen$Survived)
+
+```
+
+You will use the same *Titanic* dataset we used before together with the `tidyverse` package. The *Titanic* dataset contains 887 observations about *Titanic* passengers, including variables such as a survival indicator, passenger's gender, and the class traveled in. The dataset covers about 67% of the total passengers from the *Titanic*.
+
+Below are the first six observations from the `DataTitantic` data frame:
+
+```{r RAndRStudio-Exerc100-100, exercise=FALSE, eval=TRUE, echo=TRUE, message=FALSE, warning=FALSE}
+library(tidyverse);library(rio)
+DataTitanic=import("https://jomanab-cloud.github.io/ISE351-25-Presentations/Titanic.csv") 
+head(DataTitanic)
+```
+
+```{r, RAndRStudio-Exerc100-LoadDataForNoExerc, exercise=FALSE, eval=TRUE, echo=FALSE}
+
+DataAnalysis=DataTitanic |>
+             as_tibble() |> 
+             select(Survived, Gender, PasClass=Pclass) |>
+             mutate(Survived=ifelse(Survived==1,TRUE,FALSE))
+DataWomen=DataAnalysis |> 
+          filter(Gender=="female")
+DataMen=DataAnalysis |> 
+          filter(Gender=="male")
+FemTotal=nrow(DataWomen)
+FemSurv=sum(DataWomen$Survived)
+MaleTotal=nrow(DataMen)
+MaleSurv=sum(DataMen$Survived)
+FemSurvRate=mean(DataWomen$Survived)
+MaleSurvRate=mean(DataMen$Survived)
+```
+
+Before writing *R* code, we need to develop a **data analysis strategy**:
+
+**Step 1:**
+
+:   You will create a data frame, `DataAnalysis`, containing only the variables $Survived$, $Gender$, $Pclass$. In addition, you will transform the variable $Survived$ to a logic variable with `TRUE` and `FALSE` values, and you will rename $Pclass$ to $PasClass$.
+
+**Step 2:**
+
+:   You will divide the data frame `DataAnalysis` into two new data frames, `DataWomen` and `DataMen,` containing only observations for women and men, respectively.
+
+**Step 3:**
+
+:   The data frames `DataWomen` and `DataMen` will finally be used to calculate the survival rates of women and men.
+
+Remember, whenever you work on a data science project, develop a detailed data analysis strategy before you start coding. Otherwise, after you have spent a lot of time coding, you might need to entirely change your code because you forgot to consider an important fact.
+
+You will now follow the steps outlined above to write the *R* code for the project. **Step 1** from the data analysis strategy requires to create a new data frame `DataAnalysis` that only contains the variables `Survived` (as `logic` data type), `Gender`, and `Pclass` (renamed to `PasClass`).
+
+When you substitute the `...` in the code below (note that the data frame `DataTitanic` has already been loaded in the background), the command `head(DataAnalysis`) will print the first six observations of the new data frame to the console:
+
+```{r RAndRStudio-Exerc100-200, exercise=TRUE, eval=FALSE, exercise.setup="RAndRStudio-Exerc100-DataChivalryLoad"}
+DataAnalysis= DataTitanic |>
+               select(... ,... , ... = ...) |>
+               mutate(Survived=as.logical(Survived))
+head(DataAnalysis)
+```
+
+```{r RAndRStudio-Exerc100-200-hint, eval=FALSE, exercise=FALSE, include=FALSE, exercise.lines=11}
+'HINT: Use the select() command and list the variables (columns) that you like to
+have included in the new data frame. Make sure to rename Pclass to PasClass.
+  
+The command to convert the variable Survived from numeric to logic 
+is already provided with hte mutate command.
+
+The next HINT provides the solution. So, keep trying before you peek.'
+```
+
+```{r RAndRStudio-Exerc100-200-solution, eval=FALSE, exercise=FALSE, include=FALSE}
+DataAnalysis=DataTitanic |>
+               select(Survived,Gender,PasClass=Pclass) |>
+               mutate(Survived=as.logical(Survived))
+head(DataAnalysis)
+```
+
+Note that in the code above, the variable `Survived` was converted from data type `numerical` to `logic` with the `mutate()` command: After `as.logical()` converted `Survival` into `logical` data type, the result was assigned to the variable `Survival` updating it with the new data type.
+
+**Step 2** from the data analysis strategy requires splitting the data frame `DataAnalysis` into two data frames:
+
+1)  `DataWomen` should only contain female passengers.
+2)  `DataMen` should only contain male passengers.
+
+In the code block below you can use the `filter()` command to generate the two new data frames (note that the data frame `DataAnalysis` has been loaded already in the background):
+
+```{r RAndRStudio-Exerc100-300, exercise=TRUE, eval=FALSE, exercise.setup="RAndRStudio-Exerc100-DataChivalryLoad"}
+DataWomen=DataAnalysis |>
+          filter(... == ...)
+DataMen=DataAnalysis |>
+          filter(... == ...)
+head(DataWomen)
+head(DataMen)
+```
+
+```{r RAndRStudio-Exerc100-300-hint, eval=FALSE, exercise=FALSE, include=FALSE, exercise.lines=11}
+'HINT: The two filter() commands need  a condition for
+the observations to be filtered.
+
+Add the variable name left of the "==" and the filter-value 
+right of the "==" (do not forget the quotes).
+
+The next HINT provides the solution. So, keep trying before you peek.'
+```
+
+```{r RAndRStudio-Exerc100-300-solution, eval=FALSE, exercise=FALSE, include=FALSE}
+DataWomen=DataAnalysis |>
+          filter(Gender=="female")
+DataMen=DataAnalysis |>
+          filter(Gender=="male")
+head(DataWomen)
+head(DataMen)
+```
+
+Now that you have two different data frames that either only contain male or female passengers' observations, you are ready to calculate the related survival rates.
+
+In the code block below, you will calculate the female survival rate. Later, for the male survival rate, we will show you a shorter alternative.
+
+The female survival rate $(Fem_{SurvRate})$ is defined as:
+
+$$Fem_{SurvRate}=\frac{Fem_{Surv}}{Fem_{Total}}$$ Therefore, to calculate the female survival rate, you need to find the number of female passengers that survived $(Fem_{Surv})$ and the total number of female passengers $Fem_{Total}$. The latter is the same as the number of observations in the data frame `DataWomen` and can be calculated with `nrow(DataWomen)`.
+
+To find the number of surviving women $(Fem_{Surv})$, we can use the fact that a surviving passenger was coded with `TRUE` with an internal value of $1$ and a not-surviving passenger with `FALSE` with an internal value of $0$. Therefore, when we extract the variable $Survived$ as a vector-object from the data frame 'DataWomen' and calculate the sum from this vector, we get the number of female survivors `(sum(DataWomen$Survived))`.
+
+With this information, you should be ready to complete the code below to calculate the rate of female survivors (note that the data frame `DataWomen` has been loaded already in the background):
+
+```{r RAndRStudio-Exerc100-350, eval=FALSE, exercise=TRUE, exercise.setup="RAndRStudio-Exerc100-DataChivalryLoad"}
+FemSurv=...(...$...)
+FemTotal=...(...)
+FemSurvRate= FemSurv/FemTotal
+cat("The survival rate for wommen is:",FemSurvRate)
+```
+
+```{r RAndRStudio-Exerc100-350-hint, eval=FALSE, exercise=FALSE, exercise.lines=11, include=FALSE}
+'The female survival rate is calculated by dividing the number of female
+survivors by the total number of female passengers.
+
+The sum of the variable Survived in the data frame DataWomen gives you the
+number of female survivors (why?).
+
+The number of female passengers is the same as the number of observations in
+the data frame `DataWomen`, which you can get with the command nrow().
+
+The next HINT provides the solution. So, keep trying before you peek.'
+```
+
+```{r RAndRStudio-Exerc100-350-solution, eval=FALSE, exercise=FALSE, exercise.setup="RAndRStudio-Exerc100-DataChivalryLoad", include=FALSE}
+FemSurv=sum(DataWomen$Survived)
+FemTotal=nrow(DataWomen)
+FemSurvRate= FemSurv/FemTotal
+cat("The survival rate for women is",FemSurvRate)
+```
+
+You could do the same for the male passengers. However, there is a shorter alternative to calculate the male survival rate (note that the data frame `DataMen` has been loaded already in the background):
+
+```{r RAndRStudio-Exerc100-400, exercise=FALSE, eval=TRUE}
+MaleSurvRate= mean(DataMen$Survived)
+cat("The survival rate for men is",MaleSurvRate)
+```
+
+Why could the `mean()` command be used to calculate the survival rate directly? It is because the *mean* is calculated by dividing the sum of a variable by the number of observations. This is what we did explicitly when we calculated the female survival rate.
+
+When we use the `cat()` command to print and compare the female and male survival rates, you can see that the survival rate for female passengers is much higher than the one for female passengers:[^03-randrstudio-21]
+
+[^03-randrstudio-21]: The character value "\\n" creates a line break in the console output
+
+```{r RAndRStudio-Exerc100-410, exercise=FALSE, eval=TRUE}
+cat("The survival rate for women is:", FemSurvRate, "\n",
+    "The survival rate for men is:", MaleSurvRate )
+```
+
+The remaining question is if the difference between the two survival rates is high enough to allow us to reject the assertion of the *Telegraph* article that *chivalry was dead in 1912*?
+
+To answer this question, we need more analysis. *R* really shines when data are well organized, as done here --- when good data engineering is performed. With the `prop.test()` command, *R* can run a test if the survival rates for women and men differ significantly. The syntax only requires the values for four arguments:
+
+-   the number of female survivors,
+
+-   the number of male survivors,
+
+-   the number of total female passengers, and
+
+-   the number of total male passengers.
+
+These values have been calculated already and stored in the *R* Objects `WomenSurv`, `MenSurv`, `WomenTotal`, and `MenTotal`. We can provide these values to the `prop.test()` command grouped as two *R* vectors, one for the survival numbers and one for the total numbers for women and men, respectively:
+
+```{r RAndRStudio-Exerc100-700, exercise=FALSE, eval=TRUE}
+ModelPropFemaleVsMale=prop.test(c(FemSurv, MaleSurv),
+                                c(FemTotal, MaleTotal))
+```
+
+Above, we saved the output of the `prop.test()` command in an *R* object named `ModelPropFemaleVsMale`. We started the object name with the word `Model` to indicate that it stores the output of a statistical model. `ModelPropFemaleVsMale` is a complex object. However, when we print it with the `print()` command, we extract important information from the model object:
+
+```{r RAndRStudio-Exerc100-701, exercise=FALSE, eval=TRUE}
+print(ModelPropFemaleVsMale)
+```
+
+Reading the output above backward, starting with the last line, allows us to develop the final result step by step. The last line from the `ModelPropFemaleVsMale` object shows the different survival rates for female (`Prop1`) and male (`Prop2`) passengers. The difference between these two survival rates is about 0.55. The 95%-confidence interval for the difference ranges from 0.49 to 0.61. The probability of this difference being zero (both survival rates would be the same) is expressed by the P-value in line five of the output. As the P-value shows, the probability for the female and the male survival rate to be the same is almost zero.
+
+We can summarize:
+
+**The assertion from the Telegraph that chivalry was dead in 1912 during the Titanic disaster is most likely not correct.**
+
+Now, you should be ready to pursue another small project with minimal guidance (no `Hints` in the code block below). How about you analyze the **different survival rates depending on if passengers traveled in first, second, or third class?**
+
+First, create, based on the data frame `DataAnalysis`, three data frames containing only passengers in classes 1, 2, and 3, respectively. The object names followed by `...` are already provided in the *R* code block below.
+
+Next, substitute the `...` in lines 5 -- 7 with the appropriate *R* code to calculate the survival rates for each of the three travel classes (note that the data frame `DataAnalysis` has already been loaded in the background):
+
+```{r RAndRStudio-Exerc100-800, exercise=TRUE, exercise.setup="RAndRStudio-Exerc100-DataChivalryLoad", eval=FALSE, exercise.lines=15}
+DataClass1= ...
+DataClass2= ...
+DataClass3= ...
+  
+Class1SurvRate= ...
+Class2SurvRate= ...
+Class3SurvRate= ...  
+
+cat("Survival rate in class 1:", Class1SurvRate)
+cat("Survival rate in class 2:", Class2SurvRate)
+cat("Survival rate in class 3:", Class3SurvRate)
+```
+
+**Happy analysis!**
+
+</clex>
