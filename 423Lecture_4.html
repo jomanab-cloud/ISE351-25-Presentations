@@ -1930,89 +1930,276 @@ Prediction  Adelie Chinstrap Gentoo
 </section>
 <section id="reading-the-confusion-matrix" class="slide level2">
 <h2>Reading the Confusion Matrix</h2>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>READING THE CONFUSION MATRIX</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>                    Truth</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Prediction      Adelie    Chinstrap    Gentoo</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Adelie          TP:  42   FP:   2      FP:   1</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Chinstrap       FN:   1   TP:  19      FP:   0</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Gentoo          FN:   3   FN:   0      TP:  36</code></pre>
-</div>
+<div class="confusion-matrix" style="font-family: &#39;Courier New&#39;, monospace; background-color: #f5f5f5; padding: 20px; border-radius: 8px; display: inline-block; margin: 20px 0;">
+<pre>                Truth
+Prediction  Adelie Chinstrap Gentoo
+  Adelie      42       2        1
+  Chinstrap    1      19        0
+  Gentoo       3       0       36
+</pre>
 </div>
 <ul>
-<li><p>The <strong>positive class</strong> (penguin is “Adelie”) is in the <strong>first column</strong>. X of the positives are classified correctly (TP: true positives), and Y positives are incorrectly classified (FN: false negatives).</p></li>
-<li><p>The <strong>second class</strong> (penguin is “Chinstrap”) is in the <strong>second column</strong>. X are correctly classified (TP: true positives), and Y are misclassified.</p></li>
-<li><p>The <strong>third class</strong> (penguin is “Gentoo”) is in the <strong>third column</strong>. X are correctly classified (TP: true positives), and Y are misclassified.</p></li>
+<li><strong>Key Insight:</strong> Calculate TP, FP, FN, TN <em>for each class separately</em></li>
+<li>Think <strong>“One-vs-Rest”</strong> for each class</li>
 </ul>
-<p><strong>Accuracy:</strong> <span class="math display">\[Accuracy = \frac{TP + TN}{TP + FP + TN + FN}\]</span></p>
-<p>Where:</p>
-<ul>
-<li>TP = True Positives (correctly predicted positive class)<br>
-</li>
-<li>TN = True Negatives (correctly predicted negative class)<br>
-</li>
-<li>FP = False Positives (incorrectly predicted as positive)<br>
-</li>
-<li>FN = False Negatives (incorrectly predicted as negative)</li>
-</ul>
-<p>In the case of 3 classes: Number of penguins on diagonal/number of all penguins:</p>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 1 × 3
-  .metric  .estimator .estimate
-  &lt;chr&gt;    &lt;chr&gt;          &lt;dbl&gt;
-1 accuracy multiclass     0.933</code></pre>
+</section>
+<section id="understanding-the-metrics" class="slide level2">
+<h2>Understanding the Metrics</h2>
+<style>
+.metric-box { display: inline-block; padding: 12px 20px; margin: 8px; border-radius: 6px; color: white; font-weight: bold; min-width: 200px; }
+.tp-color { background-color: #4CAF50; }
+.fp-color { background-color: #f44336; }
+.fn-color { background-color: #FF9800; }
+.tn-color { background-color: #2196F3; }
+.highlight-tp { background-color: #4CAF50; color: white; padding: 2px 8px; border-radius: 3px; font-weight: bold; }
+.highlight-fp { background-color: #f44336; color: white; padding: 2px 8px; border-radius: 3px; font-weight: bold; }
+.highlight-fn { background-color: #FF9800; color: white; padding: 2px 8px; border-radius: 3px; font-weight: bold; }
+.highlight-tn { background-color: #2196F3; color: white; padding: 2px 8px; border-radius: 3px; font-weight: bold; }
+</style>
+<div class="metric-box tp-color fragment">
+<p><strong>TP</strong>: Correctly predicted as THIS class</p>
 </div>
+<div class="metric-box fp-color fragment">
+<p><strong>FP</strong>: Incorrectly predicted as THIS class</p>
+</div>
+<div class="metric-box fn-color fragment">
+<p><strong>FN</strong>: Actually WAS this class, but we predicted it as something else</p>
+</div>
+<div class="metric-box tn-color fragment">
+<p><strong>TN</strong>: Correctly identified as NOT this class</p>
 </div>
 </section>
-<section id="time-to-run-k-nearest-neighbors-8" class="slide level2">
-<h2>Time to Run k-Nearest Neighbors</h2>
-<p>To make sure the accuracy rate is not misleading, we look at <code>accuracy()</code>, <code>sensitivity()</code> and <code>specificity()</code> for the penguin data.</p>
+<section id="understanding-the-metrics-1" class="slide level2">
+<h2>Understanding the Metrics</h2>
+<p>To make sure the accuracy rate is not misleading, we look at <code>accuracy()</code>, <code>sensitivity()</code>, <code>precision()</code> and <code>specificity()</code> for the penguin data.</p>
 <ul>
-<li><p>Sensitivity: the rate of correctly predicted positives</p></li>
-<li><p>Specificity: the rate of correctly predicted negatives</p></li>
+<li>Sensitivity: the rate of correctly predicted positives
+<ul>
+<li>“Of all the actual positives, how many did we catch?”</li>
+</ul></li>
+<li>Precision: the rate of correct positive predicitons
+<ul>
+<li>“Of all our positive predictions, how many were correct?”</li>
+</ul></li>
+<li>Specificity: the rate of correctly predicted negatives
+<ul>
+<li>“Of all the actual negatives, how many did we correctly”</li>
+</ul></li>
 </ul>
 <p><strong>Note</strong>: In our case (3 classes), sensitivity and specificity need to be calculated for each class</p>
-<p><strong>For each penguin species</strong>, calculate separately:</p>
-<p><strong>Example: Adelie as “Positive Class”</strong></p>
-<table class="caption-top">
+<p><strong>For each penguin species</strong>, calculate separately</p>
+</section>
+<section id="example-adelie-penguins" class="slide level2">
+<h2>Example: Adelie Penguins</h2>
+<p><em>“Is this penguin an Adelie?”</em></p>
+<div class="confusion-matrix" style="font-family: &#39;Courier New&#39;, monospace; background-color: #f5f5f5; padding: 20px; border-radius: 8px; display: inline-block;">
+<pre>                Truth
+Prediction  Adelie Chinstrap Gentoo
+  Adelie     <span class="highlight-tp">TP:42</span>   <span class="highlight-fp">FP: 2</span>   <span class="highlight-fp">FP: 1</span>
+  Chinstrap  <span class="highlight-fn">FN: 1</span>   <span class="highlight-tn">TN:19</span>   <span class="highlight-tn">TN: 0</span>
+  Gentoo     <span class="highlight-fn">FN: 3</span>   <span class="highlight-tn">TN: 0</span>   <span class="highlight-tn">TN:36</span>
+</pre>
+</div>
+<div style="font-size: 0.9em;">
+<ul>
+<li></li><li class="fragment">
+<span class="highlight-tp">TP = 42</span>: Correctly identified as Adelie</li>
+<li></li><li class="fragment">
+<span class="highlight-fp">FP = 3</span>: Said “Adelie” but wrong (2+1)</li>
+<li></li><li class="fragment">
+<span class="highlight-fn">FN = 4</span>: Missed Adelie penguins (1+3)</li>
+<li></li><li class="fragment">
+<span class="highlight-tn">TN = 55</span>: Correctly NOT Adelie (19+0+0+36)</li>
+</ul>
+</div>
+<div class="fragment" style="background-color: #e3f2fd; padding: 15px; border-radius: 5px; margin-top: 15px;">
+<p style="margin: 5px 0;">
+<strong>Precision</strong> = TP/(TP+FP) = 42/(42+3) = 42/45 = <strong>93.3%</strong>
+</p>
+<p style="margin: 5px 0;">
+<strong>Recall (Sensitivity)</strong> = TP/(TP+FN) = 42/(42+4) = 42/46 = <strong>91.3%</strong>
+</p>
+<p style="margin: 5px 0;">
+<strong>Specificity</strong> = TN/(TN+FP) = 55/(55+3) = 55/58 = <strong>94.8%</strong>
+</p>
+</div>
+</section>
+<section id="example-chinstrap-penguins" class="slide level2">
+<h2>Example: Chinstrap Penguins</h2>
+<p><em>“Is this penguin a Chinstrap?”</em></p>
+<div class="confusion-matrix" style="font-family: &#39;Courier New&#39;, monospace; background-color: #f5f5f5; padding: 20px; border-radius: 8px; display: inline-block;">
+<pre>                Truth
+Prediction  Adelie Chinstrap Gentoo
+  Adelie     <span class="highlight-tn">TN:42</span>   <span class="highlight-fp">FP: 2</span>   <span class="highlight-tn">TN: 1</span>
+  Chinstrap  <span class="highlight-fn">FN: 1</span>   <span class="highlight-tp">TP:19</span>   <span class="highlight-fp">FP: 0</span>
+  Gentoo     <span class="highlight-tn">TN: 3</span>   <span class="highlight-fn">FN: 0</span>   <span class="highlight-tn">TN:36</span>
+</pre>
+</div>
+<div style="font-size: 0.9em;">
+<ul>
+<li></li><li class="fragment">
+<span class="highlight-tp">TP = 19</span>: Correctly identified as Chinstrap</li>
+<li></li><li class="fragment">
+<span class="highlight-fp">FP = 2</span>: Said “Chinstrap” but wrong (2+0)</li>
+<li></li><li class="fragment">
+<span class="highlight-fn">FN = 1</span>: Missed Chinstrap penguins (1+0)</li>
+<li></li><li class="fragment">
+<span class="highlight-tn">TN = 82</span>: Correctly NOT Chinstrap (42+1+3+36)</li>
+</ul>
+</div>
+<div class="fragment" style="background-color: #e3f2fd; padding: 15px; border-radius: 5px; margin-top: 15px;">
+<p style="margin: 5px 0;">
+<strong>Precision</strong> = TP/(TP+FP) = 19/(19+2) = 19/21 = <strong>90.5%</strong>
+</p>
+<p style="margin: 5px 0;">
+<strong>Recall (Sensitivity)</strong> = TP/(TP+FN) = 19/(19+1) = 19/20 = <strong>95.0%</strong>
+</p>
+<p style="margin: 5px 0;">
+<strong>Specificity</strong> = TN/(TN+FP) = 82/(82+2) = 82/84 = <strong>97.6%</strong>
+</p>
+</div>
+</section>
+<section id="example-gentoo-penguins" class="slide level2">
+<h2>Example: Gentoo Penguins</h2>
+<p><em>“Is this penguin a Gentoo?”</em></p>
+<div class="confusion-matrix" style="font-family: &#39;Courier New&#39;, monospace; background-color: #f5f5f5; padding: 20px; border-radius: 8px; display: inline-block;">
+<pre>                Truth
+Prediction  Adelie Chinstrap Gentoo
+  Adelie     <span class="highlight-tn">TN:42</span>   <span class="highlight-tn">TN: 2</span>   <span class="highlight-fp">FP: 1</span>
+  Chinstrap  <span class="highlight-tn">TN: 1</span>   <span class="highlight-tn">TN:19</span>   <span class="highlight-fp">FP: 0</span>
+  Gentoo     <span class="highlight-fn">FN: 3</span>   <span class="highlight-fn">FN: 0</span>   <span class="highlight-tp">TP:36</span>
+</pre>
+</div>
+<div style="font-size: 0.9em;">
+<ul>
+<li></li><li class="fragment">
+<span class="highlight-tp">TP = 36</span>: Correctly identified as Gentoo</li>
+<li></li><li class="fragment">
+<span class="highlight-fp">FP = 1</span>: Said “Gentoo” but wrong (1+0)</li>
+<li></li><li class="fragment">
+<span class="highlight-fn">FN = 3</span>: Missed Gentoo penguins (3+0)</li>
+<li></li><li class="fragment">
+<span class="highlight-tn">TN = 64</span>: Correctly NOT Gentoo (42+2+1+19)</li>
+</ul>
+</div>
+<div class="fragment" style="background-color: #e3f2fd; padding: 15px; border-radius: 5px; margin-top: 15px;">
+<p style="margin: 5px 0;">
+<strong>Precision</strong> = TP/(TP+FP) = 36/(36+1) = 36/37 = <strong>97.3%</strong>
+</p>
+<p style="margin: 5px 0;">
+<strong>Recall (Sensitivity)</strong> = TP/(TP+FN) = 36/(36+3) = 36/39 = <strong>92.3%</strong>
+</p>
+<p style="margin: 5px 0;">
+<strong>Specificity</strong> = TN/(TN+FP) = 64/(64+1) = 64/65 = <strong>98.5%</strong>
+</p>
+</div>
+</section>
+<section id="summary-all-three-classes" class="slide level2">
+<h2>Summary: All Three Classes</h2>
+<table style="font-size: 0.85em; margin: 20px auto; border-collapse: collapse;">
 <thead>
-<tr class="header">
-<th></th>
-<th>Predicted Adelie</th>
-<th>Predicted Other</th>
+<tr style="background-color: #333; color: white;">
+<th style="padding: 10px;">
+Class
+</th>
+<th style="padding: 10px;">
+TP
+</th>
+<th style="padding: 10px;">
+FP
+</th>
+<th style="padding: 10px;">
+FN
+</th>
+<th style="padding: 10px;">
+TN
+</th>
+<th style="padding: 10px;">
+Precision
+</th>
+<th style="padding: 10px;">
+Recall
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td><strong>Actually Adelie</strong></td>
-<td>TP</td>
-<td>FN</td>
+<tr class="fragment">
+<td style="padding: 8px;">
+<strong>Adelie</strong>
+</td>
+<td style="padding: 8px;">
+42
+</td>
+<td style="padding: 8px;">
+3
+</td>
+<td style="padding: 8px;">
+4
+</td>
+<td style="padding: 8px;">
+55
+</td>
+<td style="padding: 8px;">
+93.3%
+</td>
+<td style="padding: 8px;">
+91.3%
+</td>
 </tr>
-<tr class="even">
-<td><strong>Actually Other</strong></td>
-<td>FP</td>
-<td>TN</td>
+<tr class="fragment">
+<td style="padding: 8px;">
+<strong>Chinstrap</strong>
+</td>
+<td style="padding: 8px;">
+19
+</td>
+<td style="padding: 8px;">
+2
+</td>
+<td style="padding: 8px;">
+1
+</td>
+<td style="padding: 8px;">
+82
+</td>
+<td style="padding: 8px;">
+90.5%
+</td>
+<td style="padding: 8px;">
+95.0%
+</td>
+</tr>
+<tr class="fragment">
+<td style="padding: 8px;">
+<strong>Gentoo</strong>
+</td>
+<td style="padding: 8px;">
+36
+</td>
+<td style="padding: 8px;">
+1
+</td>
+<td style="padding: 8px;">
+3
+</td>
+<td style="padding: 8px;">
+64
+</td>
+<td style="padding: 8px;">
+97.3%
+</td>
+<td style="padding: 8px;">
+92.3%
+</td>
 </tr>
 </tbody>
 </table>
-<ul>
-<li><strong>Sensitivity (Recall)</strong>: Of all actual Adelie penguins, what % did we catch?<br>
-</li>
-<li><strong>Specificity</strong>: Of all non-Adelie penguins, what % did we correctly identify as not Adelie?</li>
-</ul>
-<p><strong>Repeat for Chinstrap and Gentoo!</strong></p>
+<div class="fragment" style="margin-top: 25px;">
+<p><strong>Overall Accuracy:</strong> (42+19+36)/104 = <strong>93.3%</strong></p>
+</div>
+</section>
+<section id="lets-look-at-metrics-in-r" class="slide level2">
+<h2>Let’s Look at Metrics in R</h2>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 3
@@ -2023,7 +2210,7 @@ Prediction  Adelie Chinstrap Gentoo
 </div>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href aria-hidden="true" tabindex="-1"></a><span class="fu">sensitivity</span>(DataPredWithTestData, <span class="at">truth =</span> Species, <span class="at">estimate =</span> .pred_class)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href aria-hidden="true" tabindex="-1"></a><span class="fu">sensitivity</span>(DataPredWithTestData, <span class="at">truth =</span> Species, <span class="at">estimate =</span> .pred_class)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -2036,7 +2223,7 @@ Prediction  Adelie Chinstrap Gentoo
 </div>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href aria-hidden="true" tabindex="-1"></a><span class="fu">specificity</span>(DataPredWithTestData, <span class="at">truth =</span> Species, <span class="at">estimate =</span> .pred_class)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href aria-hidden="true" tabindex="-1"></a><span class="fu">specificity</span>(DataPredWithTestData, <span class="at">truth =</span> Species, <span class="at">estimate =</span> .pred_class)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -2046,10 +2233,21 @@ Prediction  Adelie Chinstrap Gentoo
 1 specificity macro          0.964</code></pre>
 </div>
 </div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href aria-hidden="true" tabindex="-1"></a><span class="fu">precision</span>(DataPredWithTestData, <span class="at">truth =</span> Species, <span class="at">estimate =</span> .pred_class)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 3
+  .metric   .estimator .estimate
+  &lt;chr&gt;     &lt;chr&gt;          &lt;dbl&gt;
+1 precision macro          0.935</code></pre>
+</div>
+</div>
 <p>Get all the metrics at Once</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href aria-hidden="true" tabindex="-1"></a>metrics_summary <span class="ot">&lt;-</span> <span class="fu">metric_set</span>(sensitivity, specificity, precision, recall)</span>
-<span id="cb52-2"><a href aria-hidden="true" tabindex="-1"></a><span class="fu">metrics_summary</span>(DataPredWithTestData, <span class="at">truth =</span> Species, <span class="at">estimate =</span> .pred_class)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href aria-hidden="true" tabindex="-1"></a>metrics_summary <span class="ot">&lt;-</span> <span class="fu">metric_set</span>(sensitivity, specificity, precision, recall)</span>
+<span id="cb47-2"><a href aria-hidden="true" tabindex="-1"></a><span class="fu">metrics_summary</span>(DataPredWithTestData, <span class="at">truth =</span> Species, <span class="at">estimate =</span> .pred_class)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -2063,12 +2261,68 @@ Prediction  Adelie Chinstrap Gentoo
 </div>
 </div>
 </div>
+</section>
+<section id="when-to-use-each-metric-examples" class="slide level2">
+<h2>When to Use Each Metric: Examples</h2>
+<div style="font-size: 0.85em;">
 <div class="fragment">
-<p>Can we improve by using all predictors.</p>
-<div class="footer">
-<p>See: <a href="https://lange-analytics.com/AIBook/Exercises/handler.html?file=04-KNearNeighExerc200.Rmd">Exercise from AI Book</a></p>
+<p><strong>Medical Diagnosis (Cancer Detection)</strong><br>
+- Prioritize: <strong>Recall (Sensitivity)</strong><br>
+- Don’t miss any cancer cases<br>
+- Missing a positive case (FN) is very costly</p>
+</div>
+<div class="fragment">
+<p><strong>Spam Email Filter</strong><br>
+- Prioritize: <strong>Precision</strong><br>
+- Don’t mark important emails as spam<br>
+- False positives (legitimate email marked as spam) are costly</p>
+</div>
+<div class="fragment">
+<p><strong>COVID-19 Screening Test</strong><br>
+- Prioritize: <strong>Specificity</strong><br>
+- Correctly identify healthy people<br>
+- False positives cause unnecessary quarantine and anxiety</p>
+</div>
+<div class="fragment">
+<p><strong>Balanced Dataset (Equal class sizes)</strong><br>
+- Use: <strong>Accuracy</strong><br>
+- Simple and interpretable<br>
+- All error types have similar costs</p>
+</div>
+<div class="fragment">
+<p><strong>Imbalanced Dataset (e.g., fraud detection: 99% normal, 1% fraud)</strong><br>
+- Avoid: Accuracy (can get 99% by predicting “normal” every time!)<br>
+- Use: <strong>Precision, Recall, and F1-Score</strong></p>
 </div>
 </div>
+</section>
+<section id="the-precision-recall-trade-off" class="slide level2">
+<h2>The Precision-Recall Trade-off</h2>
+<div style="font-size: 0.9em;">
+<div class="fragment">
+<p><strong>There’s often a trade-off:</strong><br>
+- Increasing <strong>Recall</strong> (catch more positives) → often decreases <strong>Precision</strong> (more false alarms)<br>
+- Increasing <strong>Precision</strong> (fewer false alarms) → often decreases <strong>Recall</strong> (miss some positives)</p>
+</div>
+<div class="fragment">
+<p><strong>F1-Score balances both:</strong></p>
+<pre><code>F1-Score = 2 × (Precision × Recall) / (Precision + Recall)  </code></pre>
+<ul>
+<li>Harmonic mean of Precision and Recall<br>
+</li>
+<li>Good when you need a single metric that balances both<br>
+</li>
+</ul>
+</div>
+<div class="fragment" style="background-color: #e3f2fd; padding: 15px; border-radius: 8px; margin-top: 20px;">
+<p><strong>Our Penguin Example:</strong> - Adelie: F1 = 2 × (0.933 × 0.913) / (0.933 + 0.913) = <strong>0.923</strong><br>
+- Chinstrap: F1 = 2 × (0.905 × 0.950) / (0.905 + 0.950) = <strong>0.927</strong><br>
+- Gentoo: F1 = 2 × (0.973 × 0.923) / (0.973 + 0.923) = <strong>0.947</strong></p>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
 </section>
 <section>
 <section id="project-design-a-machine-learning-workflow-for-optical-character-recognition" class="title-slide slide level1 center">
@@ -2111,7 +2365,7 @@ Prediction  Adelie Chinstrap Gentoo
 <section id="three-rows-from-the-data-frame-of-the-mnist-dataset" class="slide level2 smaller scollable">
 <h2>Three Rows from the Data Frame of the MNIST Dataset</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(Mnist4PlotAndTable[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>,<span class="dv">1</span><span class="sc">:</span><span class="dv">784</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(Mnist4PlotAndTable[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>,<span class="dv">1</span><span class="sc">:</span><span class="dv">784</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
