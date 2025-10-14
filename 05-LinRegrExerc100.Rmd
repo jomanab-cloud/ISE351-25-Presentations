@@ -70,7 +70,7 @@ With the R-code blocks, you can work in various ways:
 ```{r LinRegr-Exerc100-LoadDataForNoExerc, exercise=FALSE, eval=TRUE, echo=FALSE}
 library(rio); library(janitor); library(kableExtra); library(tidymodels)
 DataHousing =
-  import("https://ai.lange-analytics.com/data/HousingData.csv")|>
+  import("https://raw.githubusercontent.com/jomanab-cloud/ISE351-25-Presentations/80f7609c6bcb4887517dcaff62908459cee33e33/HousingData.csv")|>
   clean_names("upper_camel") |>
   select(Price, Sqft=SqftLiving, Grade, Waterfront)
 set.seed(777)
@@ -97,7 +97,7 @@ MetricsDataFrame=MetricsFctHouses(DataTestWithPred,truth=Price,estimate = .pred)
 ```{r LinRegr-Exerc100-LoadDataTrainWorkflowEtc, message=FALSE, warning=FALSE, exercise=FALSE, include=FALSE, eval=TRUE}
 library(rio); library(janitor); library(kableExtra); library(tidymodels)
 DataHousing =
-  import("https://ai.lange-analytics.com/data/HousingData.csv")|>
+  import("https://raw.githubusercontent.com/jomanab-cloud/ISE351-25-Presentations/80f7609c6bcb4887517dcaff62908459cee33e33/HousingData.csv")|>
   clean_names("upper_camel") |>
   select(Price, Sqft=SqftLiving, Grade, Waterfront)
 set.seed(777)
@@ -146,7 +146,7 @@ As in Chapter Section \@ref(KNearNeigh), we will split the data into training an
 ```{r LinRegr-Exerc100-DataAndSplit, exercise=FALSE}
 library(tidyverse); library(rio); library(janitor); library(tidymodels)
 DataHousing=
-  import("https://ai.lange-analytics.com/data/HousingData.csv") |>
+  import("https://raw.githubusercontent.com/jomanab-cloud/ISE351-25-Presentations/80f7609c6bcb4887517dcaff62908459cee33e33/HousingData.csv") |>
   clean_names("upper_camel") |>
   select(Price, Sqft=SqftLiving, Grade, Waterfront)
 set.seed(777)
