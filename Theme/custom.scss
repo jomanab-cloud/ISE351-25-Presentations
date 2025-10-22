@@ -47,17 +47,3 @@ $code-block-bg: lighten($primary-color, 40%);
     color: lighten($link-color, 25%);
   }
 }
-.highlight-primary {
-  color: $primary-color;
-  font-weight: bold;
-}
-
-.highlight-secondary {
-  color: $secondary-color;
-  font-weight: bold;
-}
-
-.highlight-accent {
-  color: $accent-color;
-  font-weight: bold;
-}
