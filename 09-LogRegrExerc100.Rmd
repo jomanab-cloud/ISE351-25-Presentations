@@ -1,0 +1,299 @@
+---
+title: "Interactive Section"
+output:
+  learnr::tutorial:
+    progressive: true
+    allow_skip: true
+runtime: shiny_prerendered
+description: Exercises
+
+---
+
+<style>
+  div.yellowbox {
+    background-color: #f1dfa6;
+    border: 1px solid black;
+    padding: 21px;
+  }
+
+  strong {
+    color: #d10056
+  }
+
+  .center {
+    text-align: center;
+  }
+</style>
+
+
+```{r setup, include=FALSE}
+library(learnr)
+library(rio)
+library(tidyverse)
+library(tidymodels)
+library(janitor)
+library(kableExtra)
+
+knitr::opts_chunk$set(exercise=TRUE, exercise.eval=FALSE, exercise.lines=6, attr.source = ".numberLines")
+```
+
+:::: {.yellowbox data-latex=""}
+
+::: {.center data-latex=""}
+**How to Work with this Interactive Section**
+:::
+
+Here you will find the complete interactive section from the book, including book content, and *R* code blocks. Read the content in a browser as you would read it in the textbook. 
+
+Within the *R* code blocks, you can work in various ways:
+
+* Use the `Run Code` button to execute the *R* code and see the result.
+
+* Change the *R* code, click the `Run Code` button, and then see the new results.
+
+* To get the original *R* code back, click the `Start Over` button at the left-top corner of each *R* code block. 
+
+* To reset the *R* code for all code blocks, click the `Start Over` in the left menu.
+
+**Make sure you installed all needed packages!** See Section "R Packages Required"  in this Chapter for a list of packages that need to be installed. Section 3.2 explain how to install a packege in *RStudio*.
+
+
+
+**For Troubleshooting:** [Click here](https://blog.lange-analytics.com/2024/01/interactsessions.html)
+::::
+
+
+ 
+ 
+ <clex id="Exc100">
+
+Now that you have learned how *Logistic Regression* works, it is time to apply what you learned to a "real-world" problem.
+
+In this interactive section, you are tasked to analyze churn behavior for customers of the *Telco* company. *Telco* is a fictional telecommunications company that offers various phone and Internet services. For your analysis, you will use the IBM *Telco* customer churn dataset (see @IBM2021). In this dataset, the $Churn$ column indicates if a customer departed within the last month $(Churn=Yes)$ or not $(Churn=No)$. Other columns contain various predictor variables for each of the 7,043 customers, such as $Gender$ ($Female$ or $Male$), $SeniorCitizen$ ($0$ for *No* or $1$ for *Yes*), $Tenure$ (months of membership), as well as $MonthlyCharges$ (in US-\$).[^09-logregr-7]
+
+
+The code block below has already been executed in the background for you. It loads the required libraries and the data, which then are stored in the *R* object `DataChurn`. Afterward, `clean_names()` changes the variable names to *UpperCamel*, and `select()` chooses the variables for the analysis. Finally, `mutate()` converts the outcome variable $Churn$ to type `factor`, which is necessary because almost all `tidymodels` classification models require the outcome variable to be of type `factor`. The argument `levels=c("Yes","No")` ensures that "Yes" is treated as the positive class and "No" as the negative class. This is important when you later interpret metrics such as *sensitivity* and *specificity*:
+
+```{r LogRegr-Exerc100-ImportChurnData, exercise=FALSE}
+library(rio); library(janitor); library(tidymodels)
+DataChurn=import("https://raw.githubusercontent.com/jomanab-cloud/ISE351-25-Presentations/d02e876360b32dd91d952f78791323d90f0a0395/TelcoChurnData.csv") |>
+          clean_names("upper_camel") |>
+          select(Churn,Gender, SeniorCitizen, Tenure, MonthlyCharges) |>
+          mutate(Churn=factor(Churn, levels=c("Yes", "No"))) 
+head(DataChurn)
+```
+
+```{r LogRegr-Exerc100-LoadChurnOutsideExerc, eval=TRUE, message=FALSE, warning=FALSE, exercise=FALSE, include=FALSE}
+#library(tidymodels);library(rio);library(janitor)
+# DataChurn=import("https://raw.githubusercontent.com/jomanab-cloud/ISE351-25-Presentations/d02e876360b32dd91d952f78791323d90f0a0395/TelcoChurnData.csv") |>
+#           clean_names("upper_camel") |>
+#           select(Churn,Gender,SeniorCitizen,Tenure,MonthlyCharges) |>
+#           mutate(Churn=factor(Churn, levels=c("Yes","No")))
+
+set.seed(789)
+Split3070=initial_split(DataChurn, prop=0.7, strata =Churn)
+
+DataTrain=training(Split3070)
+DataTest=testing(Split3070)
+
+RecipeChurn=recipe(Churn~., data=DataTrain) |> 
+             step_dummy(Gender)
+
+ModelDesignLogisticRegr= logistic_reg(mode="classification") |> 
+                  set_engine("glm")
+
+WFModelChurn=workflow() |> 
+  add_recipe(RecipeChurn) |> 
+  add_model(ModelDesignLogisticRegr) |> 
+  fit(DataTrain)
+
+DataTestWithPred=augment(WFModelChurn, new_data=DataTest)
+```
+
+```{r LogRegr-Exerc100-LoadChurnCleanEtc, message=FALSE, warning=FALSE, exercise=FALSE, include=FALSE}
+library(tidymodels);library(rio);library(janitor)
+DataChurn=import("https://raw.githubusercontent.com/jomanab-cloud/ISE351-25-Presentations/d02e876360b32dd91d952f78791323d90f0a0395/TelcoChurnData.csv") |>
+          clean_names("upper_camel") |>
+          select(Churn,Gender,SeniorCitizen,Tenure,MonthlyCharges) |>
+          mutate(Churn=factor(Churn, levels=c("Yes","No")))
+
+set.seed(789)
+Split3070=initial_split(DataChurn, prop=0.7,strata =Churn)
+
+DataTrain=training(Split3070)
+DataTest=testing(Split3070)
+
+RecipeChurn=recipe(Churn~., data=DataTrain) |> 
+             step_dummy(Gender)
+
+ModelDesignLogisticRegr= logistic_reg(mode = "classification") |> 
+                  set_engine("glm")
+
+```
+
+In the code block above, we used the mutate command to convert the outcome variable $Churn$ into a `factor` variable. Why did we not use a *recipe* to accomplish the same goal? The reason is that conversion of outcome variables should always be done before splitting the data because manipulations of outcome variables are sometimes not executed on the test dataset when defined in a *recipe*. We already discussed this in Section \@ref(KNearNeigh-TidymodelV2-Recipe). In addition, you can find more information about why *recipes* should not be used on outcome variables in @Kuhn2022, Section 8.4.
+
+Now, it is your turn to split the data into training and testing data. You know how --- right? Just substitute the `...` (note that the data frame `DataChurn` has already been loaded in the background):
+
+```{r LogRegr-Exerc100-SplitWithoutSmote, eval=FALSE, exercise=TRUE, exercise.setup="LogRegr-Exerc100-LoadChurnCleanEtc"}
+set.seed(789)
+Split3070=...(..., prop=0.7, strata=...)
+
+DataTrain=...(...)
+DataTest=...(...)
+head(DataTrain)
+```
+
+```{r LogRegr-Exerc100-SplitWithoutSmote-hint, exercise=FALSE,  eval=FALSE, include=FALSE, exercise.lines=8}
+'First, you want to use the initial_split command on the dataset DataChurn stratifying
+the variable Churn.
+
+Next, you use the training() and testing() commands on the Split3070 object that you
+generated in the first step to create the DataTrain and DataTest data frames.
+
+The next HINT provides the solution. So, keep trying before you peek.
+```
+
+```{r LogRegr-Exerc100-SplitWithoutSmote-solution, exercise=FALSE,  eval=FALSE, include=FALSE, exercise.lines=7}
+set.seed(789)
+Split3070=initial_split(DataChurn, prop=0.7, strata=Churn)
+
+DataTrain=training(Split3070)
+DataTest=testing(Split3070)
+head(DataTrain)
+```
+
+Before you create the *recipe*, the *model design*, and the *workflow*, you should take a look at the structure of the training dataset first. To show the structure of the *R* object `DataTrain`, we use the `str()` command on the data frame `DataTrain` in the code block below:
+
+```{r LogRegr-Exerc100-CheckData, exercise=FALSE, eval=TRUE}
+str(DataTrain)
+```
+
+You can see that $Churn$ is a `factor` variable, which is what we want. $SeniorCitizen$ is an `integer` dummy variable with $1$ for senior citizens and $0$ otherwise --- no transformation needed. However, $Gender$ should be a numerical dummy variable but is a `character` variable. Therefore, you need a `step_dummy()` in the *recipe* that transforms $Gender$ into a dummy variable.
+
+The other variables $Tenure$ and $MonthlyCharges$ are of type `integer` and `double`, respectively. Since this makes both variables `numerical`, no transformation is needed. Also, the *Logistic Regression* algorithm you will use later does not require *normalization*.
+
+Consequently, the *recipe* has only one step --- `step_dummy()` to convert $Gender$ into a dummy variable. Please substitute the `...` and then click `Run Code` to define `RecipeChurn` (note that the data frame `DataTrain` has already been loaded in the background):
+
+```{r LogRegr-Exerc100-RrecipeChurn, eval=FALSE, exercise=TRUE, exercise.setup="LogRegr-Exerc100-LoadChurnCleanEtc"}
+RecipeChurn=recipe(...~., data=DataTrain) |> 
+            step_...(Gender)
+print(RecipeChurn)
+```
+
+```{r LogRegr-Exerc100-RrecipeChurn-hint, exercise=FALSE,  eval=FALSE, include=FALSE}
+'Inside the recipe() command, you must define the formula. 
+Churn is the outcome variable, and the . indicates that all other variables 
+should be used as predictor variables.
+
+You use the step_dummy() command to convert Gender to a dummy.
+
+The next HINT provides the solution. So, keep trying before you peek.'
+```
+
+```{r LogRegr-Exerc100-RrecipeChurn-solution, exercise=FALSE,  eval=FALSE, include=FALSE}
+RecipeChurn=recipe(Churn~., data=DataTrain) |> 
+            step_dummy(Gender)
+print(RecipeChurn)
+```
+
+To define the *model design*, you must set the algorithm's name, the engine, and the mode. All of this is prepared for you in the code block below, and the code is already executed:
+
+```{r LogRegr-Exerc100-ModelDesignChurn, exercise=FALSE, eval=TRUE}
+ModelDesignLogisticRegr=logistic_reg() |> 
+                         set_engine("glm") |> 
+                         set_mode("classification")
+
+print(ModelDesignLogisticRegr)
+```
+
+The printout above shows details about the *model design*. Now, you are ready to put it all together and fit the training data using the *Optimizer* to find the best $\beta s$. Note that the *recipe* (`RecipeChurn`), the *model design* (`ModelDesignLogisticRegr`), and the training dataset (`DataTrain`) have already been loaded in the background:
+
+```{r LogRegr-Exerc100-Workflow1, exercise.setup="LogRegr-Exerc100-LoadChurnCleanEtc", exercise=TRUE, eval=FALSE}
+WFModelChurn=workflow() |> 
+             add_recipe(...) |> 
+             add_model(...) |> 
+             fit(...)
+print(WFModelChurn)
+
+```
+
+```{r LogRegr-Exerc100-Workflow1-hint, exercise=FALSE,  eval=FALSE, include=FALSE, exercise.lines=17}
+'The recipe you want to add is RecipeChurn.'
+'The model design you want to add is ModelDesignLogisticRegr.'
+'You want to fit the workflow to the training data DataTrain.'
+
+'The next HINT provides the solution. So, keep trying before you peek.'
+```
+
+```{r LogRegr-Exerc100-Workflow1-solution, exercise=FALSE,  eval=FALSE, include=FALSE, exercise.lines=17}
+WFModelChurn=workflow() |> 
+             add_recipe(RecipeChurn) |> 
+             add_model(ModelDesignLogisticRegr) |> 
+             fit(DataTrain)
+print(WFModelChurn)
+```
+
+After you execute the code above, the *workflow model* `WFModelChurn` can be used for predictions. We created `WFModelChurn` already in the background and again use the `augment()` command to predict the outcome variable based on the predictor variables from the testing dataset `DataTest`.
+
+```{r LogRegr-Exerc100-LoadChurnCleanEtcWithFittedWF, include=FALSE,  exercise=FALSE}
+library(tidymodels);library(rio);library(janitor)
+DataChurn=import("https://raw.githubusercontent.com/jomanab-cloud/ISE351-25-Presentations/d02e876360b32dd91d952f78791323d90f0a0395/TelcoChurnData.csv") |>
+  clean_names("upper_camel") |>
+  select(Churn,Gender,SeniorCitizen,Tenure,MonthlyCharges) |>
+   mutate(Churn=factor(Churn, levels=c("Yes","No"))) 
+
+set.seed(789)
+Split3070=initial_split(DataChurn, prop=0.7,strata =Churn)
+
+DataTrain=training(Split3070)
+DataTest=testing(Split3070)
+
+RecipeChurn=recipe(Churn~., data=DataTrain) |> 
+            step_dummy(Gender)
+
+ModelDesignLogisticRegr=logistic_reg(mode = "classification") |> 
+                  set_engine("glm")
+
+WFModelChurn=workflow() |> 
+  add_recipe(RecipeChurn) |> 
+  add_model(ModelDesignLogisticRegr) |> 
+  fit(DataTrain)
+
+DataTestWithPred=augment(WFModelChurn, new_data = DataTest)
+
+```
+
+```{r LogRegr-Exerc100-CreatePredictions, exercise=FALSE, eval=TRUE}
+DataTestWithPred=augment(WFModelChurn, new_data=DataTest)
+str(DataTestWithPred)
+```
+
+You can see in the printout that the data frame `DataTestWithPred` now includes columns for both the `truth` ($Churn$) and the `estimate` $(.pred\_class)$. Consequently, we can use `DataTestWithPred` to generate a *confusion matrix*:
+
+```{r LogRegr-Exerc100-CreateConfMatrix, exercise=FALSE, eval=TRUE }
+conf_mat(DataTestWithPred, truth=Churn, estimate=.pred_class)
+```
+
+Next, we create a new metrics command that we call `FctMetricsSet`. The `FctMetricsSet()` command takes the same arguments as the `conf_mat()` command and then outputs *accuracy*, *sensitivity*, and *specificity*:
+
+```{r LogRegr-Exerc100-CreateFctMetricsSet, exercise=FALSE, eval=TRUE}
+FctMetricsSet=metric_set(accuracy, sensitivity, specificity)
+FctMetricsSet(DataTestWithPred, truth=Churn, estimate=.pred_class)
+```
+
+At a first glance, everything looks good. *Accuracy* is about $78\%$, *specificity* is even $90\%$. However, the result for *sensitivity* is not good. Only $43\%$ of customers who churned were correctly identified. Simply flipping a coin to determine if a customer churns or not would have given us a *sensitivity* of about $50\%$!
+
+**What went wrong?**
+
+Using the `count()` command in the code block below provides the answer:
+
+```{r LogRegr-Exerc100-CountCurnBeforeSmote, exercise=FALSE}
+count(DataTrain, Churn)
+```
+
+You can see **the training dataset is not balanced.** The number of observations in the training dataset for customers, who did not churn, is triple the number of observations for customers that did churn. This imbalanced dataset leads to a biased *Optimizer* with a tendency to predict $Churn=No$.[^09-logregr-8]
+
+[^09-logregr-8]: The info box in Section \@ref(KNearNeigh-ConfusionMatrix) provides further details about how imbalanced datasets can cause prediction problems.
+
+The following section will introduce three algorithms that can help to fully or partially balance an imbalanced dataset. Afterward, in the interactive Section \@ref(LogRegr-RepeatWithBalData), you will apply your knowledge and repeat the *Logistic Regression* analysis performed in this section but with a more balanced dataset. </clex>

@@ -1,0 +1,204 @@
+---
+title: "Interactive Section"
+output:
+  learnr::tutorial:
+    progressive: true
+    allow_skip: true
+runtime: shiny_prerendered
+description: Exercises
+
+---
+
+<style>
+  div.yellowbox {
+    background-color: #f1dfa6;
+    border: 1px solid black;
+    padding: 21px;
+  }
+
+  strong {
+    color: #d10056
+  }
+
+  .center {
+    text-align: center;
+  }
+</style>
+
+
+```{r setup, include=FALSE}
+library(learnr)
+library(rio)
+library(tidyverse)
+library(tidymodels)
+library(janitor)
+library(kableExtra)
+
+knitr::opts_chunk$set(exercise=TRUE, exercise.eval=FALSE, exercise.lines=6, attr.source = ".numberLines")
+```
+
+:::: {.yellowbox data-latex=""}
+
+::: {.center data-latex=""}
+**How to Work with this Interactive Section**
+:::
+
+Here you will find the complete interactive section from the book, including book content, and *R* code blocks. Read the content in a browser as you would read it in the textbook. 
+
+Within the *R* code blocks, you can work in various ways:
+
+* Use the `Run Code` button to execute the *R* code and see the result.
+
+* Change the *R* code, click the `Run Code` button, and then see the new results.
+
+* To get the original *R* code back, click the `Start Over` button at the left-top corner of each *R* code block. 
+
+* To reset the *R* code for all code blocks, click the `Start Over` in the left menu.
+
+**Make sure you installed all needed packages!** See Section "R Packages Required"  in this Chapter for a list of packages that need to be installed. Section 3.2 explain how to install a packege in *RStudio*.
+
+
+
+**For Troubleshooting:** [Click here](https://blog.lange-analytics.com/2024/01/interactsessions.html)
+::::
+
+
+ 
+ 
+ <clex id="Exc200">
+
+```{r LogRegr-Exerc200-LoadChurnData,   exercise=FALSE,  include=FALSE}
+# Loading Packages
+library(tidymodels);library(themis)
+
+# Loading Data
+DataChurn=import("https://raw.githubusercontent.com/jomanab-cloud/ISE351-25-Presentations/d02e876360b32dd91d952f78791323d90f0a0395/TelcoChurnData.csv") |>
+  clean_names("upper_camel") |>
+  select(Churn,Gender,SeniorCitizen,Tenure,MonthlyCharges) |>
+  mutate(Churn=factor(Churn, levels=c("Yes","No")))
+  
+
+# Splitting into Training and Testing
+set.seed(789)
+Split3070=initial_split(DataChurn, prop=0.7,strata =Churn)
+DataTrain=training(Split3070)
+DataTest=testing(Split3070)
+```
+
+```{r LogRegr-Exerc200-LoadDataEtcOutSideExerc, exercise=FALSE, include=FALSE}
+# Loading Packages
+library(tidymodels);library(rio);library(janitor);library(themis)
+
+# Loading Data
+DataChurn=import("https://raw.githubusercontent.com/jomanab-cloud/ISE351-25-Presentations/d02e876360b32dd91d952f78791323d90f0a0395/TelcoChurnData.csv") |>
+  clean_names("upper_camel") |>
+  select(Churn,Gender,SeniorCitizen,Tenure,MonthlyCharges) |>
+  mutate(Churn=factor(Churn, levels=c("Yes","No")))
+  
+
+# Splitting into Training and Testing
+set.seed(789)
+Split3070=initial_split(DataChurn, prop=0.7,strata =Churn)
+DataTrain=training(Split3070)
+DataTest=testing(Split3070)
+
+
+# Data Pre-Processing Recipe
+set.seed(789)
+RecipeChurn=recipe(Churn~.,data=DataTrain) |> 
+            step_dummy(Gender)|>
+            step_downsample(Churn, under_ratio = 2) |> 
+            step_smote(Churn, over_ratio = 0.75)
+
+# Model Design
+ModelDesignLogisticRegr=logistic_reg() |> 
+                          set_engine("glm") |> 
+                          set_mode("classification")
+
+# Building Fitting Workflow
+WFModelChurn=workflow() |> 
+  add_recipe(RecipeChurn) |> 
+  add_model(ModelDesignLogisticRegr) |> 
+  fit(DataTrain)
+
+# Prediction with augment()
+DataTestWithPred=augment(WFModelChurn, new_data=DataTest)
+```
+
+When analyzing churn for the *Telco* company in Section \@ref(LogRegr-AnalyzeChurn) your results were biased toward predicting that customers do not churn $(Churn=No)$. This happened because the number of observations in the *Telco* dataset was biased toward customers who did not churn (the negative class).
+
+As a reminder, due to the imbalanced dataset, *specificity* (prediction quality of the negative class) was $90\%$, while *sensitivity* (prediction quality of the positive class) was only $43\%$.
+
+In this section, you will repeat the analysis from Section \@ref(LogRegr-AnalyzeChurn), but you will balance the training data before you perform the *Logistic Regression* analysis to improve the results. You will use the same training/testing data and the same commands (except for the *recipe's* definition).
+
+To give you an idea about how to modify the *recipe*, we present a first trial in the code block below. We use `step_downsample(Churn, under_ratio=2)` and `step_smote(Churn, over_ratio=0.75)`:
+
+```{r LogRegr-Exerc200-Recipe, exercise=FALSE, eval=TRUE}
+set.seed(789)
+RecipeChurn=recipe(Churn~., data=DataTrain) |> 
+            step_dummy(Gender)|>
+            step_downsample(Churn, under_ratio=2) |> 
+            step_smote(Churn, over_ratio=0.75)
+
+DataTrainBal=RecipeChurn |> 
+             prep() |> 
+             juice()
+count(DataTrainBal, Churn)
+```
+
+How did we get the data frame `DataTrainBal`? First, `step_downsample(Churn, under_ratio=2)` randomly deletes observations from the majority class of the training data frame (`DataTrain`), until the number of observations in the majority class is reduced to double the size of the minority class (`r format(count(DataTrain, Churn)[[1,2]], big.mark=",")` observations for $Churn=Yes$ and `r format(count(DataTrain, Churn)[[1,2]]*2, big.mark=",")` observations for $Churn=No$); initially the majority class was almost triple the size of the minority class. Afterward, `step_smote(Churn, over_ratio=0.75)` creates new observations for the minority class until the number of observations in the minority class reaches 75% of the number of observations of the majority class (`r format(count(DataTrainBal, Churn)[[1,2]], big.mark=",")` observations for $Churn=Yes$ and `r format(count(DataTrainBal, Churn)[[2,2]], big.mark=",")` observations for $Churn=No$).
+
+Using this somehow more ballanced dataset, we get (based on the testing data), the following *confusion matrix*:
+
+```{r LogRegr-Exerc200-ConfusionMatrix, exercise=FALSE, eval=TRUE, echo=FALSE}
+CMExe200=conf_mat(DataTestWithPred, truth=Churn, estimate=.pred_class)
+print(CMExe200)
+```
+
+The *confusion matrix* above implies a *specificity* of `r round(CMExe200$table[2,2]/(CMExe200$table[1,2]+CMExe200$table[2,2])*100)`% but still only a *sensitivity* of `r round(CMExe200$table[1,1]/(CMExe200$table[1,1]+CMExe200$table[2,1])*100)`%. This is an improvement compared to the analysis with the imbalanced dataset, but maybe you can improve the results even further.
+
+You will use the code block to improve the results. It contains the *recipe* definition from above and is otherwise identical to the code we used for the imbalanced dataset before. The training dataset `DataTrain` and the testing dataset `DataTest` have already been loaded in the background.
+
+When you execute the code block below unchanged, you will get the same results as in the example above. Try this first and then try to improve the results further by changing the `under_ratio` and the `over_ratio` values. You can also try to use only *undersampling* or only *oversampling*:
+
+```{r LogRegr-Exerc200-Project, exercise.setup="LogRegr-Exerc200-LoadChurnData", eval=FALSE, exercise=TRUE,  message=FALSE, warning=FALSE, exercise.lines=36}
+# Recipe
+set.seed(789)
+RecipeChurn=recipe(Churn~., data=DataTrain) |> 
+            step_dummy(Gender)|>
+            step_downsample(Churn, under_ratio=2) |> 
+            step_smote(Churn, over_ratio=0.75)
+
+# Model Design
+ModelDesignLogisticRegr=logistic_reg() |> 
+                          set_engine("glm")|> 
+                          set_mode("classification")
+
+# Building Fitting Workflow
+WFModelChurn=workflow() |> 
+  add_recipe(RecipeChurn) |> 
+  add_model(ModelDesignLogisticRegr) |> 
+  fit(DataTrain)
+
+# Prediction with augment()
+DataTestWithPred=augment(WFModelChurn, new_data=DataTest)
+
+# Printing counts for traingdata after down- and upsampling
+DataTrainBal=RecipeChurn |> 
+             prep() |> 
+             juice( )
+
+print("Count for balanced training data:")
+print(count(DataTrainBal,Churn))
+
+# Creating Metrics Based on DataTest
+ConfMatrix=conf_mat(DataTestWithPred,truth=Churn, estimate=.pred_class)
+
+print("*confusion matrix*")
+print(ConfMatrix)
+
+FctMetricsSet=metric_set(accuracy, sensitivity, specificity)
+FctMetricsSet(DataTestWithPred,truth=Churn, estimate=.pred_class)
+```
+
+</clex>
