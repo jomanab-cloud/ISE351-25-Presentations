@@ -1,0 +1,226 @@
+---
+title: "Interactive Section"
+output:
+  learnr::tutorial:
+    progressive: true
+    allow_skip: true
+runtime: shiny_prerendered
+description: Exercises
+
+---
+
+<style>
+  div.yellowbox {
+    background-color: #f1dfa6;
+    border: 1px solid black;
+    padding: 21px;
+  }
+
+  strong {
+    color: #d10056
+  }
+
+  .center {
+    text-align: center;
+  }
+</style>
+
+
+```{r setup, include=FALSE}
+library(learnr)
+library(rio)
+library(tidyverse)
+library(tidymodels)
+library(janitor)
+library(kableExtra)
+
+knitr::opts_chunk$set(exercise=TRUE, exercise.eval=FALSE, exercise.lines=6, attr.source = ".numberLines")
+```
+
+:::: {.yellowbox data-latex=""}
+
+::: {.center data-latex=""}
+**How to Work with this Interactive Section**
+:::
+
+Here you will find the complete interactive section from the book, including book content, and *R* code blocks. Read the content in a browser as you would read it in the textbook. 
+
+Within the *R* code blocks, you can work in various ways:
+
+* Use the `Run Code` button to execute the *R* code and see the result.
+
+* Change the *R* code, click the `Run Code` button, and then see the new results.
+
+* To get the original *R* code back, click the `Start Over` button at the left-top corner of each *R* code block. 
+
+* To reset the *R* code for all code blocks, click the `Start Over` in the left menu.
+
+**Make sure you installed all needed packages!** See Section "R Packages Required"  in this Chapter for a list of packages that need to be installed. Section 3.2 explain how to install a packege in *RStudio*.
+
+
+
+**For Troubleshooting:** [Click here](https://blog.lange-analytics.com/2024/01/interactsessions.html)
+::::
+
+
+ 
+ 
+ <clex id="Exc100">
+
+```{r DeepLearn-Exerc100-LoadDataEtc, message=FALSE, warning=FALSE, exercise=FALSE, include=FALSE}
+library(tidymodels); library(janitor); library(rio); library(brulee)
+set.seed(888)
+DataDiamonds=diamonds|> 
+              sample_n(500) |>
+              clean_names("upper_camel") |>
+              select(Price,Cut,Color,Clarity,Carat) |> 
+              mutate(Cut=as.integer(Cut),Color=as.integer(Color),
+                     Clarity=as.integer(Clarity))
+set.seed(888)
+Split70=DataDiamonds |>
+  initial_split(prop = 0.7, strata = Price, breaks = 5)
+DataTrain=training(Split70)
+DataTest=testing(Split70)
+
+RecipeDiamonds=recipe(Price~., data=DataTrain) |>
+               step_normalize(all_predictors())
+
+ModelDesignNN= mlp(hidden_units = tune(), dropout = tune(),  epochs = 100, penalty = 0) |> 
+  set_engine("brulee") |>
+  set_mode("regression")
+
+TuneWFModelNN=workflow() |> 
+              add_model(ModelDesignNN) |> 
+              add_recipe(RecipeDiamonds)
+
+```
+
+Let us now go to the *Neural Network* that you will run in a browser. You will estimate the price of diamonds with a *Neural Network* under real-world conditions:
+
+1.  You will use all big *C* variables $Carat$, $Clarity$, $Cut$, and $Color$ as predictor variables. We used $Carat$ and $Clarity$ already in Section \@ref(DeepLearn-BuildSimpl). Here, the variables $Cut$ and $Color$ are added to the analysis. $Cut$ describes the quality of the cut of a diamond and is rated from 1 (lowest) to 6 (highest). $Color$ rates the color of a diamond from 1 (highest) to 7 (lowest); note the opposite direction of the rating scale.
+
+2.  As already explained in Section \@ref(DeepLearn-DiffNnetBrulee), you will use the more advanced *PyTorch* *Neural Network* from the `brulee` package instead of the *Neural Network* from the `nnet` package.
+
+3.  You will tune the *Neural Network's* *hyper-parameters* (`hidden_units` and `dropout`) by using *Cross-Validation*.
+
+Keep in mind that you have to install the `brulee` package before you can execute the code. After the `brulee` package is installed, the *PyTorch* software must also be installed. This is straightforward: When the package is used for the first time (i.e., with `library(brulee)`) a popup window asks to download and install the required software. After confirming with "Yes", the *PyTorch* software will be installed.
+
+\newpage
+
+We again use the *10-Step Template* introduced in Section \@ref(TrainTest-TuningTemplate). Steps 1 -- 4 are already prepared for you.
+
+**Step 1 - Generate Training and Testing Data:**
+
+```{r DeepLearn-Exerc100-TrainTest, eval=FALSE, exercise=FALSE}
+library(tidymodels); library(janitor); library(brulee)
+set.seed(888)
+DataDiamonds=sample_n(diamonds, 500) |>
+             clean_names("upper_camel") |>
+             select(Price, Carat, Cut, Color, Clarity) |> 
+             mutate(Cut=as.integer(Cut), Color=as.integer(Color),
+                    Clarity=as.integer(Clarity))
+set.seed(888)
+Split70=initial_split(DataDiamonds, prop=0.7, strata=Price, breaks=5)
+DataTrain=training(Split70)
+DataTest=testing(Split70)
+```
+
+In the code block above, we load the data and choose randomly 500 observations. Then we select the outcome variable $(Price)$ and the predictor variables $Carat$, $Clarity$, $Cut$, and $Color$ transforming the factor-levels of the last three variables to numerical integer values. Finally, we split the data into training and testing data.
+
+**Step 2 - Create a Recipe:**
+
+We use the same `recipe()` command as in Section \@ref(DeepLearn-BuildSimpl):
+
+```{r DeepLearn-Exerc100-Recipe, eval=FALSE, exercise=FALSE}
+RecipeDiamonds=recipe(Price~., data=DataTrain) |>
+               step_normalize(all_predictors())
+```
+
+Again, we use `step_normalize()` for *Z-score Normalization* [^10-deeplearn-17] of all predictors. As explained in Section \@ref(DeepLearn-BuildSimpl), the predictor variables for a *Neural Network* need to be scaled. Otherwise, the *Optimizer* likely will not generate suitable $\beta$ values.[^10-deeplearn-18]
+
+[^10-deeplearn-17]: If you would like to review scaling procedures like *Z-score Normalization*, we recommend reading Section \@ref(KNearNeigh-Scaling) again.
+
+[^10-deeplearn-18]: Internally, `mlp()` normalizes the predictor variables. So, omitting `step_normalize()` would not have created any damage. However, we used `step_normalize()` in the *recipe* to make the process more explicit.
+
+**Step 3 - Create a Model Design:**
+
+In the code block below, we create a *model design*. Like in Section \@ref(DeepLearn-BuildSimpl), we use the `mlp()` command to create an *MLP* network model. However, we utilize the `brulee` package and therefore *PyTorch* rather than the `nnet` package (see `set_engine("brulee")`):
+
+```{r DeepLearn-Exerc100-ModelDesign, eval=FALSE, exercise=FALSE}
+ModelDesignNN=mlp(hidden_units=tune(), dropout=tune(), 
+                  epochs=100, penalty=0) |> 
+              set_engine("brulee") |>
+              set_mode("regression")
+```
+
+The *hyper-parameters* `hidden_units` and `dropout` are prepared for tuning (see `hidden_units=tune()` and `dropout=tune()`). The *hyper-parameter* `penalty` is set to zero (no *regularization*) and `epochs` is set to 100 (the default).
+
+When you use the provided *R* script from the *Digital Resource* Section \@ref(DeepLearn-Multimedia) to run the code in *RStudio* rather than in a browser, you can increase the value for `epochs` (e.g., `epochs=1000`), and you can tune other *hyper-parameters*. For example, you can set `penalty=tune()` to introduce different degrees of *regularization*. Remember that you have to provide the values you would like to try out for each *hyper-parameter* in Step 5 (*Create a Hyper-Parameter Grid*).
+
+**Step 4 - Add the Recipe and the Model Design to a Workflow:**
+
+Below, we add the *recipe* and the *model design* to a workflow, which will be tuned in Step 7:
+
+```{r DeepLearn-Exerc100-WorkFlow, eval=FALSE, exercise=FALSE}
+TuneWFModelNN=workflow() |> 
+              add_model(ModelDesignNN) |> 
+              add_recipe(RecipeDiamonds)
+```
+
+**Steps 5 -- 10 in the code block below are the steps you will execute (and potentially modify).**
+
+It is recommended to execute the code below unchanged in a first attempt. Then, you can start modifying the code and see what happens. Make small changes first to see how the computing time responds on your machine. To use different values for the *hyper-parameters*, modify the *Hyper-Parameter Grid* in Step 5.
+
+```{r DeepLearn-Exerc100-HyperParGrid, eval=FALSE, exercise=TRUE, exercise.timelimit = 1800, exercise.lines=38, exercise.setup="DeepLearn-Exerc100-LoadDataEtc"}
+# Step 5 - Create a Hyper-Parameter Grid:
+#          To try out different hyper-parameter values, change the 
+#          values that are assigned to the respective hyper-parameters 
+#          below.
+ParGridNN=expand.grid(hidden_units=c(10, 20, 50), dropout=c(0, 0.25))
+
+# Step 6: - Create Resamples for Cross-Validation:
+#           You can change v= to consider a different
+#           number of folds (e.g. v=10). Note, computing
+#           time will change proportionately.
+set.seed(888)
+FoldsForTuningNN=vfold_cv(DataTrain, v=7, strata=Price)
+
+# Step 7 - Tune the Workflow and Train All Models:
+#  (this step requires patience; run time 5-30 minutes)
+set.seed(888)
+TuneResultsNN=tune_grid(TuneWFModelNN, resamples=FoldsForTuningNN,
+                        grid=ParGridNN, metrics=metric_set(rmse, rsq, mae))
+
+# Step 8 - Extract the Best Hyper-Parameter(s) 
+BestHyperParNN=select_best(TuneResultsNN, metric="rmse")
+print("Best Hyper-Parameters:")
+print(BestHyperParNN)
+
+# Step 9 - Finalize and Train the Best Workflow Model:
+#  (this step requires a little patience; run time 1-10 minutes)
+set.seed(888)
+BestWFModelNN=TuneWFModelNN |>
+              finalize_workflow(BestHyperParNN) |>
+              fit(DataTrain)
+
+# Step 10: Assess Prediction Quality Based on the Testing Data:
+DataTestWithPredBestModelNN=augment(BestWFModelNN,DataTest)
+metrics(DataTestWithPredBestModelNN, truth=Price, 
+        estimate=.pred)
+
+# Plot Validation Performance of Hyper-Parameters
+autoplot(TuneResultsNN)
+```
+
+When you execute the code block above, the tuning process starts. It can take a while until you get a result. Depending on your computer, it can take between 5 and 30 minutes. To accommodate longer computing time in the browser, we extended the maximum computing time available to 30 minutes.
+
+If you use the initial settings, when you execute the code above in a browser, the command `autoplot(TuneResultsNN)` (at the end of the code block) will create a plot similar to the one in Figure \@ref(fig:DeepLearn-Exerc100-Autoplot).
+
+```{r DeepLearn-Exerc100-Autoplot, fig.cap="Plot and Predictions", fig.alt="This figure shows the plot and predictions and the dropout of mae and rsq respectively.", exercise=FALSE, echo=FALSE, message=FALSE, warning=FALSE, out.width="100%"}
+TuneResultsDiamonds=readRDS(gzcon(url("https://ai.lange-analytics.com/data/TuneResultsDiamonds.rds")))
+autoplot(TuneResultsDiamonds)
+```
+
+You can see in Figure \@ref(fig:DeepLearn-Exerc100-Autoplot) that more hidden neurons lead to a lower *mean average error*, lower *root mean squared error*, and higher $r^2$. Figure \@ref(fig:DeepLearn-Exerc100-Autoplot) also shows that a higher `dropout` rate leads to a higher *mean average error*, higher *root mean squared error*, and lower $r^2$. This suggests trying more hidden neurons and lower `dropout` rates.
+
+For your information, we also calculated the metrics based on the testing data in Step 10 of the template. Please keep in mind that metrics based on testing data should only be used to assess the last model and not for tuning adjustments because this could lead to *overfitting*. </clex>
